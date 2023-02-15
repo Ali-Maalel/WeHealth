@@ -63,6 +63,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
         echo "\t<header>
 \t\t<!--? Header Start -->
 \t\t<div class=\"header-area\">
+\t\t<div id=\"preloader-active\">
 \t\t\t<div class=\"main-header header-sticky\">
 \t\t\t\t<div class=\"container-fluid\">
 \t\t\t\t\t<div
@@ -70,7 +71,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t\t<!-- Logo -->
 \t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
 \t\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t\t<a href=\"index.html\"><img src=\"assets/img/logo/applogo.png\" alt=\"\" width=\"20\" height=\"20\"></a>
+\t\t\t\t\t\t\t\t<a href=\"index.html\"><img class=\"logowehealth \"src=\"assets/img/logo/applogo.png\" alt=\"\" width=\"110\" height=\"70\"></a>
 
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
@@ -83,7 +84,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t\t\t\t\t\t<ul id=\"navigation\">
 \t\t\t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 24
+        // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_wehealth");
         echo "\">Home</a>
 \t\t\t\t\t\t\t\t\t\t\t</li>
@@ -95,7 +96,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 33
+        // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_blog");
         echo "\">Blog</a>
 \t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"submenu\">
@@ -129,6 +130,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
+\t\t</div>
 \t\t<!-- Header End -->
 \t</header>
 ";
@@ -147,7 +149,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 
     public function getDebugInfo()
     {
-        return array (  99 => 33,  87 => 24,  63 => 2,  44 => 1,);
+        return array (  100 => 34,  88 => 25,  63 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -156,6 +158,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t<header>
 \t\t<!--? Header Start -->
 \t\t<div class=\"header-area\">
+\t\t<div id=\"preloader-active\">
 \t\t\t<div class=\"main-header header-sticky\">
 \t\t\t\t<div class=\"container-fluid\">
 \t\t\t\t\t<div
@@ -163,7 +166,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t\t<!-- Logo -->
 \t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
 \t\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t\t<a href=\"index.html\"><img src=\"assets/img/logo/applogo.png\" alt=\"\" width=\"20\" height=\"20\"></a>
+\t\t\t\t\t\t\t\t<a href=\"index.html\"><img class=\"logowehealth \"src=\"assets/img/logo/applogo.png\" alt=\"\" width=\"110\" height=\"70\"></a>
 
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
@@ -216,9 +219,10 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
+\t\t</div>
 \t\t<!-- Header End -->
 \t</header>
 {% endblock %}
-", "utils/header.html.twig", "C:\\Users\\yasmi\\Desktop\\ds\\wehealth\\templates\\utils\\header.html.twig");
+", "utils/header.html.twig", "C:\\Users\\lenovo\\Desktop\\ds\\wehealth\\templates\\utils\\header.html.twig");
     }
 }
