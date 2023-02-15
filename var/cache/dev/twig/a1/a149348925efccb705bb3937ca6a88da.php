@@ -68,17 +68,19 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
         // line 72
         echo "\t</head>
 \t<body>
+\t\t
 \t\t";
-        // line 74
-        $this->displayBlock('body', $context, $blocks);
         // line 75
-        echo "\t\t";
         echo twig_include($this->env, $context, "utils/header.html.twig");
         echo "
 \t\t";
         // line 76
+        $this->displayBlock('body', $context, $blocks);
+        // line 78
+        echo "\t\t";
         echo twig_include($this->env, $context, "utils/footer.html.twig");
-        echo "</body>
+        echo "
+\t</body>
 </html></body</html>
 ";
         
@@ -316,7 +318,7 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 
     }
 
-    // line 74
+    // line 76
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -326,6 +328,8 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 77
+        echo "\t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -346,7 +350,7 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 
     public function getDebugInfo()
     {
-        return array (  320 => 74,  308 => 70,  302 => 67,  298 => 66,  291 => 62,  287 => 61,  283 => 60,  279 => 59,  275 => 58,  269 => 55,  265 => 54,  261 => 53,  257 => 52,  251 => 49,  247 => 48,  242 => 46,  236 => 43,  232 => 42,  228 => 41,  223 => 39,  219 => 38,  213 => 35,  208 => 33,  204 => 32,  200 => 31,  194 => 29,  184 => 28,  172 => 25,  168 => 24,  164 => 23,  160 => 22,  156 => 21,  152 => 20,  148 => 19,  144 => 18,  140 => 17,  136 => 16,  132 => 15,  128 => 14,  123 => 13,  113 => 12,  93 => 6,  80 => 76,  75 => 75,  73 => 74,  69 => 72,  67 => 28,  64 => 27,  61 => 12,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  332 => 77,  322 => 76,  310 => 70,  304 => 67,  300 => 66,  293 => 62,  289 => 61,  285 => 60,  281 => 59,  277 => 58,  271 => 55,  267 => 54,  263 => 53,  259 => 52,  253 => 49,  249 => 48,  244 => 46,  238 => 43,  234 => 42,  230 => 41,  225 => 39,  221 => 38,  215 => 35,  210 => 33,  206 => 32,  202 => 31,  196 => 29,  186 => 28,  174 => 25,  170 => 24,  166 => 23,  162 => 22,  158 => 21,  154 => 20,  150 => 19,  146 => 18,  142 => 17,  138 => 16,  134 => 15,  130 => 14,  125 => 13,  115 => 12,  95 => 6,  80 => 78,  78 => 76,  74 => 75,  69 => 72,  67 => 28,  64 => 27,  61 => 12,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -424,10 +428,13 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 \t\t{% endblock %}
 \t</head>
 \t<body>
-\t\t{% block body %}{% endblock %}
+\t\t
 \t\t{{ include('utils/header.html.twig') }}
-\t\t{{ include('utils/footer.html.twig') }}</body>
+\t\t{% block body %}
+\t\t{% endblock %}
+\t\t{{ include('utils/footer.html.twig') }}
+\t</body>
 </html></body</html>
-", "base.html.twig", "C:\\Users\\yasmi\\Desktop\\ds\\wehealth\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\lenovo\\Desktop\\ds\\wehealth\\templates\\base.html.twig");
     }
 }

@@ -63,7 +63,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
         echo "\t<header>
 \t\t<!--? Header Start -->
 \t\t<div class=\"header-area\">
-\t\t<div id=\"preloader-active\">
+\t\t
 \t\t\t<div class=\"main-header header-sticky\">
 \t\t\t\t<div class=\"container-fluid\">
 \t\t\t\t\t<div
@@ -130,7 +130,6 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
-\t\t</div>
 \t\t<!-- Header End -->
 \t</header>
 ";
@@ -158,7 +157,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t<header>
 \t\t<!--? Header Start -->
 \t\t<div class=\"header-area\">
-\t\t<div id=\"preloader-active\">
+\t\t
 \t\t\t<div class=\"main-header header-sticky\">
 \t\t\t\t<div class=\"container-fluid\">
 \t\t\t\t\t<div
@@ -218,7 +217,6 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t</div>
 \t\t</div>
 \t\t<!-- Header End -->
 \t</header>
