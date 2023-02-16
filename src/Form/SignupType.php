@@ -20,7 +20,7 @@ class SignupType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('telephone')
-            ->add("typeuser",ChoiceType::class,array(
+            /**->add("typeuser",ChoiceType::class,array(
                 'label' => "je veux m'inscrire parce que je suis ...",
                 'choices' => array(
                     'Professionel Sante'=>'Professionel Sante',
@@ -30,9 +30,9 @@ class SignupType extends AbstractType
                 ),
                 /** 'choice_attr' => function($key){
                    * if($key=='Professionel Sante') {->add('matricule');}
-                *}*/
+                *}
 
-            ))
+            *))*/
             ->add('SignUp',SubmitType::class)
         ;
     }
