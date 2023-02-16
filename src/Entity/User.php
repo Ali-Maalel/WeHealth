@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -123,4 +125,21 @@ class User
 
         return $this;
     }
+    
+    /**
+     * *@return Collection<int, User>
+     *
+    *public function getUser(): Collection
+    *{
+    *    return $this->user;
+    *}
+    *public function adduser(User $users): self
+    *{
+    *    if (!$this->user->contains($users)) {
+    *        $this->user->add($users);
+    *        
+    *    }
+*
+ *       return $this;
+   * }*/
 }

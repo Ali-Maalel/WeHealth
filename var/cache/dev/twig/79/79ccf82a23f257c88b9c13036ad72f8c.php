@@ -65,10 +65,13 @@ class __TwigTemplate_fc113b6f9c7e201952edc3b16cafd4e1 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"signupform\">
+        echo "<link rel=\"stylesheet\" href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/signupform.css"), "html", null, true);
+        echo "\">
+<div class=\"signupform\">
 ";
-        // line 7
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), 'form');
+        // line 8
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form');
         echo "
 </div>
 ";
@@ -92,7 +95,7 @@ class __TwigTemplate_fc113b6f9c7e201952edc3b16cafd4e1 extends Template
 
     public function getDebugInfo()
     {
-        return array (  71 => 7,  68 => 6,  58 => 5,  35 => 1,);
+        return array (  74 => 8,  68 => 6,  58 => 5,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -102,6 +105,7 @@ class __TwigTemplate_fc113b6f9c7e201952edc3b16cafd4e1 extends Template
 
 
 {% block body %}
+<link rel=\"stylesheet\" href=\"{{ asset('assets/css/signupform.css') }}\">
 <div class=\"signupform\">
 {{form(form)}}
 </div>
