@@ -292,3 +292,8 @@ e4933f,127.0.0.1,GET,http://127.0.0.1:8000/signup/assets/img/logo/logo2_footer.p
 01ae43,127.0.0.1,GET,http://127.0.0.1:8000/signup/assets/img/logo/logo2_footer.png,1676814258,,404
 5b64df,127.0.0.1,GET,http://127.0.0.1:8000/signup/index.html,1676814260,095849,404
 095849,127.0.0.1,GET,http://127.0.0.1:8000/signup/index.html,1676814260,,404
+400263,127.0.0.1,GET,http://127.0.0.1:8000/signup/addUser,1676821860,,200
+4a77d4,127.0.0.1,GET,http://127.0.0.1:8000/signup/assets/img/logo/applogo.png,1676821860,9816b4,404
+9816b4,127.0.0.1,GET,http://127.0.0.1:8000/signup/assets/img/logo/applogo.png,1676821860,,404
+327888,127.0.0.1,GET,http://127.0.0.1:8000/signup/assets/img/logo/logo2_footer.png,1676821860,e683d1,404
+e683d1,127.0.0.1,GET,http://127.0.0.1:8000/signup/assets/img/logo/logo2_footer.png,1676821860,,404
