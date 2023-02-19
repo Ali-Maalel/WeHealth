@@ -69,7 +69,7 @@ class __TwigTemplate_fc113b6f9c7e201952edc3b16cafd4e1 extends Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/signupform.css"), "html", null, true);
         echo "\">
 <div class=\"signupform\">
-";
+    ";
         // line 8
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form');
         echo "
@@ -107,7 +107,7 @@ class __TwigTemplate_fc113b6f9c7e201952edc3b16cafd4e1 extends Template
 {% block body %}
 <link rel=\"stylesheet\" href=\"{{ asset('assets/css/signupform.css') }}\">
 <div class=\"signupform\">
-{{form(form)}}
+    {{form(form)}}
 </div>
 {% endblock %}
 ", "signup/index.html.twig", "C:\\Users\\lenovo\\Desktop\\ds\\wehealth\\templates\\signup\\index.html.twig");
