@@ -10,6 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
+<<<<<<< HEAD
 (require __DIR__.'/App_KernelDevDebugContainer.php')->set(\ContainerAQxdwYG\App_KernelDevDebugContainer::class, null);
 require __DIR__.'/ContainerAQxdwYG/EntityManager_9a5be93.php';
 require __DIR__.'/ContainerAQxdwYG/getWebProfiler_Controller_RouterService.php';
@@ -160,6 +161,9 @@ require __DIR__.'/ContainerAQxdwYG/get_Messenger_HandlerDescriptor_VMw0m61Servic
 require __DIR__.'/ContainerAQxdwYG/get_Messenger_HandlerDescriptor_TGvt0LHService.php';
 require __DIR__.'/ContainerAQxdwYG/get_Messenger_HandlerDescriptor_XZowc_TService.php';
 require __DIR__.'/ContainerAQxdwYG/get_Messenger_HandlerDescriptor_Lml2ICsService.php';
+=======
+
+>>>>>>> d54b9b8a16ff5945f42ca699395393e80e91368d
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -206,6 +210,7 @@ $classes[] = 'Symfony\Component\Notifier\Transport';
 $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\BlogController';
+<<<<<<< HEAD
 $classes[] = 'App\Controller\PostController';
 $classes[] = 'App\Controller\WehealthController';
 $classes[] = 'App\Form\FormuType';
@@ -215,6 +220,14 @@ $classes[] = 'App\Repository\ForumRepository';
 $classes[] = 'App\Repository\MediaRepository';
 $classes[] = 'App\Repository\PostRepository';
 $classes[] = 'App\Repository\TopicRepository';
+=======
+$classes[] = 'App\Controller\SignupController';
+$classes[] = 'App\Controller\WehealthController';
+$classes[] = 'App\Form\SignupType';
+$classes[] = 'App\Repository\CoachRepository';
+$classes[] = 'App\Repository\ProfessionnelSanteRepository';
+$classes[] = 'App\Repository\UserRepository';
+>>>>>>> d54b9b8a16ff5945f42ca699395393e80e91368d
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';
