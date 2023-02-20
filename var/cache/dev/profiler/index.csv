@@ -403,3 +403,7 @@ df9dbd,127.0.0.1,GET,http://127.0.0.1:8000/post/assets/img/logo/loder.png,167684
 e2eec5,127.0.0.1,GET,http://127.0.0.1:8000/post/assets/img/logo/applogo.png,1676847866,,404
 126d41,127.0.0.1,GET,http://127.0.0.1:8000/post/assets/img/logo/logo2_footer.png,1676847867,02d1ee,404
 02d1ee,127.0.0.1,GET,http://127.0.0.1:8000/post/assets/img/logo/logo2_footer.png,1676847867,,404
+f63d5f,127.0.0.1,GET,http://127.0.0.1:8000/,1676923048,,404
+10d777,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1676923053,93d7f8,404
+93d7f8,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1676923053,,404
+bf56ff,127.0.0.1,GET,http://127.0.0.1:8000/wehealth,1676923064,,200

@@ -4335,6 +4335,10 @@
       <factory class="Doctrine\Migrations\Configuration\Connection\ConnectionRegistryConnection" method="withSimpleDefault"/>
     </service>
     <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration">
+      <call method="addMigrationsDirectory">
+        <argument>Application\Migrations</argument>
+        <argument>migrations</argument>
+      </call>
       <call method="setAllOrNothing">
         <argument>false</argument>
       </call>
@@ -4469,7 +4473,11 @@
         <argument>doctrine:migrations:version</argument>
       </call>
     </service>
-    <service id="doctrine.migrations.storage.table_storage" class="Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration"/>
+    <service id="doctrine.migrations.storage.table_storage" class="Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration">
+      <call method="setTableName">
+        <argument>migration_versions</argument>
+      </call>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
