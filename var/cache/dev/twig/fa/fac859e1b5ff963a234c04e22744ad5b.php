@@ -86,89 +86,7 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "\t<!--? Preloader Start -->
-\t<div id=\"preloader-active\">
-\t\t<div class=\"preloader d-flex align-items-center justify-content-center\">
-\t\t\t<div class=\"preloader-inner position-relative\">
-\t\t\t\t<div class=\"preloader-circle\"></div>
-\t\t\t\t<div class=\"preloader-img pere-text\">
-\t\t\t\t\t<img src=\"assets/img/logo/loder.png\" alt=\"\">
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t</div>
-\t<!-- Preloader Start -->
-\t<header>
-\t\t<!--? Header Start -->
-\t\t<div class=\"header-area\">
-\t\t\t<div class=\"main-header header-sticky\">
-\t\t\t\t<div class=\"container-fluid\">
-\t\t\t\t\t<div
-\t\t\t\t\t\tclass=\"row align-items-center\">
-\t\t\t\t\t\t<!-- Logo -->
-\t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
-\t\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t\t<a href=\"index.html\"><img src=\"assets/img/logo/applogo.png\" alt=\"\"></a>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-xl-10 col-lg-10 col-md-10\">
-\t\t\t\t\t\t\t<div
-\t\t\t\t\t\t\t\tclass=\"menu-main d-flex align-items-center justify-content-end\">
-\t\t\t\t\t\t\t\t<!-- Main-menu -->
-\t\t\t\t\t\t\t\t<div class=\"main-menu f-right d-none d-lg-block\">
-\t\t\t\t\t\t\t\t\t<nav>
-\t\t\t\t\t\t\t\t\t\t<ul id=\"navigation\">
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 40
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_wehealth");
-        echo "\">Home</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"about.html\">About</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"services.html\">Services</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 49
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_blog");
-        echo "\">Blog</a>
-
-\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"submenu\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog.html\">Blog</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">Blog Details</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"elements.html\">Element</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"contact.html\">Contact</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t\t\t\t</nav>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"header-right-btn f-right d-none d-lg-block ml-15\">
-\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"btn header-btn\">Make an Appointment</a>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<!-- Mobile Menu -->
-\t\t\t\t\t\t<div class=\"col-12\">
-\t\t\t\t\t\t\t<div class=\"mobile_menu d-block d-lg-none\"></div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t\t<!-- Header End -->
-\t</header>
+        echo "\t
 \t<main>
 \t\t<!--? Slider Area Start-->
 \t\t<div class=\"slider-area slider-area2\">
@@ -588,7 +506,7 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  136 => 49,  124 => 40,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -599,83 +517,7 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
 {% endblock %}
 
 {% block body %}
-\t<!--? Preloader Start -->
-\t<div id=\"preloader-active\">
-\t\t<div class=\"preloader d-flex align-items-center justify-content-center\">
-\t\t\t<div class=\"preloader-inner position-relative\">
-\t\t\t\t<div class=\"preloader-circle\"></div>
-\t\t\t\t<div class=\"preloader-img pere-text\">
-\t\t\t\t\t<img src=\"assets/img/logo/loder.png\" alt=\"\">
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t</div>
-\t<!-- Preloader Start -->
-\t<header>
-\t\t<!--? Header Start -->
-\t\t<div class=\"header-area\">
-\t\t\t<div class=\"main-header header-sticky\">
-\t\t\t\t<div class=\"container-fluid\">
-\t\t\t\t\t<div
-\t\t\t\t\t\tclass=\"row align-items-center\">
-\t\t\t\t\t\t<!-- Logo -->
-\t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
-\t\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t\t<a href=\"index.html\"><img src=\"assets/img/logo/applogo.png\" alt=\"\"></a>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-xl-10 col-lg-10 col-md-10\">
-\t\t\t\t\t\t\t<div
-\t\t\t\t\t\t\t\tclass=\"menu-main d-flex align-items-center justify-content-end\">
-\t\t\t\t\t\t\t\t<!-- Main-menu -->
-\t\t\t\t\t\t\t\t<div class=\"main-menu f-right d-none d-lg-block\">
-\t\t\t\t\t\t\t\t\t<nav>
-\t\t\t\t\t\t\t\t\t\t<ul id=\"navigation\">
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"{{ path('app_wehealth') }}\">Home</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"about.html\">About</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"services.html\">Services</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"{{ path('app_blog') }}\">Blog</a>
-
-\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"submenu\">
-\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog.html\">Blog</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">Blog Details</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"elements.html\">Element</a>
-\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"contact.html\">Contact</a>
-\t\t\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t\t\t\t</nav>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"header-right-btn f-right d-none d-lg-block ml-15\">
-\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"btn header-btn\">Make an Appointment</a>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<!-- Mobile Menu -->
-\t\t\t\t\t\t<div class=\"col-12\">
-\t\t\t\t\t\t\t<div class=\"mobile_menu d-block d-lg-none\"></div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t\t<!-- Header End -->
-\t</header>
+\t
 \t<main>
 \t\t<!--? Slider Area Start-->
 \t\t<div class=\"slider-area slider-area2\">
@@ -1075,6 +917,6 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
 \t\t\t</div>
 \t\t</section>
 \t{% endblock %}
-", "blog/blog.html.twig", "C:\\Users\\yasmi\\Desktop\\ds\\wehealth\\templates\\blog\\blog.html.twig");
+", "blog/blog.html.twig", "C:\\Users\\Zeynab\\OneDrive\\Bureau\\Projet_dev\\WeHealth\\templates\\blog\\blog.html.twig");
     }
 }
