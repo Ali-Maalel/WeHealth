@@ -40,3 +40,10 @@ when@prod:
                     adapter: cache.app
                 doctrine.system_cache_pool:
                     adapter: cache.system
+
+doctrine_migrations:
+    migrations_paths:
+        'Application\Migrations': 'migrations'
+    storage:
+        table_storage:
+            table_name: 'migration_versions'
