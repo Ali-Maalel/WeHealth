@@ -7,7 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 
+
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+
+
 #[ORM\Table(name: '`user`')]
 class User
 {
