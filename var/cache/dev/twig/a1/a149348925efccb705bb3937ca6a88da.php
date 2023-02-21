@@ -30,6 +30,8 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'javascripts' => [$this, 'block_javascripts'],
+            'preload' => [$this, 'block_preload'],
+            'header' => [$this, 'block_header'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -70,6 +72,20 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 \t<body>
 \t\t
 \t\t";
+<<<<<<< HEAD
+        // line 74
+        $this->displayBlock('preload', $context, $blocks);
+        // line 88
+        echo "\t\t";
+        $this->displayBlock('header', $context, $blocks);
+        // line 155
+        echo "\t\t";
+        $this->displayBlock('body', $context, $blocks);
+        // line 156
+        echo "\t\t
+\t\t";
+        // line 157
+=======
         // line 75
         echo twig_include($this->env, $context, "utils/header.html.twig");
         echo "
@@ -78,6 +94,7 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
         $this->displayBlock('body', $context, $blocks);
         // line 78
         echo "\t\t";
+>>>>>>> d54b9b8a16ff5945f42ca699395393e80e91368d
         echo twig_include($this->env, $context, "utils/footer.html.twig");
         echo "
 \t</body>
@@ -318,7 +335,134 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 
     }
 
+<<<<<<< HEAD
+    // line 74
+    public function block_preload($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "preload"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "preload"));
+
+        // line 75
+        echo "\t\t<!--? Preloader Start -->
+\t<div id=\"preloader-active\">
+\t\t<div class=\"preloader d-flex align-items-center justify-content-center\">
+\t\t\t<div class=\"preloader-inner position-relative\">
+\t\t\t\t<div class=\"preloader-circle\"></div>
+\t\t\t\t<div class=\"preloader-img pere-text\">
+\t\t\t\t\t<img src=\"assets/img/logo/loder.png\" alt=\"\">
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</div>
+\t<!-- end Preloader Start -->
+\t\t";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 88
+    public function block_header($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+
+        // line 89
+        echo "\t\t\t<header>
+\t\t<!--? Header Start -->
+\t\t<div class=\"header-area\">
+\t\t\t<div class=\"main-header header-sticky\">
+\t\t\t\t<div class=\"container-fluid\">
+\t\t\t\t\t<div
+\t\t\t\t\t\tclass=\"row align-items-center\">
+\t\t\t\t\t\t<!-- Logo -->
+\t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
+\t\t\t\t\t\t\t<div class=\"logo\">
+\t\t\t\t\t\t\t\t<a href=\"index.html\"><img src=\"assets/img/logo/applogo.png\" alt=\"\"></a>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<div class=\"col-xl-10 col-lg-10 col-md-10\">
+\t\t\t\t\t\t\t<div
+\t\t\t\t\t\t\t\tclass=\"menu-main d-flex align-items-center justify-content-end\">
+\t\t\t\t\t\t\t\t<!-- Main-menu -->
+\t\t\t\t\t\t\t\t<div class=\"main-menu f-right d-none d-lg-block\">
+\t\t\t\t\t\t\t\t\t<nav>
+\t\t\t\t\t\t\t\t\t\t<ul id=\"navigation\">
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
+        // line 110
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_wehealth");
+        echo "\">Home</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"about.html\">About</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"services.html\">Services</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
+        // line 119
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_blog");
+        echo "\">Blog</a>
+
+\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"submenu\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog.html\">Blog</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">Blog Details</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"elements.html\">Element</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"contact.html\">Contact</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t\t\t</nav>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"header-right-btn f-right d-none d-lg-block ml-15\">
+\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"btn header-btn\">Make an Appointment</a>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<!-- Mobile Menu -->
+\t\t\t\t\t\t<div class=\"col-12\">
+\t\t\t\t\t\t\t<div class=\"mobile_menu d-block d-lg-none\"></div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t<!-- Header End -->
+\t</header>s
+\t\t";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 155
+=======
     // line 76
+>>>>>>> d54b9b8a16ff5945f42ca699395393e80e91368d
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -350,7 +494,11 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 
     public function getDebugInfo()
     {
+<<<<<<< HEAD
+        return array (  449 => 155,  403 => 119,  391 => 110,  368 => 89,  358 => 88,  336 => 75,  326 => 74,  314 => 70,  308 => 67,  304 => 66,  297 => 62,  293 => 61,  289 => 60,  285 => 59,  281 => 58,  275 => 55,  271 => 54,  267 => 53,  263 => 52,  257 => 49,  253 => 48,  248 => 46,  242 => 43,  238 => 42,  234 => 41,  229 => 39,  225 => 38,  219 => 35,  214 => 33,  210 => 32,  206 => 31,  200 => 29,  190 => 28,  178 => 25,  174 => 24,  170 => 23,  166 => 22,  162 => 21,  158 => 20,  154 => 19,  150 => 18,  146 => 17,  142 => 16,  138 => 15,  134 => 14,  129 => 13,  119 => 12,  99 => 6,  86 => 157,  83 => 156,  80 => 155,  77 => 88,  75 => 74,  71 => 72,  69 => 28,  66 => 27,  63 => 12,  58 => 8,  56 => 6,  49 => 1,);
+=======
         return array (  332 => 77,  322 => 76,  310 => 70,  304 => 67,  300 => 66,  293 => 62,  289 => 61,  285 => 60,  281 => 59,  277 => 58,  271 => 55,  267 => 54,  263 => 53,  259 => 52,  253 => 49,  249 => 48,  244 => 46,  238 => 43,  234 => 42,  230 => 41,  225 => 39,  221 => 38,  215 => 35,  210 => 33,  206 => 32,  202 => 31,  196 => 29,  186 => 28,  174 => 25,  170 => 24,  166 => 23,  162 => 22,  158 => 21,  154 => 20,  150 => 19,  146 => 18,  142 => 17,  138 => 16,  134 => 15,  130 => 14,  125 => 13,  115 => 12,  95 => 6,  80 => 78,  78 => 76,  74 => 75,  69 => 72,  67 => 28,  64 => 27,  61 => 12,  56 => 8,  54 => 6,  47 => 1,);
+>>>>>>> d54b9b8a16ff5945f42ca699395393e80e91368d
     }
 
     public function getSourceContext()
@@ -428,6 +576,94 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 \t\t{% endblock %}
 \t</head>
 \t<body>
+<<<<<<< HEAD
+\t\t{%  block preload %}
+\t\t<!--? Preloader Start -->
+\t<div id=\"preloader-active\">
+\t\t<div class=\"preloader d-flex align-items-center justify-content-center\">
+\t\t\t<div class=\"preloader-inner position-relative\">
+\t\t\t\t<div class=\"preloader-circle\"></div>
+\t\t\t\t<div class=\"preloader-img pere-text\">
+\t\t\t\t\t<img src=\"assets/img/logo/loder.png\" alt=\"\">
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</div>
+\t<!-- end Preloader Start -->
+\t\t{% endblock %}
+\t\t{% block header %}
+\t\t\t<header>
+\t\t<!--? Header Start -->
+\t\t<div class=\"header-area\">
+\t\t\t<div class=\"main-header header-sticky\">
+\t\t\t\t<div class=\"container-fluid\">
+\t\t\t\t\t<div
+\t\t\t\t\t\tclass=\"row align-items-center\">
+\t\t\t\t\t\t<!-- Logo -->
+\t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
+\t\t\t\t\t\t\t<div class=\"logo\">
+\t\t\t\t\t\t\t\t<a href=\"index.html\"><img src=\"assets/img/logo/applogo.png\" alt=\"\"></a>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<div class=\"col-xl-10 col-lg-10 col-md-10\">
+\t\t\t\t\t\t\t<div
+\t\t\t\t\t\t\t\tclass=\"menu-main d-flex align-items-center justify-content-end\">
+\t\t\t\t\t\t\t\t<!-- Main-menu -->
+\t\t\t\t\t\t\t\t<div class=\"main-menu f-right d-none d-lg-block\">
+\t\t\t\t\t\t\t\t\t<nav>
+\t\t\t\t\t\t\t\t\t\t<ul id=\"navigation\">
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"{{ path('app_wehealth') }}\">Home</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"about.html\">About</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"services.html\">Services</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"{{ path('app_blog') }}\">Blog</a>
+
+\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"submenu\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog.html\">Blog</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">Blog Details</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"elements.html\">Element</a>
+\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"contact.html\">Contact</a>
+\t\t\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t\t\t</nav>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"header-right-btn f-right d-none d-lg-block ml-15\">
+\t\t\t\t\t\t\t\t\t<a href=\"#\" class=\"btn header-btn\">Make an Appointment</a>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<!-- Mobile Menu -->
+\t\t\t\t\t\t<div class=\"col-12\">
+\t\t\t\t\t\t\t<div class=\"mobile_menu d-block d-lg-none\"></div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t<!-- Header End -->
+\t</header>s
+\t\t{% endblock %}
+\t\t{% block body %}{% endblock %}
+\t\t
+\t\t{{ include('utils/footer.html.twig') }}</body>
+</html></body</html>
+", "base.html.twig", "C:\\Users\\Zeynab\\OneDrive\\Bureau\\Projet_dev\\WeHealth\\templates\\base.html.twig");
+=======
 \t\t
 \t\t{{ include('utils/header.html.twig') }}
 \t\t{% block body %}
@@ -436,5 +672,6 @@ class __TwigTemplate_2e28938bc97b201051005636635acfba extends Template
 \t</body>
 </html></body</html>
 ", "base.html.twig", "C:\\Users\\lenovo\\Desktop\\ds\\wehealth\\templates\\base.html.twig");
+>>>>>>> d54b9b8a16ff5945f42ca699395393e80e91368d
     }
 }
