@@ -20,27 +20,19 @@ class SignupType extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('telephone')
-            /**->add("typeuser",ChoiceType::class,array(
+            ->add("typeuser",ChoiceType::class,array(
                 'label' => "je veux m'inscrire parce que je suis ...",
                 'choices' => array(
                     'Professionel Sante'=>'Professionel Sante',
                     'Coach'=>'Coach',
                     'Patient'=>'Patient',
                     "Proche d'un patient"=>"Proche d'un patient",
-                ),
-                /** 'choice_attr' => function($key){
-                   * if($key=='Professionel Sante') {->add('matricule');}
-                *}
-
-            *))*/
-            ->add('SignUp',SubmitType::class)
-        ;
-    }
-
+                )))
+            ->add('SignUp',SubmitType::class);
+                }
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
-        ]);
+            'data_class' => User::class,]);
     }
 }

@@ -5,6 +5,13 @@
 {% block body %}
 <link rel="stylesheet" href="{{ asset('assets/css/signupform.css') }}">
 <div class="signupform">
-    {{form(form)}}
+    <div class="login_form">{{form.login}}</div>
+    <div class="password_form">{{form.password}}</div>
+    <div class="nom_form">{{form.nom}}</div>
+    <div class="prenom_form">{{form.prenom}}</div>
+    <div class="email_form">{{form.email}}</div>
+    <div class="telephone_form">{{form.telephone}}</div>
+    <div class="typeuser_form">{{form.typeuser}}</div>
+    <div class="signup_button">{{form.SignUp}}</div>
 </div>
 {% endblock %}
