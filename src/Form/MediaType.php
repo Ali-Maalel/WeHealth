@@ -2,30 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Post;
+use App\Entity\Media;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PostType extends AbstractType
+class MediaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('created_at')
-            ->add('last_at')
-            ->add('content')
-            ->add('auteur')
-            ->add('liste_commentaire')
-            ->add('save',SubmitType::class)
+            ->add('type')
+            ->add('name')
+            ->add('size')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Post::class,
+            'data_class' => Media::class,
         ]);
     }
 }

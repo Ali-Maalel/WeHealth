@@ -2,30 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Post;
+use App\Entity\Topic;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PostType extends AbstractType
+class Topic1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('created_at')
-            ->add('last_at')
-            ->add('content')
-            ->add('auteur')
-            ->add('liste_commentaire')
-            ->add('save',SubmitType::class)
+            ->add('slug')
+            ->add('libelle')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Post::class,
+            'data_class' => Topic::class,
         ]);
     }
 }
