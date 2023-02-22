@@ -40,6 +40,9 @@ class User
     #[ORM\Column(length: 15, nullable: true)]
     private ?string $telephone = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $typeuser = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -145,4 +148,16 @@ class User
 *
  *       return $this;
    * }*/
+
+    public function getTypeuser(): ?string
+    {
+        return $this->typeuser;
+    }
+
+    public function setTypeuser(string $typeuser): self
+    {
+        $this->typeuser = $typeuser;
+
+        return $this;
+    }
 }
