@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class SignupType extends AbstractType
 {
@@ -15,7 +16,7 @@ class SignupType extends AbstractType
         $builder
             
             ->add('login')
-            ->add('password')
+            ->add('password', PasswordType::class)
             ->add('nom')
             ->add('prenom')
             ->add('email')
