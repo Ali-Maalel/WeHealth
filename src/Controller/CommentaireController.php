@@ -25,13 +25,14 @@ class CommentaireController extends AbstractController
     public function new(Request $request, CommentaireRepository $commentaireRepository): Response
     {
         $commentaire = new Commentaire();
+        
         $form = $this->createForm(Commentaire1Type::class, $commentaire);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $commentaireRepository->save($commentaire, true);
-
-            return $this->redirectToRoute('app_commentaire_index', [], Response::HTTP_SEE_OTHER);
+            
+            return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('commentaire/new.html.twig', [

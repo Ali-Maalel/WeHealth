@@ -16,6 +16,7 @@ class TopicController extends AbstractController
     #[Route('/', name: 'app_topic_index', methods: ['GET'])]
     public function index(TopicRepository $topicRepository): Response
     {
+        dd($topicRepository->findAll());
         return $this->render('topic/index.html.twig', [
             'topics' => $topicRepository->findAll(),
         ]);

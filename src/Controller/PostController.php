@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\Post;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+use App\Repository\TopicRepository;
+use App\Repository\CommentaireRepository;
+use App\Repository\MediaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,11 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostController extends AbstractController
 {
     #[Route('/', name: 'app_post_index', methods: ['GET'])]
-    public function index(PostRepository $postRepository): Response
+    public function index(PostRepository $postRepository, TopicRepository $topicRepository, CommentaireRepository $commentaireRepository, MediaRepository $mediaRepository): Response
     {
         
-        return $this->render('post/index.html.twig', [
-            'posts' => $postRepository->findAll(),
+        return $this->render('Forum/Forum_layout.html.twig', [
+            'forum_items' => $postRepository->findAll(),
+            'topics' => $topicRepository->findAll(),
+            'commentaires' => $commentaireRepository->findAll(),
+            'media' => $mediaRepository->findAll(),
         ]);
     }
 
@@ -35,7 +41,7 @@ class PostController extends AbstractController
             return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('post/new.html.twig', [
+        return $this->renderForm('post/add.html.twig', [
             'post' => $post,
             'form' => $form,
         ]);
@@ -44,7 +50,7 @@ class PostController extends AbstractController
     #[Route('/{id}', name: 'app_post_show', methods: ['GET'])]
     public function show(Post $post): Response
     {
-        return $this->render('post/show.html.twig', [
+        return $this->render('Forum/Forum_details.html.twig', [
             'post' => $post,
         ]);
     }

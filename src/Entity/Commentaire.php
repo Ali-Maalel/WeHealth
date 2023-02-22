@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\CommentaireRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
+
 
 #[ORM\Entity(repositoryClass: CommentaireRepository::class)]
 class Commentaire
@@ -16,13 +19,13 @@ class Commentaire
     #[ORM\Column(length: 100)]
     private ?int $id_parent = null;
 
-    #[ORM\Column(length: 20)]
-     private ?datetime $created_at = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+     private ?\Datetimeinterface $created_at = null;
 
-    #[ORM\Column(length: 20)]
-     private ?datetime $update_at = null;
+     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+     private ?\Datetimeinterface $update_at = null;
 
-     #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 200)]
     #[Assert\NotBlank(message: "vous devez ecrire un texte!!!")]
     private ?string $content = null;
 
@@ -64,4 +67,16 @@ class Commentaire
 
         return $this;
     }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
 }

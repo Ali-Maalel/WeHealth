@@ -21,8 +21,8 @@
             <tr>
                 <td>{{ commentaire.id }}</td>
                 <td>{{ commentaire.idParent }}</td>
-                <td>{{ commentaire.createdAt }}</td>
-                <td>{{ commentaire.updateAt }}</td>
+                <td>{{ commentaire.createdAt|date("m/d/Y") }}</td>
+                <td>{{ commentaire.updateAt|date("m/d/Y") }}</td>
                 <td>{{ commentaire.content }}</td>
                 <td>
                     <a href="{{ path('app_commentaire_show', {'id': commentaire.id}) }}">show</a>

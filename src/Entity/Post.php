@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PostRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -13,17 +14,21 @@ class Post
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-  
+
     
-    #[ORM\Column(length: 20)]
-     private ?datetime $created_at = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+     private ?\DateTimeInterface $created_at = null;
 
-    #[ORM\Column(length: 20)]
-     private ?datetime $last_at = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+     private ?\DateTimeInterface $last_at = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 200)]
     #[Assert\NotBlank(message: "vous devez ecrire un texte!!!")]
     private ?string $content = null;
+
+    #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message: "Vous devez donner un titre!!!")]
+    private ?string $titre = null;
 
     #[ORM\Column(length: 50)]
     private ?string $auteur = null;
@@ -31,6 +36,8 @@ class Post
     #[ORM\Column(length: 100)]
     private ?string $liste_commentaire = null;
 
+    #[ORM\ManyToOne(targetEntity: Topic::class, inversedBy: 'posts')]
+    private Topic $topic;
 
 
     public function getId(): ?int
@@ -87,6 +94,29 @@ class Post
     public function setListeCommentaire(string $liste_commentaire): self
     {
         $this->liste_commentaire = $liste_commentaire;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    public function setTopic(?Topic $topic): self
+    {
+        $this->category = $topic;
 
         return $this;
     }

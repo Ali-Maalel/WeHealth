@@ -3,8 +3,8 @@
  
 {{form_start(form,{'attr': {'novalidate': 'novalidate'}} )}}
 <table>
-<tr>
 
+<tr>
 <td> {{ form_label(form.created_at,"Date de creation")  }} 
  </td>
 <td>  {{ form_widget(form.created_at) }} 
@@ -47,6 +47,15 @@
 <td> {{ form_widget(form.liste_commentaire)}} 
  </td> 
 <td>  {{ form_errors(form.liste_commentaire) }} 
+</td> 
+</tr>
+
+<tr>
+<td> {{ form_label(form.titre,"Titre") }} 
+</td> 
+<td> {{ form_widget(form.titre) }} 
+ </td> 
+<td>  {{ form_errors(form.titre) }} 
 </td> 
 </tr>
 
