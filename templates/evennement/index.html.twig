@@ -1,0 +1,44 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Evennement index{% endblock %}
+
+{% block body %}
+
+<div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">Responsive Table</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Consultationurl</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+                <tbody>
+                 {% for evennement in evennements %}
+                  <tr>
+                <td>{{ evennement.id }}</td>
+                <td>{{ evennement.titre }}</td>  
+                <td>{{ evennement.description }}</td>
+                <td>{{ evennement.date ? evennement.date|date('Y-m-d') : '' }}</td>
+                <td>{{ evennement.consultationurl }}</td>
+                <td>
+                    <a href="{{ path('app_evennement_delete', {'id': evennement.id}) }}">supprimer</a>
+                    <a href="{{ path('app_evennement_edit', {'id': evennement.id}) }}">edit</a>
+                </td>
+            </tr>
+        
+        {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+   
+{% endblock %}
