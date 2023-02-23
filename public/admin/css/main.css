@@ -596,6 +596,7 @@ pre code {
 }
 
 .row {
+ 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1147,6 +1148,12 @@ pre code {
     max-width: 91.6666666667%;
   }
   .col-md-12 {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    margin-left: 50px;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -1312,10 +1319,7 @@ pre code {
     max-width: 41.6666666667%;
   }
   .col-lg-6 {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-    max-width: 50%;
+    
   }
   .col-lg-7 {
     -webkit-box-flex: 0;
@@ -14922,7 +14926,7 @@ be a descendant of the grid when it is being dragged.
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color:   #2e8cc2;
+  background-color: #ededed;
   z-index: 1030;
   padding-right: 15px;
 }
@@ -14944,11 +14948,11 @@ be a descendant of the grid when it is being dragged.
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  color: #fff;
+  color: #7ED957;
   text-align: center;
-  font-family: 'Niconne';
-  padding: 0 15px;
-  font-size: 26px;
+  font-family: 'auto';
+  padding: 0 20 px;
+  font-size: 35px;
   font-weight: 400;
   line-height: 50px;
 }
@@ -14972,8 +14976,8 @@ be a descendant of the grid when it is being dragged.
 .app-sidebar__toggle {
   padding: 0 15px;
   font-family: fontAwesome;
-  color: #fff;
-  line-height: 2.4;
+  color: #7ED957;
+  line-height: 3 ;
   -webkit-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
@@ -15157,7 +15161,7 @@ be a descendant of the grid when it is being dragged.
   top: 0;
   bottom: 0;
   left: 0;
-  padding-top: 70px;
+  padding-top: 100px;
   width: 230px;
   overflow: auto;
   z-index: 10;
@@ -15204,7 +15208,7 @@ be a descendant of the grid when it is being dragged.
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px;
+  padding: 30px;
   margin-bottom: 20px;
   color: #fff;
 }
@@ -15454,7 +15458,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-title {
-  display: -webkit-box;
+  display: -ms-flexbox;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
@@ -15530,7 +15534,14 @@ be a descendant of the grid when it is being dragged.
 }
 
 .tile {
-  position: initial;
+  
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  position: relative;
   background: #ffffff;
   border-radius: 3px;
   padding: 20px;

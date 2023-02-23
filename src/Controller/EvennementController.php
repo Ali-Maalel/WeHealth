@@ -73,6 +73,6 @@ class EvennementController extends AbstractController
             $evennementRepository->remove($evennement, true);
         }
 
-        return $this->redirectToRoute('app_evennement_index', [], Response::HTTP_SEE_OTHER);
+         return $this->redirectToRoute('app_evennement_index', [], Response::HTTP_SEE_OTHER);
     }
 }

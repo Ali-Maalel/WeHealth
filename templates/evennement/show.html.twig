@@ -1,11 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %}Evennement{% endblock %}
 
 {% block body %}
-    <h1>Evennement</h1>
 
-    <table class="table">
+<div class="col-md-12">
+          <div class="tile">
+           
+            <div class="table-responsive">
+              <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -29,10 +32,14 @@
             </tr>
         </tbody>
     </table>
-
+     {{ include('evennement/_delete_form.html.twig') }}
     <a href="{{ path('app_evennement_index') }}">back to list</a>
-
-    <a href="{{ path('app_evennement_edit', {'id': evennement.id}) }}">edit</a>
-
-    {{ include('evennement/_delete_form.html.twig') }}
+            
+            </div>
+        
+  
+  </div>
+ 
+        </div>
+  
 {% endblock %}

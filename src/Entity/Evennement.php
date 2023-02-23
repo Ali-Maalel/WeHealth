@@ -22,7 +22,6 @@ class Evennement
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
-
     #[ORM\Column(length: 1500)]
     private ?string $consultationurl = null;
 

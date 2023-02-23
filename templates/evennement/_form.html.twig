@@ -33,20 +33,18 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="exampleSelect1">lien lien evenement</label>
+                    <label for="exampleSelect1">lien  evenement</label>
                      {{form_widget(form.consultationurl,{'attr':{'class':'form-control'}})}}
                     </select>
                   </div>
-               
-                {{ form_end(form) }}
-               
               </div>
               
             </div>
             <div class="tile-footer">
-            <button class="btn btn-primary">{{ button_label|default('ajouter') }}</button>
-            
+             <button class="btn btn-primary">{{ button_label|default('ajouter') }}</button>
+                    {{ form_end(form) }}
             </div>
+              
           </div>
         </div>
       </div>

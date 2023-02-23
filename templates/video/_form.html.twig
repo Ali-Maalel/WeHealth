@@ -1,4 +1,46 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'baseadmin.html.twig'%}
+{% block body%}
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-edit"></i> Créer une vidéo</h1>
+          
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item"><a href="#">Form Components</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="row">
+              <div class="col-lg-6">
+              
+                {{ form_start(form) }}
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Titre</label>
+                    {{form_widget(form.titre,{'attr':{'class':'form-control','id':'exampleInputEmail1'}})}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    {{form_widget(form.description,{'attr':{'class':'form-control', 'id':'exampleInputPassword1'}})}}
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1">type</label>
+                     {{form_widget(form.type,{'attr':{'class':'form-control' ,}})}}
+                    </select>
+                  </div>
+                 
+              
+            </div>
+            <div class="tile-footer">
+             <button class="btn btn-primary">{{ button_label|default('ajouter') }}</button>
+                    {{ form_end(form) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}

@@ -6,7 +6,7 @@
 
 <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Responsive Table</h3>
+           
             <div class="table-responsive">
               <table class="table">
                 <thead>
@@ -28,14 +28,15 @@
                 <td>{{ evennement.date ? evennement.date|date('Y-m-d') : '' }}</td>
                 <td>{{ evennement.consultationurl }}</td>
                 <td>
-                    <a href="{{ path('app_evennement_delete', {'id': evennement.id}) }}">supprimer</a>
-                    <a href="{{ path('app_evennement_edit', {'id': evennement.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('app_evennement_delete', {'id': evennement.id}) }}">supprimer</a>
+                    <a class="btn btn-primary" href="{{ path('app_evennement_edit', {'id': evennement.id}) }}">edit</a>
                 </td>
             </tr>
         
         {% endfor %}
                 </tbody>
               </table>
+              <a href="{{ path('app_evennement_new') }}">Create new</a>
             </div>
           </div>
         </div>
