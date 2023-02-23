@@ -450,6 +450,6 @@ class __TwigTemplate_c88379c705ab1162876fefbc2c27acd7 extends Template
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/twig.html.twig", "C:\\Users\\yasmi\\Desktop\\ds\\wehealth\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\twig.html.twig");
+", "@WebProfiler/Collector/twig.html.twig", "C:\\Users\\lenovo\\Desktop\\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\\Nouveau dossier\\WeHealth\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\twig.html.twig");
     }
 }

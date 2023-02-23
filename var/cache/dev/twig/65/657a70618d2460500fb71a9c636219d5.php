@@ -283,6 +283,6 @@ class __TwigTemplate_cf8324a47497afc6ef73abe260e02b14 extends Template
 \t\t</div>
 \t</footer>
 {% endblock %}
-", "utils/footer.html.twig", "C:\\Users\\yasmi\\Desktop\\ds\\wehealth\\templates\\utils\\footer.html.twig");
+", "utils/footer.html.twig", "C:\\Users\\lenovo\\Desktop\\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\\Nouveau dossier\\WeHealth\\templates\\utils\\footer.html.twig");
     }
 }
