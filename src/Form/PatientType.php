@@ -1,25 +1,32 @@
 <?php
 
 namespace App\Form;
-use App\Form\SignupType;
+
+use App\Entity\Patient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LoginFormType extends AbstractType
+class PatientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('login', TextType::class)
-            ->add('password', PasswordType::class)
-            ->add('submit', SubmitType::class, ['label' => 'Log in']);
+            ->add('login')
+            ->add('password')
+            ->add('nom')
+            ->add('prenom')
+            ->add('email')
+            ->add('telephone')
+            ->add('typeuser')
+            ->add('maladie')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => Patient::class,
         ]);
     }
 }

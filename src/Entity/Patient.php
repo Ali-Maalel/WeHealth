@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PatientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PatientRepository::class)]
 class Patient extends User
@@ -14,6 +15,7 @@ class Patient extends User
     private ?int $id = null;
 
     #[ORM\Column(length: 80)]
+    #[Assert\NotBlank(message: "important")]
     private ?string $maladie = null;
 
     public function getId(): ?int

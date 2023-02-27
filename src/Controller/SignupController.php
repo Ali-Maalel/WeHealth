@@ -30,7 +30,7 @@ class SignupController extends AbstractController
         {
             $em->persist($user);
             $em->flush();
-            return $this->redirectToRoute('');
+            return $this->redirectToRoute('app_wehealth');
         }
         return $this->renderForm('signup/index.html.twig', ['form'=>$form]);
 
