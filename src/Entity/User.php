@@ -1,63 +1,49 @@
 <?php
 
 namespace App\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
-
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-
-
-#[ORM\Table(name: '`user`')]
-class User
+class User /**implements UserInterface*/
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $iduser = null;
-
-    #[ORM\Column(length: 30)]
+    #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message: "your username is important")]
     private ?string $login = null;
 
-    #[ORM\Column(length: 32)]
+    #[ORM\Column(length: 50)]
     private ?string $password = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\NotBlank(message: "important")]
     private ?string $nom = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\NotBlank(message: "important")]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 70)]
+    #[Assert\NotBlank(message: "important")]
     private ?string $email = null;
 
-    #[ORM\Column(length: 15, nullable: true)]
+    #[ORM\Column(length: 8, nullable: true)]
+    
     private ?string $telephone = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 20, nullable: true)]
     private ?string $typeuser = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIduser(): ?int
-    {
-        return $this->iduser;
-    }
-
-    public function setIduser(int $iduser): self
-    {
-        $this->iduser = $iduser;
-
-        return $this;
     }
 
     public function getLogin(): ?string
@@ -131,30 +117,13 @@ class User
 
         return $this;
     }
-    
-    /**
-     * *@return Collection<int, User>
-     *
-    *public function getUser(): Collection
-    *{
-    *    return $this->user;
-    *}
-    *public function adduser(User $users): self
-    *{
-    *    if (!$this->user->contains($users)) {
-    *        $this->user->add($users);
-    *        
-    *    }
-*
- *       return $this;
-   * }*/
 
     public function getTypeuser(): ?string
     {
         return $this->typeuser;
     }
 
-    public function setTypeuser(string $typeuser): self
+    public function setTypeuser(?string $typeuser): self
     {
         $this->typeuser = $typeuser;
 
