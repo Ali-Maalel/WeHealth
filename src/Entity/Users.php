@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-class Users implements UserInterface, PasswordAuthenticatedUserInterface
+class Users extends User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,7 +16,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    private ?string $Login = null;
+    private ?string $Loginn = null;
 
     #[ORM\Column]
     private array $roles = [];
@@ -34,12 +34,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getLogin(): ?string
     {
-        return $this->Login;
+        return $this->Loginn;
     }
 
     public function setLogin(string $Login): self
     {
-        $this->Login = $Login;
+        $this->Loginn = $Login;
 
         return $this;
     }
@@ -51,7 +51,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->Login;
+        return (string) $this->Loginn;
     }
 
     /**
