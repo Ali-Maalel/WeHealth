@@ -13,7 +13,7 @@ class PatientType extends AbstractType
     {
         $builder
             ->add('login')
-            ->add('password')
+            ->add('password', PasswordType::class)
             ->add('nom')
             ->add('prenom')
             ->add('email')
