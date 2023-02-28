@@ -20,6 +20,7 @@
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="SymfonyCastsVerifyEmailBundle">SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -65,6 +66,10 @@
       <parameter key="SensioFrameworkExtraBundle" type="collection">
         <parameter key="path">C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\sensio\framework-extra-bundle\src</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
+      </parameter>
+      <parameter key="SymfonyCastsVerifyEmailBundle" type="collection">
+        <parameter key="path">C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src</parameter>
+        <parameter key="namespace">SymfonyCasts\Bundle\VerifyEmail</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -132,9 +137,6 @@
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
     <parameter key="profiler.storage.dsn">file:C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\var\cache\dev/profiler</parameter>
-    <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
-    <parameter key="doctrine.dbal.logger.profiling.class">Doctrine\DBAL\Logging\DebugStack</parameter>
-    <parameter key="doctrine.dbal.logger.class">Symfony\Bridge\Doctrine\Logger\DbalLogger</parameter>
     <parameter key="doctrine.dbal.configuration.class">Doctrine\DBAL\Configuration</parameter>
     <parameter key="doctrine.data_collector.class">Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector</parameter>
     <parameter key="doctrine.dbal.connection.event_manager.class">Symfony\Bridge\Doctrine\ContainerAwareEventManager</parameter>
@@ -198,6 +200,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
+    <parameter key="doctrine.orm.enable_lazy_ghost_objects">false</parameter>
     <parameter key="doctrine.orm.proxy_dir">C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
@@ -376,6 +379,14 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\ProfessionnelSanteController"/>
       </call>
     </service>
+    <service id="App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Security\EmailVerifier"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\RegistrationController"/>
+      </call>
+    </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -420,6 +431,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ProfessionnelSanteType" class="App\Form\ProfessionnelSanteType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SignupType" class="App\Form\SignupType" autowire="true" autoconfigure="true">
@@ -474,6 +488,11 @@
     </service>
     <service id="App\Security\AppAuthenticator" class="App\Security\AppAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="router.default"/>
+    </service>
+    <service id="App\Security\EmailVerifier" class="App\Security\EmailVerifier" autowire="true" autoconfigure="true">
+      <argument type="service" id="symfonycasts.verify_email.helper"/>
+      <argument type="service" id="mailer.mailer"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
@@ -694,6 +713,7 @@
       <argument type="iterator">
         <argument type="service" id="slugger"/>
         <argument type="service" id="translator.default"/>
+        <argument type="service" id="translation.locale_switcher"/>
       </argument>
       <argument type="service" id="request_stack"/>
     </service>
@@ -1269,6 +1289,7 @@
         <argument>App\Form\PatientType</argument>
         <argument>App\Form\PostType</argument>
         <argument>App\Form\ProfessionnelSanteType</argument>
+        <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\SignupType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1721,6 +1742,7 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
@@ -1746,11 +1768,13 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ca.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
@@ -1764,6 +1788,7 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
@@ -1774,11 +1799,13 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
@@ -1799,11 +1826,13 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
@@ -1824,6 +1853,7 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
@@ -1834,16 +1864,19 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.id.xlf</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ja.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
@@ -1879,6 +1912,7 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle+intl-icu.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
@@ -1894,11 +1928,13 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
@@ -1909,16 +1945,19 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.sk.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
@@ -1959,11 +1998,13 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.uk.xlf</argument>
           </argument>
           <argument key="ur" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.ur.xlf</argument>
@@ -1990,11 +2031,15 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
           </argument>
+          <argument key="sr" type="collection">
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.sr.xlf</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations</argument>
           <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations</argument>
           <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations</argument>
           <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth/translations</argument>
           <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\framework-bundle/translations</argument>
           <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\doctrine\doctrine-bundle/translations</argument>
@@ -2013,6 +2058,7 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations</argument>
             <argument>translations</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\framework-bundle/translations</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\doctrine\doctrine-bundle/translations</argument>
@@ -2241,6 +2287,7 @@
     </service>
     <service id="translation.locale_switcher" class="Symfony\Component\Translation\LocaleSwitcher">
       <tag name="kernel.reset" method="reset"/>
+      <tag name="kernel.locale_aware"/>
       <argument>en</argument>
       <argument type="tagged_iterator" tag="kernel.locale_aware"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
@@ -2987,7 +3034,7 @@
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
-        <argument type="service" id="annotations.dummy_registry"/>
+        <argument type="service" id="annotations.dummy_registry" on-invalid="null"/>
       </call>
     </service>
     <service id="annotations.dummy_registry" class="Doctrine\Common\Annotations\AnnotationRegistry">
@@ -3257,7 +3304,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator._g9TQB8"/>
+      <argument type="service" id=".service_locator.2mmeurz"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3957,14 +4004,6 @@
         <argument type="service" id="mime_types"/>
       </call>
     </service>
-    <service id="doctrine.dbal.logger.chain" class="Doctrine\DBAL\Logging\LoggerChain" abstract="true"/>
-    <service id="doctrine.dbal.logger.profiling" class="Doctrine\DBAL\Logging\DebugStack" abstract="true"/>
-    <service id="doctrine.dbal.logger.backtrace" class="Doctrine\Bundle\DoctrineBundle\Dbal\Logging\BacktraceLogger" abstract="true"/>
-    <service id="doctrine.dbal.logger" class="Symfony\Bridge\Doctrine\Logger\DbalLogger">
-      <tag name="monolog.logger" channel="doctrine"/>
-      <argument>null</argument>
-      <argument type="service" id="debug.stopwatch" on-invalid="null"/>
-    </service>
     <service id="data_collector.doctrine" class="Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector">
       <tag name="data_collector" template="@Doctrine/Collector/db.html.twig" id="db" priority="250"/>
       <argument type="service" id="doctrine"/>
@@ -4199,7 +4238,7 @@
     <service id="doctrine.orm.command.entity_manager_provider" class="Doctrine\Bundle\DoctrineBundle\Orm\ManagerRegistryAwareEntityManagerProvider">
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="doctrine.cache_clear_metadata_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearMetadataCacheDoctrineCommand">
+    <service id="doctrine.cache_clear_metadata_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand">
       <tag name="console.command" command="doctrine:cache:clear-metadata"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4207,7 +4246,7 @@
         <argument>doctrine:cache:clear-metadata</argument>
       </call>
     </service>
-    <service id="doctrine.cache_clear_query_cache_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearQueryCacheDoctrineCommand">
+    <service id="doctrine.cache_clear_query_cache_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\QueryCommand">
       <tag name="console.command" command="doctrine:cache:clear-query"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4215,7 +4254,7 @@
         <argument>doctrine:cache:clear-query</argument>
       </call>
     </service>
-    <service id="doctrine.cache_clear_result_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ClearResultCacheDoctrineCommand">
+    <service id="doctrine.cache_clear_result_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\ResultCommand">
       <tag name="console.command" command="doctrine:cache:clear-result"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4223,7 +4262,7 @@
         <argument>doctrine:cache:clear-result</argument>
       </call>
     </service>
-    <service id="doctrine.cache_collection_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CollectionRegionDoctrineCommand">
+    <service id="doctrine.cache_collection_region_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\CollectionRegionCommand">
       <tag name="console.command" command="doctrine:cache:clear-collection-region"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4231,7 +4270,7 @@
         <argument>doctrine:cache:clear-collection-region</argument>
       </call>
     </service>
-    <service id="doctrine.mapping_convert_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ConvertMappingDoctrineCommand">
+    <service id="doctrine.mapping_convert_command" class="Doctrine\ORM\Tools\Console\Command\ConvertMappingCommand">
       <tag name="console.command" command="doctrine:mapping:convert"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4239,7 +4278,7 @@
         <argument>doctrine:mapping:convert</argument>
       </call>
     </service>
-    <service id="doctrine.schema_create_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\CreateSchemaDoctrineCommand">
+    <service id="doctrine.schema_create_command" class="Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand">
       <tag name="console.command" command="doctrine:schema:create"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4247,7 +4286,7 @@
         <argument>doctrine:schema:create</argument>
       </call>
     </service>
-    <service id="doctrine.schema_drop_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\DropSchemaDoctrineCommand">
+    <service id="doctrine.schema_drop_command" class="Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand">
       <tag name="console.command" command="doctrine:schema:drop"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4255,7 +4294,7 @@
         <argument>doctrine:schema:drop</argument>
       </call>
     </service>
-    <service id="doctrine.ensure_production_settings_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EnsureProductionSettingsDoctrineCommand">
+    <service id="doctrine.ensure_production_settings_command" class="Doctrine\ORM\Tools\Console\Command\EnsureProductionSettingsCommand">
       <tag name="console.command" command="doctrine:ensure-production-settings"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4263,7 +4302,7 @@
         <argument>doctrine:ensure-production-settings</argument>
       </call>
     </service>
-    <service id="doctrine.clear_entity_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\EntityRegionCacheDoctrineCommand">
+    <service id="doctrine.clear_entity_region_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\EntityRegionCommand">
       <tag name="console.command" command="doctrine:cache:clear-entity-region"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4271,7 +4310,7 @@
         <argument>doctrine:cache:clear-entity-region</argument>
       </call>
     </service>
-    <service id="doctrine.mapping_info_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\InfoDoctrineCommand">
+    <service id="doctrine.mapping_info_command" class="Doctrine\ORM\Tools\Console\Command\InfoCommand">
       <tag name="console.command" command="doctrine:mapping:info"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4279,7 +4318,7 @@
         <argument>doctrine:mapping:info</argument>
       </call>
     </service>
-    <service id="doctrine.clear_query_region_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\QueryRegionCacheDoctrineCommand">
+    <service id="doctrine.clear_query_region_command" class="Doctrine\ORM\Tools\Console\Command\ClearCache\QueryRegionCommand">
       <tag name="console.command" command="doctrine:cache:clear-query-region"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4287,7 +4326,7 @@
         <argument>doctrine:cache:clear-query-region</argument>
       </call>
     </service>
-    <service id="doctrine.query_dql_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\RunDqlDoctrineCommand">
+    <service id="doctrine.query_dql_command" class="Doctrine\ORM\Tools\Console\Command\RunDqlCommand">
       <tag name="console.command" command="doctrine:query:dql"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4295,7 +4334,7 @@
         <argument>doctrine:query:dql</argument>
       </call>
     </service>
-    <service id="doctrine.schema_update_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\UpdateSchemaDoctrineCommand">
+    <service id="doctrine.schema_update_command" class="Doctrine\ORM\Tools\Console\Command\SchemaTool\UpdateCommand">
       <tag name="console.command" command="doctrine:schema:update"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4303,7 +4342,7 @@
         <argument>doctrine:schema:update</argument>
       </call>
     </service>
-    <service id="doctrine.schema_validate_command" class="Doctrine\Bundle\DoctrineBundle\Command\Proxy\ValidateSchemaCommand">
+    <service id="doctrine.schema_validate_command" class="Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand">
       <tag name="console.command" command="doctrine:schema:validate"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="doctrine.orm.command.entity_manager_provider"/>
@@ -4365,6 +4404,9 @@
       </call>
       <call method="setEntityListenerResolver">
         <argument type="service" id="doctrine.orm.default_entity_listener_resolver"/>
+      </call>
+      <call method="setLazyGhostObjectEnabled">
+        <argument>false</argument>
       </call>
       <call method="setRepositoryFactory">
         <argument type="service" id="doctrine.orm.container_repository_factory"/>
@@ -5105,6 +5147,7 @@
     <service id="security.authentication.trust_resolver" class="Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver"/>
     <service id="security.authentication.session_strategy" class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy">
       <argument>migrate</argument>
+      <argument type="service" id="security.csrf.token_storage" on-invalid="ignore"/>
     </service>
     <service id="security.authentication.session_strategy_noop" class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy">
       <argument>none</argument>
@@ -5911,8 +5954,8 @@
       <tag name="maker.command"/>
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.renderer.form_type_renderer"/>
-      <argument type="service" id="router.default"/>
       <argument type="service" id="maker.doctrine_helper"/>
+      <argument type="service" id="router.default" on-invalid="ignore"/>
     </service>
     <service id="maker.maker.make_reset_password" class="Symfony\Bundle\MakerBundle\Maker\MakeResetPassword">
       <tag name="maker.command"/>
@@ -6031,6 +6074,21 @@
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
+    <service id="symfonycasts.verify_email.token_generator" class="SymfonyCasts\Bundle\VerifyEmail\Generator\VerifyEmailTokenGenerator">
+      <argument>%env(APP_SECRET)%</argument>
+    </service>
+    <service id="symfonycasts.verify_email.query_utility" class="SymfonyCasts\Bundle\VerifyEmail\Util\VerifyEmailQueryUtility"/>
+    <service id="symfonycasts.verify_email.uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
+      <argument>%env(APP_SECRET)%</argument>
+      <argument>signature</argument>
+    </service>
+    <service id="symfonycasts.verify_email.helper" class="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelper">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="symfonycasts.verify_email.uri_signer"/>
+      <argument type="service" id="symfonycasts.verify_email.query_utility"/>
+      <argument type="service" id="symfonycasts.verify_email.token_generator"/>
+      <argument>3600</argument>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6049,6 +6107,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProfessionnelSanteController" class="App\Controller\ProfessionnelSanteController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProfessionnelSanteController" class="App\Controller\ProfessionnelSanteController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ProfessionnelSanteController" class="App\Controller\ProfessionnelSanteController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6073,6 +6134,8 @@
     <service id=".abstract.instanceof.App\Form\PostType" class="App\Form\PostType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProfessionnelSanteType" class="App\Form\ProfessionnelSanteType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProfessionnelSanteType" class="App\Form\ProfessionnelSanteType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SignupType" class="App\Form\SignupType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SignupType" class="App\Form\SignupType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
@@ -6330,7 +6393,7 @@
       </call>
     </service>
     <service id="maker.auto_command.make_twig_extension" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
-      <tag name="console.command" command="make:twig-extension" description="Creates a new Twig extension class"/>
+      <tag name="console.command" command="make:twig-extension" description="Creates a new Twig extension with its runtime class"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="maker.maker.make_twig_extension"/>
       <argument type="service" id="maker.file_manager"/>
@@ -6339,7 +6402,7 @@
         <argument>make:twig-extension</argument>
       </call>
       <call method="setDescription">
-        <argument>Creates a new Twig extension class</argument>
+        <argument>Creates a new Twig extension with its runtime class</argument>
       </call>
     </service>
     <service id="maker.auto_command.make_test" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
@@ -6427,12 +6490,6 @@
       <call method="setDescription">
         <argument>Creates a new Stimulus controller</argument>
       </call>
-    </service>
-    <service id=".service_locator.bRdave9" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="response" type="service_closure" id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response"/>
-      </argument>
     </service>
     <service id=".service_locator.xUrKPVU" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -6522,6 +6579,22 @@
         <argument key="professionnelSanteRepository" type="service_closure" id="App\Repository\ProfessionnelSanteRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.qV1Yx19" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticator" type="service_closure" id="App\Security\AppAuthenticator"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="userAuthenticator" type="service_closure" id="security.user_authenticator"/>
+        <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
+      </argument>
+    </service>
+    <service id=".service_locator.As7OUdO" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="translator" type="service_closure" id="translator.data_collector"/>
+        <argument key="usersRepository" type="service_closure" id="App\Repository\UsersRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.GQZbvNR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6547,7 +6620,7 @@
         <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.2VzqY9r" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ntMaQrF" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AppsecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
@@ -6571,6 +6644,8 @@
         <argument key="App\Controller\ProfessionnelSanteController::index" type="service_closure" id=".service_locator.t9UCQfm"/>
         <argument key="App\Controller\ProfessionnelSanteController::new" type="service_closure" id=".service_locator.t9UCQfm"/>
         <argument key="App\Controller\ProfessionnelSanteController::show" type="service_closure" id=".service_locator.Zyk16jE"/>
+        <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.qV1Yx19"/>
+        <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator.As7OUdO"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\SignupController::addUser" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.9uW928t"/>
@@ -6580,10 +6655,8 @@
         <argument key="App\Controller\UserController::show" type="service_closure" id=".service_locator.4T4EJFR"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
         <argument key="App\Controller\AppsecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\CoachController:delete" type="service_closure" id=".service_locator.Hx9tlLO"/>
         <argument key="App\Controller\CoachController:edit" type="service_closure" id=".service_locator.Hx9tlLO"/>
@@ -6605,6 +6678,8 @@
         <argument key="App\Controller\ProfessionnelSanteController:index" type="service_closure" id=".service_locator.t9UCQfm"/>
         <argument key="App\Controller\ProfessionnelSanteController:new" type="service_closure" id=".service_locator.t9UCQfm"/>
         <argument key="App\Controller\ProfessionnelSanteController:show" type="service_closure" id=".service_locator.Zyk16jE"/>
+        <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.qV1Yx19"/>
+        <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator.As7OUdO"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\SignupController:addUser" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.9uW928t"/>
@@ -6614,7 +6689,6 @@
         <argument key="App\Controller\UserController:show" type="service_closure" id=".service_locator.4T4EJFR"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="kernel:terminate" type="service_closure" id=".service_locator.bRdave9"/>
       </argument>
     </service>
     <service id=".service_locator.19_mNxd" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6781,7 +6855,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator._g9TQB8" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.2mmeurz" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CoachType" type="service_closure" id="App\Form\CoachType"/>
@@ -6790,6 +6864,7 @@
         <argument key="App\Form\PatientType" type="service_closure" id="App\Form\PatientType"/>
         <argument key="App\Form\PostType" type="service_closure" id="App\Form\PostType"/>
         <argument key="App\Form\ProfessionnelSanteType" type="service_closure" id="App\Form\ProfessionnelSanteType"/>
+        <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\SignupType" type="service_closure" id="App\Form\SignupType"/>
         <argument key="App\Form\UserType" type="service_closure" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
@@ -7190,6 +7265,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\RegistrationController"/>
+      <argument>App\Controller\RegistrationController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
     <service id=".service_locator.jIxfAsi.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
@@ -7344,6 +7425,14 @@
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface">
       <factory service="validator.builder" method="getValidator"/>
     </service>
+    <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
+      <argument type="collection"/>
+      <argument>6</argument>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.http_client" on-invalid="ignore"/>
+      </call>
+      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
+    </service>
     <service id="debug.event_dispatcher.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id="debug.controller_resolver.inner" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <argument type="service" id="service_container"/>
@@ -7472,12 +7561,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.2VzqY9r"/>
+      <argument type="service" id=".service_locator.ntMaQrF"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.2VzqY9r"/>
+      <argument type="service" id=".service_locator.ntMaQrF"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7490,21 +7579,12 @@
         <argument type="service" id="messenger.bus.default.middleware.handle_message"/>
       </argument>
     </service>
-    <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
-      <argument type="collection"/>
-      <argument>6</argument>
-      <call method="setLogger">
-        <argument type="service" id="monolog.logger.http_client" on-invalid="ignore"/>
-      </call>
-      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
-    </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_attribute_metadata_driver"/>
         <argument>App\Entity</argument>
       </call>
     </service>
-    <service id=".errored..service_locator.bRdave9.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.Veo9UrM.App\Entity\Coach" class="App\Entity\Coach"/>
     <service id=".errored..service_locator.Hx9tlLO.App\Entity\Coach" class="App\Entity\Coach"/>
@@ -7946,7 +8026,7 @@
     <service id=".maker.auto_command.make_twig_extension.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>make:twig-extension</argument>
       <argument type="collection"/>
-      <argument>Creates a new Twig extension class</argument>
+      <argument>Creates a new Twig extension with its runtime class</argument>
       <argument>false</argument>
       <argument type="service_closure" id="maker.auto_command.make_twig_extension"/>
     </service>
@@ -7997,7 +8077,7 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
-      <argument type="service" id=".service_locator.mMehwGU"/>
+      <argument type="service" id=".service_locator.mmIGAjo"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -8103,7 +8183,7 @@
         <argument key="make:stimulus-controller">maker.auto_command.make_stimulus_controller</argument>
       </argument>
     </service>
-    <service id=".service_locator.mMehwGU" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.mmIGAjo" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service_closure" id=".console.command.about.lazy"/>
@@ -8427,9 +8507,10 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default"/>
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
+    <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.2VzqY9r"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ntMaQrF"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8450,13 +8531,15 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator._teHExY" alias=".service_locator.2VzqY9r"/>
+    <service id=".service_locator.gwY_rIW" alias=".service_locator.qV1Yx19"/>
+    <service id=".service_locator.z6e.NDC" alias=".service_locator.ntMaQrF"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
-    <service id=".service_locator.OUXzpdq" alias=".service_locator._g9TQB8"/>
+    <service id=".service_locator.qDeKQks" alias=".service_locator.2mmeurz"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator._eRAkJb" alias=".service_locator.jIxfAsi"/>
     <service id="validator" alias="debug.validator"/>
+    <service id="http_client" alias=".debug.http_client"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
@@ -8497,9 +8580,7 @@
     <service id="argument_resolver.variadic" alias="debug.argument_resolver.variadic"/>
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
-    <service id="http_client" alias=".debug.http_client"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
-    <service id=".service_locator.FatRZu2" alias=".service_locator.bRdave9"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
     <service id=".service_locator.v7AHUGu" alias=".service_locator.RNsiPAw"/>
@@ -8514,6 +8595,8 @@
     <service id=".service_locator.7dGQnn6" alias=".service_locator.t9UCQfm"/>
     <service id=".service_locator.Qz5BDss" alias=".service_locator.Zyk16jE"/>
     <service id=".service_locator.zG3lgGE" alias=".service_locator.HXWB3r1"/>
+    <service id=".service_locator.oQEaC2b" alias=".service_locator.qV1Yx19"/>
+    <service id=".service_locator.q7_93w0" alias=".service_locator.As7OUdO"/>
     <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
     <service id=".service_locator.HO7.gFw" alias=".service_locator.Q1F27w5"/>
     <service id=".service_locator.Zp0NSXM" alias=".service_locator.4T4EJFR"/>

@@ -39,6 +39,8 @@ return [
     'app_professionnel_sante_show' => [['id'], ['_controller' => 'App\\Controller\\ProfessionnelSanteController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/professionnel/sante']], [], [], []],
     'app_professionnel_sante_edit' => [['id'], ['_controller' => 'App\\Controller\\ProfessionnelSanteController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/professionnel/sante']], [], [], []],
     'app_professionnel_sante_delete' => [['id'], ['_controller' => 'App\\Controller\\ProfessionnelSanteController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/professionnel/sante']], [], [], []],
+    'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
+    'app_verify_email' => [[], ['_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], [], [['text', '/verify/email']], [], [], []],
     'app_security' => [[], ['_controller' => 'App\\Controller\\SecurityController::index'], [], [['text', '/security']], [], [], []],
     'app_signup' => [[], ['_controller' => 'App\\Controller\\SignupController::index'], [], [['text', '/signup']], [], [], []],
     'app_signup_addUser' => [[], ['_controller' => 'App\\Controller\\SignupController::addUser'], [], [['text', '/signup/addUser']], [], [], []],
