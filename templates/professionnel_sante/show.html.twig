@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProfessionnelSante{% endblock %}
+
+{% block body %}
+    <h1>ProfessionnelSante</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ professionnel_sante.id }}</td>
+            </tr>
+            <tr>
+                <th>Login</th>
+                <td>{{ professionnel_sante.login }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ professionnel_sante.password }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ professionnel_sante.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ professionnel_sante.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ professionnel_sante.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ professionnel_sante.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Typeuser</th>
+                <td>{{ professionnel_sante.typeuser }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ professionnel_sante.matricule }}</td>
+            </tr>
+            <tr>
+                <th>CIN</th>
+                <td>{{ professionnel_sante.CIN }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_professionnel_sante_index') }}">back to list</a>
+
+    <a href="{{ path('app_professionnel_sante_edit', {'id': professionnel_sante.id}) }}">edit</a>
+
+    {{ include('professionnel_sante/_delete_form.html.twig') }}
+{% endblock %}

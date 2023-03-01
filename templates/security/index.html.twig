@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<div>
+
+    <div>
+    {{ form_start(form) }}
+        <div>{{ form_widget(form.login, { 'attr': { 'class': 'form-control' } }) }}</div>
+        <div>{{ form_widget(form.password, { 'attr': { 'class': 'form-control' } }) }}</div>
+        <div>{{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary' } }) }}</div>
+    {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

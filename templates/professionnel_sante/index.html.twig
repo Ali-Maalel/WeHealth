@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProfessionnelSante index{% endblock %}
+
+{% block body %}
+    <h1>ProfessionnelSante index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Typeuser</th>
+                <th>Matricule</th>
+                <th>CIN</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for professionnel_sante in professionnel_santes %}
+            <tr>
+                <td>{{ professionnel_sante.id }}</td>
+                <td>{{ professionnel_sante.login }}</td>
+                <td>{{ professionnel_sante.password }}</td>
+                <td>{{ professionnel_sante.nom }}</td>
+                <td>{{ professionnel_sante.prenom }}</td>
+                <td>{{ professionnel_sante.email }}</td>
+                <td>{{ professionnel_sante.telephone }}</td>
+                <td>{{ professionnel_sante.typeuser }}</td>
+                <td>{{ professionnel_sante.matricule }}</td>
+                <td>{{ professionnel_sante.CIN }}</td>
+                <td>
+                    <a href="{{ path('app_professionnel_sante_show', {'id': professionnel_sante.id}) }}">show</a>
+                    <a href="{{ path('app_professionnel_sante_edit', {'id': professionnel_sante.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_professionnel_sante_new') }}">Create new</a>
+{% endblock %}
