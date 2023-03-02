@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use App\Controller\EntityManagerInterface ;
 #[Route('/user')]
 class UserController extends AbstractController
 {
@@ -80,4 +80,25 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/blockUser/{id}', name: 'app_user_blockUser', methods: ['GET', 'POST'])]
+    public function blockUser(Request $request, UserRepository $userRepository, User $user): Response
+    {
+        $userRepository->blockUser($user);
+
+        // Redirigez l'administrateur vers une page de confirmation.
+        // Par exemple, vous pouvez rediriger l'utilisateur vers la liste des utilisateurs.
+        return $this->redirectToRoute('app_user_index');
+    }
+
+    /**
+     * @Route("/users/{id}/unblock", name="admin_unblock_user")
+     */
+    #[Route('/unblockUser/{id}', name: 'app_user_unblockUser', methods: ['GET', 'POST'])]
+    public function unblockUser(Request $request, UserRepository $userRepository, User $user): Response
+    {
+        $userRepository->unblockUser($user);
+
+        return $this->redirectToRoute('app_user_index');
+    }
+
 }

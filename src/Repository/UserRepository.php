@@ -5,6 +5,9 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -38,6 +41,17 @@ class UserRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function blockUser(User $user): void
+    {
+        $user->setBlocked(true);
+        $this->getEntityManager()->flush();
+    }
+
+    public function unblockUser(User $user): void
+    {
+        $user->setBlocked(false);
+        $this->getEntityManager()->flush();
+    }
 
 //    /**
 //     * @return User[] Returns an array of User objects
@@ -63,4 +77,5 @@ class UserRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
 }

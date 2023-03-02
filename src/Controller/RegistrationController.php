@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use SymfonyCasts\Bundle\VerifyEmail\Exception;
+//use SymfonyCasts\Bundle\VerifyEmail\Exception;
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
 use App\Repository\UsersRepository;

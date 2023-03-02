@@ -16,6 +16,7 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
+    'admin_block_user' => [['id'], ['_controller' => 'App\\Controller\\AdminController::blockUser'], [], [['text', '/block'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\AppsecurityController::login'], [], [['text', '/login']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\AppsecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'app_blog' => [[], ['_controller' => 'App\\Controller\\BlogController::index'], [], [['text', '/blog']], [], [], []],
@@ -49,5 +50,8 @@ return [
     'app_user_show' => [['id'], ['_controller' => 'App\\Controller\\UserController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/show']], [], [], []],
     'app_user_edit' => [['id'], ['_controller' => 'App\\Controller\\UserController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/user']], [], [], []],
     'app_user_delete' => [['id'], ['_controller' => 'App\\Controller\\UserController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/delete']], [], [], []],
+    'app_user_blockUser' => [['id'], ['_controller' => 'App\\Controller\\UserController::blockUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/blockUser']], [], [], []],
+    'app_user_unblockUser' => [['id'], ['_controller' => 'App\\Controller\\UserController::unblockUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/unblockUser']], [], [], []],
+    'admin_unblock_user' => [['id'], ['_controller' => 'App\\Controller\\UserController::unblockUser'], [], [['text', '/unblock'], ['variable', '/', '[^/]++', 'id', true], ['text', '/user/users']], [], [], []],
     'app_wehealth' => [[], ['_controller' => 'App\\Controller\\WehealthController::index'], [], [['text', '/wehealth']], [], [], []],
 ];

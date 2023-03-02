@@ -41,6 +41,9 @@ class User /**implements UserInterface*/
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $typeuser = null;
 
+    #[ORM\Column]
+    private ?bool $blocked = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -129,4 +132,17 @@ class User /**implements UserInterface*/
 
         return $this;
     }
+
+    public function isBlocked(): ?bool
+    {
+        return $this->blocked;
+    }
+
+    public function setBlocked(bool $blocked): self
+    {
+        $this->blocked = $blocked;
+
+        return $this;
+    }
+    
 }
