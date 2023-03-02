@@ -150,6 +150,10 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
             'DeepCopy\\' => 9,
         ),
+        'C' => 
+        array (
+            'CalendarBundle\\' => 15,
+        ),
         'A' => 
         array (
             'App\\Tests\\' => 10,
@@ -561,6 +565,10 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'CalendarBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tattali/calendar-bundle/src',
+        ),
         'App\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
@@ -572,7 +580,44 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
     );
 
     public static $classMap = array (
+        'App\\Controller\\AdminController' => __DIR__ . '/../..' . '/src/Controller/AdminController.php',
+        'App\\Controller\\BlogController' => __DIR__ . '/../..' . '/src/Controller/BlogController.php',
+        'App\\Controller\\EvennementController' => __DIR__ . '/../..' . '/src/Controller/EvennementController.php',
+        'App\\Controller\\EvennementfrontController' => __DIR__ . '/../..' . '/src/Controller/EvennementfrontController.php',
+        'App\\Controller\\SignupController' => __DIR__ . '/../..' . '/src/Controller/SignupController.php',
+        'App\\Controller\\VideoController' => __DIR__ . '/../..' . '/src/Controller/VideoController.php',
+        'App\\Controller\\WehealthController' => __DIR__ . '/../..' . '/src/Controller/WehealthController.php',
+        'App\\Entity\\Article' => __DIR__ . '/../..' . '/src/Entity/Article.php',
+        'App\\Entity\\Coach' => __DIR__ . '/../..' . '/src/Entity/Coach.php',
+        'App\\Entity\\Evennement' => __DIR__ . '/../..' . '/src/Entity/Evennement.php',
+        'App\\Entity\\Eventparticipation' => __DIR__ . '/../..' . '/src/Entity/Eventparticipation.php',
+        'App\\Entity\\ProfessionnelSante' => __DIR__ . '/../..' . '/src/Entity/ProfessionnelSante.php',
+        'App\\Entity\\Type' => __DIR__ . '/../..' . '/src/Entity/Type.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Entity\\Video' => __DIR__ . '/../..' . '/src/Entity/Video.php',
+        'App\\Form\\EvennementType' => __DIR__ . '/../..' . '/src/Form/EvennementType.php',
+        'App\\Form\\SignupType' => __DIR__ . '/../..' . '/src/Form/SignupType.php',
+        'App\\Form\\VideoType' => __DIR__ . '/../..' . '/src/Form/VideoType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\ArticleRepository' => __DIR__ . '/../..' . '/src/Repository/ArticleRepository.php',
+        'App\\Repository\\CoachRepository' => __DIR__ . '/../..' . '/src/Repository/CoachRepository.php',
+        'App\\Repository\\EvennementRepository' => __DIR__ . '/../..' . '/src/Repository/EvennementRepository.php',
+        'App\\Repository\\EventparticipationRepository' => __DIR__ . '/../..' . '/src/Repository/EventparticipationRepository.php',
+        'App\\Repository\\ProfessionnelSanteRepository' => __DIR__ . '/../..' . '/src/Repository/ProfessionnelSanteRepository.php',
+        'App\\Repository\\SponsorRepository' => __DIR__ . '/../..' . '/src/Repository/SponsorRepository.php',
+        'App\\Repository\\TypeRepository' => __DIR__ . '/../..' . '/src/Repository/TypeRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
+        'App\\Repository\\VideoRepository' => __DIR__ . '/../..' . '/src/Repository/VideoRepository.php',
+        'CalendarBundle\\CalendarBundle' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/CalendarBundle.php',
+        'CalendarBundle\\CalendarEvents' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/CalendarEvents.php',
+        'CalendarBundle\\Controller\\CalendarController' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/Controller/CalendarController.php',
+        'CalendarBundle\\DependencyInjection\\CalendarExtension' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/DependencyInjection/CalendarExtension.php',
+        'CalendarBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/DependencyInjection/Configuration.php',
+        'CalendarBundle\\Entity\\Event' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/Entity/Event.php',
+        'CalendarBundle\\Event\\CalendarEvent' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/Event/CalendarEvent.php',
+        'CalendarBundle\\Event\\Event' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/Event/Event.php',
+        'CalendarBundle\\Serializer\\Serializer' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/Serializer/Serializer.php',
+        'CalendarBundle\\Serializer\\SerializerInterface' => __DIR__ . '/..' . '/tattali/calendar-bundle/src/Serializer/SerializerInterface.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

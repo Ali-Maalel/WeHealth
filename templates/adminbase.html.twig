@@ -1,0 +1,101 @@
+
+{% block top_menu %}
+{% block stylesheets %}
+<link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/css/zabuto_calendar.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('admin/lib/gritter/css/jquery.gritter.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('admin/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('admin/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <script src="{{ asset('admin/lib/chart-master/Chart.js') }}"></script>
+    {% endblock %}
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="btn btn-theme04 logout" ">Deconnexion</a></li>
+        </ul>
+        <ul class="nav pull-right top-menu">
+            <li><a  class="logout">Créer un patient </a></li>
+        </ul>
+        <ul class="nav pull-right top-menu">
+            <li><a  class="logout">Créer un Docteur </a></li>
+        </ul>
+        <ul class="nav pull-right top-menu">
+            <li><a " class="logout">Créer un Laboratoire </a></li>
+        </ul>
+
+    </div>
+{% endblock %}
+{% block sidebar %}
+
+    <li class="sub-menu">
+        <a id="index">
+            <i class="fa fa-dashboard"></i>
+            <span>Acceuil</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        <a >
+            <i class="fa fa-desktop"></i>
+            <span>Patients</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        <a >
+            <i class="fa fa-cogs"></i>
+            <span>Laboratoires</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        <a ">
+            <i class="fa fa-book"></i>
+            <span>Docteurs</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        <a >
+            <i class="fa fa-cogs"></i>
+            <span>Specialités</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+       
+            <i class="fa fa-desktop"></i>
+            <span>Services</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+        
+            <i class="fa fa-book"></i>
+            <span>Medicaments</span>
+        </a>
+    </li>
+    <li class="sub-menu">
+       
+            <i class="fa fa-address-book"></i>
+            <span>Maladies</span>
+        </a>
+    </li>
+
+    </ul>
+    </div>
+{% endblock %}
+{% block script_sidebar %}
+    <script>
+        var Ids = ["index", "rendezvous", "rech", "PoseQuest", "MesQuest", "edit"];
+        Ids.forEach(myFunction)
+
+        function myFunction(item, index) {
+            if (item == '{{ block('page') }}') {
+                document.getElementById(item).classList.add("active");
+            } else {
+                document.getElementById(item).classList.remove("active");
+            }
+        }
+    </script>
+{% endblock %}
+{% block content %}
+    {{ block('content') }}
+{% endblock %}
+{% block page %}
+{% endblock %}

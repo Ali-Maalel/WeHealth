@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EvennementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -24,6 +26,14 @@ class Evennement
     private ?\DateTimeInterface $date = null;
     #[ORM\Column(length: 1500)]
     private ?string $consultationurl = null;
+
+    #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: Eventparticipation::class)]
+    private Collection $reservation;
+
+    public function __construct()
+    {
+        $this->reservation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -74,6 +84,36 @@ class Evennement
     public function setConsultationurl(string $consultationurl): self
     {
         $this->consultationurl = $consultationurl;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Eventparticipation>
+     */
+    public function getReservation(): Collection
+    {
+        return $this->reservation;
+    }
+
+    public function addReservation(Eventparticipation $reservation): self
+    {
+        if (!$this->reservation->contains($reservation)) {
+            $this->reservation->add($reservation);
+            $reservation->setEvenement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Eventparticipation $reservation): self
+    {
+        if ($this->reservation->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getEvenement() === $this) {
+                $reservation->setEvenement(null);
+            }
+        }
 
         return $this;
     }
