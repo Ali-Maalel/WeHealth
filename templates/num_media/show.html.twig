@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NumMedia{% endblock %}
+
+{% block body %}
+    <h1>NumMedia</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ num_media.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ num_media.nom }}</td>
+            </tr>
+            <tr>
+                <th>AltText</th>
+                <td>{{ num_media.altText }}</td>
+            </tr>
+            <tr>
+                <th>NomFichier</th>
+                <td>{{ num_media.nomFichier }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_num_media_index') }}">back to list</a>
+
+    <a href="{{ path('app_num_media_edit', {'id': num_media.id}) }}">edit</a>
+
+    {{ include('num_media/_delete_form.html.twig') }}
+{% endblock %}

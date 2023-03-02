@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NumMedia index{% endblock %}
+
+{% block body %}
+    <h1>NumMedia index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>AltText</th>
+                <th>NomFichier</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for num_media in num_media %}
+            <tr>
+                <td>{{ num_media.id }}</td>
+                <td>{{ num_media.nom }}</td>
+                <td>{{ num_media.altText }}</td>
+                <td>{{ num_media.nomFichier }}</td>
+                <td>
+                    <a href="{{ path('app_num_media_show', {'id': num_media.id}) }}">show</a>
+                    <a href="{{ path('app_num_media_edit', {'id': num_media.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_num_media_new') }}">Create new</a>
+{% endblock %}

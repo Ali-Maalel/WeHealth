@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New NumMedia{% endblock %}
+
+{% block body %}
+    <h1>Create new NumMedia</h1>
+
+    {{ include('num_media/_form.html.twig') }}
+
+    <a href="{{ path('app_num_media_index') }}">back to list</a>
+{% endblock %}

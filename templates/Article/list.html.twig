@@ -1,5 +1,0 @@
-{% set leftCol = 5 %}
-{% set rightCol = 7 %}
-{% for article in articles %}
-	{% include 'article/item.html.twig' with { article, leftCol: leftCol, rightCol: rightCol } %}
-{% endfor %}

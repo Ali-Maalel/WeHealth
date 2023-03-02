@@ -3,8 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
-use App\Entity\Categorie;
 use App\Entity\Comment;
+use App\Entity\NumMedia;
+use App\Entity\Categorie;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -59,6 +60,10 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus', Article::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class)
 
+        ]);
+        yield MenuItem::subMenu('Médias', 'fas fa-photo-video')->setSubItems([
+            MenuItem::linkToCrud('Médiathèque', 'fas fa-photo-video', NumMedia::class),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus', NumMedia::class)->setAction(Crud::PAGE_NEW),
         ]);
         yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment', Comment::class);
     }

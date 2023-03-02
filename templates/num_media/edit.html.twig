@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit NumMedia{% endblock %}
+
+{% block body %}
+    <h1>Edit NumMedia</h1>
+
+    {{ include('num_media/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_num_media_index') }}">back to list</a>
+
+    {{ include('num_media/_delete_form.html.twig') }}
+{% endblock %}
