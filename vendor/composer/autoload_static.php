@@ -125,6 +125,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MercurySeries\\FlashyBundle\\' => 27,
             'Masterminds\\' => 12,
         ),
         'L' => 
@@ -509,6 +510,10 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'MercurySeries\\FlashyBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src',
         ),
         'Masterminds\\' => 
         array (
@@ -2367,6 +2372,12 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'Masterminds\\HTML5\\Serializer\\OutputRules' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/OutputRules.php',
         'Masterminds\\HTML5\\Serializer\\RulesInterface' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/RulesInterface.php',
         'Masterminds\\HTML5\\Serializer\\Traverser' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/Traverser.php',
+        'MercurySeries\\FlashyBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src/DependencyInjection/Configuration.php',
+        'MercurySeries\\FlashyBundle\\DependencyInjection\\MercurySeriesFlashyExtension' => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src/DependencyInjection/MercurySeriesFlashyExtension.php',
+        'MercurySeries\\FlashyBundle\\FlashyNotifier' => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src/FlashyNotifier.php',
+        'MercurySeries\\FlashyBundle\\MercurySeriesFlashyBundle' => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src/MercurySeriesFlashyBundle.php',
+        'MercurySeries\\FlashyBundle\\SessionStore' => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src/SessionStore.php',
+        'MercurySeries\\FlashyBundle\\SymfonySessionStore' => __DIR__ . '/..' . '/mercuryseries/flashy-bundle/src/SymfonySessionStore.php',
         'Monolog\\Attribute\\AsMonologProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',

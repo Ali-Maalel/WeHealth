@@ -21,6 +21,7 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="EasyAdminBundle">EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
+      <parameter key="MercurySeriesFlashyBundle">MercurySeries\FlashyBundle\MercurySeriesFlashyBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -70,6 +71,10 @@
       <parameter key="EasyAdminBundle" type="collection">
         <parameter key="path">C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\easycorp\easyadmin-bundle\src</parameter>
         <parameter key="namespace">EasyCorp\Bundle\EasyAdminBundle</parameter>
+      </parameter>
+      <parameter key="MercurySeriesFlashyBundle" type="collection">
+        <parameter key="path">C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\mercuryseries\flashy-bundle\src</parameter>
+        <parameter key="namespace">MercurySeries\FlashyBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -2059,6 +2064,7 @@
           <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\symfony\monolog-bundle/translations</argument>
           <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\symfony\maker-bundle\src/translations</argument>
           <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\sensio\framework-extra-bundle\src/translations</argument>
+          <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\mercuryseries\flashy-bundle\src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -2078,6 +2084,7 @@
             <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\symfony\monolog-bundle/translations</argument>
             <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\sensio\framework-extra-bundle\src/translations</argument>
+            <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\mercuryseries\flashy-bundle\src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4983,6 +4990,14 @@
         <argument>!EasyAdmin</argument>
       </call>
       <call method="addPath">
+        <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\mercuryseries\flashy-bundle\src/Resources/views</argument>
+        <argument>MercurySeriesFlashy</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth\vendor\mercuryseries\flashy-bundle\src/Resources/views</argument>
+        <argument>!MercurySeriesFlashy</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\Users\yasmi\Pidev WeHealth\WeHealth/templates</argument>
       </call>
       <call method="addPath">
@@ -6402,6 +6417,13 @@
     </service>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Asset\AssetPackage" class="EasyCorp\Bundle\EasyAdminBundle\Asset\AssetPackage">
       <tag name="assets.package" package="easyadmin.assets.package"/>
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id="mercuryseries_flashy.flashy_notifier" class="MercurySeries\FlashyBundle\FlashyNotifier" public="true">
+      <argument type="service" id="mercuryseries_flashy.symfony_session_store"/>
+      <argument>mercuryseries_flashy_notification</argument>
+    </service>
+    <service id="mercuryseries_flashy.symfony_session_store" class="MercurySeries\FlashyBundle\SymfonySessionStore">
       <argument type="service" id="request_stack"/>
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\ArticleCrudController" class="App\Controller\Admin\ArticleCrudController" autowire="true" abstract="true"/>
@@ -9223,6 +9245,8 @@
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default"/>
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcherInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher"/>
+    <service id="mercuryseries_flashy.session_store" alias="mercuryseries_flashy.symfony_session_store"/>
+    <service id="MercurySeries\FlashyBundle\FlashyNotifier" alias="mercuryseries_flashy.flashy_notifier"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.MNxxy9e"/>

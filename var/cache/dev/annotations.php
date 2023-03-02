@@ -168,8 +168,8 @@ return [[
 '[C]App%5CController%5CArticleController%23index' => 1,
 'App%5CController%5CArticleController%23new' => 0,
 '[C]App%5CController%5CArticleController%23new' => 1,
-'App%5CController%5CArticleController%23showFront' => 2,
-'[C]App%5CController%5CArticleController%23showFront' => 1,
+'App%5CController%5CArticleController%23showf' => 0,
+'[C]App%5CController%5CArticleController%23showf' => 1,
 'App%5CController%5CArticleController%23show' => 0,
 '[C]App%5CController%5CArticleController%23show' => 1,
 'App%5CController%5CArticleController%23edit' => 0,
@@ -182,7 +182,7 @@ return [[
 '[C]App%5CController%5CArticleController%24doctrine' => 1,
 'App%5CController%5CBlogController' => 0,
 '[C]App%5CController%5CBlogController' => 1,
-'App%5CController%5CBlogController%23index' => 3,
+'App%5CController%5CBlogController%23index' => 2,
 '[C]App%5CController%5CBlogController%23index' => 1,
 'App%5CController%5CCategorieController' => 0,
 '[C]App%5CController%5CCategorieController' => 1,
@@ -1088,60 +1088,8 @@ return [[
 ], [
 
 0 => [],
-1 => 1677718924,
+1 => 1677759872,
 2 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
-        ],
-        null,
-        [
-            'Symfony\\Component\\Routing\\Annotation\\Route' => [
-                'path' => [
-                    '/article/{id}',
-                ],
-                'methods' => [
-                    [
-                        'GET',
-                        'POST',
-                    ],
-                ],
-                'schemes' => [
-                    [],
-                ],
-                'name' => [
-                    'article_show',
-                ],
-                'requirements' => [
-                    [],
-                ],
-                'options' => [
-                    [],
-                ],
-                'defaults' => [
-                    [],
-                ],
-                'host' => [
-                    null,
-                ],
-                'condition' => [
-                    null,
-                ],
-                'priority' => [
-                    null,
-                ],
-                'env' => [
-                    null,
-                ],
-            ],
-        ],
-        [
-            $o[0],
-        ],
-        []
-    );
-},
-3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),

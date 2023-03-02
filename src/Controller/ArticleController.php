@@ -47,6 +47,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $articleRepository->save($article, true);
+            $this->addFlash('success', 'success');
 
             return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -56,7 +57,7 @@ class ArticleController extends AbstractController
             'form' => $form,
         ]);
     }
-   
+
 
     #[Route('/article/{id}', name: 'article_show')]
     public function showf(?Article $article): Response
@@ -109,7 +110,7 @@ class ArticleController extends AbstractController
     #[Route('/ArticlePdf/{id}', name: 'app_PdfArticle')]
     public function impressionPDF(ManagerRegistry $doctrine, ArticleRepository $repo, $id)
     {
-       
+
         dump($id); // Ajout de la fonction dump() pour afficher la valeur de $id
         $article = $repo->find($id);
 
