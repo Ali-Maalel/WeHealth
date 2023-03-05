@@ -43,9 +43,18 @@ class User
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
     private Collection $comments;
 
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: ArticleLike::class)]
+    private Collection $user;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ArticleLike::class)]
+    private Collection $articleLikes;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->user = new ArrayCollection();
+        $this->articleLikes = new ArrayCollection();
+       
     }
 
     public function getId(): ?int
@@ -183,4 +192,43 @@ class User
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->getId(); 
+    }
+
+    /**
+     * @return Collection<int, ArticleLike>
+     */
+    public function getArticleLikes(): Collection
+    {
+        return $this->articleLikes;
+    }
+
+    public function addArticleLike(ArticleLike $articleLike): self
+    {
+        if (!$this->articleLikes->contains($articleLike)) {
+            $this->articleLikes->add($articleLike);
+            $articleLike->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticleLike(ArticleLike $articleLike): self
+    {
+        if ($this->articleLikes->removeElement($articleLike)) {
+            // set the owning side to null (unless already changed)
+            if ($articleLike->getUser() === $this) {
+                $articleLike->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+  
+   
+
+   
 }

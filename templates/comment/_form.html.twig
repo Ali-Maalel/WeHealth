@@ -1,4 +1,54 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'baseadmin.html.twig'%}
+{% block body%}
+	<main class="app-content">
+		<div class="app-title">
+			<div>
+				<h1>
+					<i class="fa fa-edit"></i>
+					Commenter</h1>
+
+			</div>
+			<ul class="app-breadcrumb breadcrumb">
+				<li class="breadcrumb-item">
+					<i class="fa fa-home fa-lg"></i>
+				</li>
+				<li class="breadcrumb-item">Forms</li>
+				<li class="breadcrumb-item">
+					<a href="#">Form Components</a>
+				</li>
+			</ul>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="tile mt-3">
+					{{ form_start(form) }}
+							<div class="form-group">
+								<label for="exampleInputEmail1">Commentaire</label>
+								{{form_widget(form.contenu,{'attr':{'class':'form-control','id':'exampleInputEmail1'}})}}
+							</div>
+                              <div class="form-group">
+                            <label for="exampleSelect1">createdAt</label>
+                            {{form_widget(form.createdAt,{'attr':{'class':'form-control' ,}})}}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect1">Article</label>
+                            {{form_widget(form.article,{'attr':{'class':'form-control'}})}}
+                        </div>
+                         <div class="form-group">
+                            <label for="exampleSelect1">User</label>
+                            {{form_widget(form.user,{'attr':{'class':'form-control'}})}}
+                        </div>
+							
+						</select>
+					
+				
+		</div>
+
+	</div>
+	<div class="tile-footer">
+		<button class="btn btn-primary">{{ button_label|default('ajouter') }}</button>
+		{{ form_end(form) }}
+	</div>
+
+</div></div></div></main>{% endblock %}
+

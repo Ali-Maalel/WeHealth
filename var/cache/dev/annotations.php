@@ -54,6 +54,10 @@ return [[
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%23addLink' => 1,
 'Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%24container' => 0,
 '[C]Symfony%5CBundle%5CFrameworkBundle%5CController%5CAbstractController%24container' => 1,
+'App%5CController%5CAdminController' => 0,
+'[C]App%5CController%5CAdminController' => 1,
+'App%5CController%5CAdminController%23index' => 0,
+'[C]App%5CController%5CAdminController%23index' => 1,
 'App%5CController%5CAdmin%5CArticleCrudController' => 0,
 '[C]App%5CController%5CAdmin%5CArticleCrudController' => 1,
 'App%5CController%5CAdmin%5CArticleCrudController%23getEntityFqcn' => 0,
@@ -166,6 +170,8 @@ return [[
 '[C]App%5CController%5CArticleController%23__construct' => 1,
 'App%5CController%5CArticleController%23index' => 0,
 '[C]App%5CController%5CArticleController%23index' => 1,
+'App%5CController%5CArticleController%23view_article_content' => 0,
+'[C]App%5CController%5CArticleController%23view_article_content' => 1,
 'App%5CController%5CArticleController%23new' => 0,
 '[C]App%5CController%5CArticleController%23new' => 1,
 'App%5CController%5CArticleController%23showf' => 0,
@@ -214,6 +220,8 @@ return [[
 '[C]App%5CController%5CCommentController%23edit' => 1,
 'App%5CController%5CCommentController%23delete' => 0,
 '[C]App%5CController%5CCommentController%23delete' => 1,
+'App%5CController%5CCommentController%23comment' => 0,
+'[C]App%5CController%5CCommentController%23comment' => 1,
 'App%5CController%5CNumMediaController' => 0,
 '[C]App%5CController%5CNumMediaController' => 1,
 'App%5CController%5CNumMediaController%23index' => 0,
@@ -276,6 +284,8 @@ return [[
 '[C]App%5CEntity%5CArticle%23getFeaturedImage' => 1,
 'App%5CEntity%5CArticle%23setFeaturedImage' => 0,
 '[C]App%5CEntity%5CArticle%23setFeaturedImage' => 1,
+'App%5CEntity%5CArticle%23__toString' => 0,
+'[C]App%5CEntity%5CArticle%23__toString' => 1,
 'App%5CEntity%5CArticle%24id' => 0,
 '[C]App%5CEntity%5CArticle%24id' => 1,
 'App%5CEntity%5CArticle%24Titre' => 0,
@@ -362,6 +372,8 @@ return [[
 '[C]App%5CEntity%5CUser%23addComment' => 1,
 'App%5CEntity%5CUser%23removeComment' => 0,
 '[C]App%5CEntity%5CUser%23removeComment' => 1,
+'App%5CEntity%5CUser%23__toString' => 0,
+'[C]App%5CEntity%5CUser%23__toString' => 1,
 'App%5CEntity%5CCoach%24id' => 0,
 '[C]App%5CEntity%5CCoach%24id' => 1,
 'App%5CEntity%5CCoach%24CIN' => 0,
@@ -1088,7 +1100,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1677759872,
+1 => 1677945021,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [

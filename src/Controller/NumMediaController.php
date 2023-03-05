@@ -5,10 +5,13 @@ namespace App\Controller;
 use App\Entity\NumMedia;
 use App\Form\NumMediaType;
 use App\Repository\NumMediaRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/num/media')]
 class NumMediaController extends AbstractController
@@ -75,4 +78,6 @@ class NumMediaController extends AbstractController
 
         return $this->redirectToRoute('app_num_media_index', [], Response::HTTP_SEE_OTHER);
     }
+    
+   
 }

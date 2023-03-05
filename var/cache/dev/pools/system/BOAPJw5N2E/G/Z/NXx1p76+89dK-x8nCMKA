@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CArticle%2523addArticleLike
+
+return [PHP_INT_MAX, []];

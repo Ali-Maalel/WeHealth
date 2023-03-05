@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9e4e4d884c06cbf4a34384af17387809694ed209',
+        'reference' => '313c61087dacadd1fad830b508a6459eef1f4c6b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9e4e4d884c06cbf4a34384af17387809694ed209',
+            'reference' => '313c61087dacadd1fad830b508a6459eef1f4c6b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.6.0',
-            'version' => '3.6.0.0',
-            'reference' => '85b98cb23c8af471a67abfe14485da696bcabc2e',
+            'pretty_version' => '3.6.1',
+            'version' => '3.6.1.0',
+            'reference' => '57815c7bbcda3cd18871d253c1dd8cbe56f8526e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
@@ -200,9 +200,9 @@
             'dev_requirement' => false,
         ),
         'laminas/laminas-code' => array(
-            'pretty_version' => '4.8.0',
-            'version' => '4.8.0.0',
-            'reference' => 'dd19fe8e07cc3f374308565667eecd4958c22106',
+            'pretty_version' => '4.9.0',
+            'version' => '4.9.0.0',
+            'reference' => 'c1706ecde17f87ae8bab169c4b88006c9253d3a5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laminas/laminas-code',
             'aliases' => array(),
@@ -677,7 +677,7 @@
         'symfony/cache-contracts' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
-            'reference' => '668f6bbdfd450c5a54ce240bf856c71860a43319',
+            'reference' => 'eeb71f04b6f7f34ca6d15633df82e014528b1632',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/cache-contracts',
             'aliases' => array(),
@@ -737,7 +737,7 @@
         'symfony/deprecation-contracts' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
-            'reference' => '0121954c80fd17c18cf050fe73360e63bb43d4fb',
+            'reference' => 'e2d1534420bd723d0ef5aec58a22c5fe60ce6f5e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/deprecation-contracts',
             'aliases' => array(),
@@ -800,7 +800,7 @@
         'symfony/event-dispatcher-contracts' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
-            'reference' => '2265d0faa6d870182dd8c65e40d3dfbc34e79b26',
+            'reference' => '0ad3b6f1e4e2da5690fefe075cd53a238646d8dd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/event-dispatcher-contracts',
             'aliases' => array(),
@@ -878,7 +878,7 @@
         'symfony/http-client-contracts' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
-            'reference' => '3d816e74cc07fbb8873960b6e5da1282b407a3c2',
+            'reference' => 'df2ecd6cb70e73c1080e6478aea85f5f4da2c48b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-client-contracts',
             'aliases' => array(),
@@ -1205,7 +1205,7 @@
         'symfony/service-contracts' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
-            'reference' => 'aee5f59db63978f7785290b94d2f12286b1b590a',
+            'reference' => 'a8c9cedf55f314f3a186041d19537303766df09a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/service-contracts',
             'aliases' => array(),
@@ -1247,7 +1247,7 @@
         'symfony/translation-contracts' => array(
             'pretty_version' => 'v3.2.1',
             'version' => '3.2.1.0',
-            'reference' => '1f40e77fbb12a16d841688f42fecefd8ceb43ed6',
+            'reference' => 'dfec258b9dd17a6b24420d464c43bffe347441c8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/translation-contracts',
             'aliases' => array(),

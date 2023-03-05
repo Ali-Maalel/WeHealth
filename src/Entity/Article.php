@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -17,12 +18,16 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le titre ne doit pas être vide.')]
+    #[Assert\Length(max: 255, maxMessage: 'Le titre ne doit pas dépasser {{ limit }} caractères.')]
     private ?string $Titre = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\NotBlank(message: 'Le contenu ne doit pas être vide.')]
     private ?string $Contenu = null;
 
     #[ORM\Column(length: 100, nullable: true)]
+    #[Assert\Length(max: 100, maxMessage: 'Le texte en vedette ne doit pas dépasser {{ limit }} caractères.')]
     private ?string $featuredText = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -41,9 +46,15 @@ class Article
     #[ORM\ManyToOne]
     private ?NumMedia $featuredImage = null;
 
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: ArticleLike::class)]
+    private Collection $articleLikes;
+
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->articleLikes = new ArrayCollection();
+      
     }
 
     public function getId(): ?int
@@ -164,4 +175,41 @@ class Article
 
         return $this;
     }
+    public function __toString(): string
+{
+    return $this->getTitre(); 
+}
+
+    /**
+     * @return Collection<int, ArticleLike>
+     */
+    public function getArticleLikes(): Collection
+    {
+        return $this->articleLikes;
+    }
+
+    public function addArticleLike(ArticleLike $articleLike): self
+    {
+        if (!$this->articleLikes->contains($articleLike)) {
+            $this->articleLikes->add($articleLike);
+            $articleLike->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticleLike(ArticleLike $articleLike): self
+    {
+        if ($this->articleLikes->removeElement($articleLike)) {
+            // set the owning side to null (unless already changed)
+            if ($articleLike->getArticle() === $this) {
+                $articleLike->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+ 
+
 }

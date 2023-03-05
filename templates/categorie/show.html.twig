@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
 {% block title %}Categorie{% endblock %}
 
@@ -23,4 +23,8 @@
     <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
 
     {{ include('categorie/_delete_form.html.twig') }}
+    	</table>
+				<a href="{{ path('app_categorie_new') }}">Create new</a>
+			</div>
+		</div>
 {% endblock %}

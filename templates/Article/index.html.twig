@@ -1,43 +1,69 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Article index
+{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success text-center">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('error') %}
+		<div class="alert alert-danger text-center">
+			{{ message }}
+		</div>
+	{% endfor %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>FeaturedText</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.Titre }}</td>
-                <td>{{ article.Contenu }}</td>
-                <td>{{ article.featuredText }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="col-md-12" style="margin-top: 20px;">
+		<div class="tile">
+			<a class="btn btn-primary float-right" href="{{ path('app_article_new') }}">Create new</a>
 
-    <a href="{{ path('app_article_new') }}">Create new</a>
+			<div class="table-responsive">
+				<table class="table" style="width: 70%; margin: 0 auto;">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Titre</th>
+							<th>Contenu</th>
+							<th>FeaturedText</th>
+							<th>CreatedAt</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for article in articles %}
+							<tr>
+								<td>{{ article.id }}</td>
+								<td>{{ article.Titre }}</td>
+								<td>
+									<a class="btn btn-primary" href="{{ path('view_article_content', {'id': article.id}) }}#content">View Content</a>
+								</td>
+								<td>{{ article.featuredText }}</td>
+								<td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+								<td>
+									<a class="btn btn-primary" href="{{ path('app_article_edit', {'id': article.id}) }}">Edit</a>
+									{% include 'article/_delete_form.html.twig' with {'id': article.id} %}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+$('a.btn').click(function (e) {
+e.preventDefault();
+var url = $(this).data('url');
+$.get(url, function (data) {
+var modal = $('<div class="modal"><div class="modal-content">' + data + '</div></div>');
+modal.appendTo($('body'));
+modal.show();
+});
+});
+});
+	</script>
 {% endblock %}

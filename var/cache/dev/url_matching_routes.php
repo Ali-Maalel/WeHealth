@@ -14,7 +14,8 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
+        '/admin' => [[['_route' => 'app_admin', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null]],
+        '/adminy' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
         '/article' => [[['_route' => 'app_article_index', '_controller' => 'App\\Controller\\ArticleController::index'], null, ['GET' => 0], null, true, false, null]],
         '/article/new' => [[['_route' => 'app_article_new', '_controller' => 'App\\Controller\\ArticleController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/blog' => [[['_route' => 'app_blog', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, false, false, null]],
@@ -46,33 +47,36 @@ return [
                     .')'
                 .')'
                 .'|/article/(?'
-                    .'|article/([^/]++)(*:197)'
+                    .'|view_content/([^/]++)(*:202)'
+                    .'|article/([^/]++)(*:226)'
                     .'|([^/]++)(?'
-                        .'|(*:216)'
-                        .'|/edit(*:229)'
-                        .'|(*:237)'
+                        .'|(*:245)'
+                        .'|/edit(*:258)'
+                        .'|(*:266)'
                     .')'
-                    .'|ArticlePdf/([^/]++)(*:265)'
+                    .'|ArticlePdf/([^/]++)(*:294)'
+                    .'|likeArticle/([^/]++)(*:322)'
+                    .'|dislikeArticle/([^/]++)(*:353)'
                 .')'
                 .'|/c(?'
                     .'|ategorie/(?'
                         .'|([^/]++)(?'
-                            .'|(*:302)'
-                            .'|/edit(*:315)'
+                            .'|(*:390)'
+                            .'|/edit(*:403)'
                         .')'
-                        .'|categorie/([^/]++)(*:342)'
-                        .'|([^/]++)(*:358)'
+                        .'|categorie/([^/]++)(*:430)'
+                        .'|([^/]++)(*:446)'
                     .')'
                     .'|omment/([^/]++)(?'
-                        .'|(*:385)'
-                        .'|/edit(*:398)'
-                        .'|(*:406)'
+                        .'|(*:473)'
+                        .'|/edit(*:486)'
+                        .'|(*:494)'
                     .')'
                 .')'
                 .'|/num/media/([^/]++)(?'
-                    .'|(*:438)'
-                    .'|/edit(*:451)'
-                    .'|(*:459)'
+                    .'|(*:526)'
+                    .'|/edit(*:539)'
+                    .'|(*:547)'
                 .')'
             .')/?$}sDu',
     ],
@@ -84,21 +88,24 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        197 => [[['_route' => 'article_show', '_controller' => 'App\\Controller\\ArticleController::showf'], ['id'], null, null, false, true, null]],
-        216 => [[['_route' => 'app_article_show', '_controller' => 'App\\Controller\\ArticleController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        229 => [[['_route' => 'app_article_edit', '_controller' => 'App\\Controller\\ArticleController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        237 => [[['_route' => 'app_article_delete', '_controller' => 'App\\Controller\\ArticleController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        265 => [[['_route' => 'app_PdfArticle', '_controller' => 'App\\Controller\\ArticleController::impressionPDF'], ['id'], null, null, false, true, null]],
-        302 => [[['_route' => 'app_categorie_show', '_controller' => 'App\\Controller\\CategorieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        315 => [[['_route' => 'app_categorie_edit', '_controller' => 'App\\Controller\\CategorieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        342 => [[['_route' => 'categorie_show', '_controller' => 'App\\Controller\\CategorieController::showf'], ['id'], null, null, false, true, null]],
-        358 => [[['_route' => 'app_categorie_delete', '_controller' => 'App\\Controller\\CategorieController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        385 => [[['_route' => 'app_comment_show', '_controller' => 'App\\Controller\\CommentController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        398 => [[['_route' => 'app_comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        406 => [[['_route' => 'app_comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        438 => [[['_route' => 'app_num_media_show', '_controller' => 'App\\Controller\\NumMediaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        451 => [[['_route' => 'app_num_media_edit', '_controller' => 'App\\Controller\\NumMediaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        459 => [
+        202 => [[['_route' => 'view_article_content', '_controller' => 'App\\Controller\\ArticleController::view_article_content'], ['id'], null, null, false, true, null]],
+        226 => [[['_route' => 'article_show', '_controller' => 'App\\Controller\\ArticleController::showf'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        245 => [[['_route' => 'app_article_show', '_controller' => 'App\\Controller\\ArticleController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        258 => [[['_route' => 'app_article_edit', '_controller' => 'App\\Controller\\ArticleController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        266 => [[['_route' => 'app_article_delete', '_controller' => 'App\\Controller\\ArticleController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        294 => [[['_route' => 'app_PdfArticle', '_controller' => 'App\\Controller\\ArticleController::impressionPDF'], ['id'], null, null, false, true, null]],
+        322 => [[['_route' => 'article_like', '_controller' => 'App\\Controller\\ArticleController::likeArticle'], ['id'], null, null, false, true, null]],
+        353 => [[['_route' => 'article_dislike', '_controller' => 'App\\Controller\\ArticleController::dislikeArticle'], ['id'], null, null, false, true, null]],
+        390 => [[['_route' => 'app_categorie_show', '_controller' => 'App\\Controller\\CategorieController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        403 => [[['_route' => 'app_categorie_edit', '_controller' => 'App\\Controller\\CategorieController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        430 => [[['_route' => 'categorie_show', '_controller' => 'App\\Controller\\CategorieController::showf'], ['id'], null, null, false, true, null]],
+        446 => [[['_route' => 'app_categorie_delete', '_controller' => 'App\\Controller\\CategorieController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        473 => [[['_route' => 'app_comment_show', '_controller' => 'App\\Controller\\CommentController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        486 => [[['_route' => 'app_comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        494 => [[['_route' => 'app_comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        526 => [[['_route' => 'app_num_media_show', '_controller' => 'App\\Controller\\NumMediaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        539 => [[['_route' => 'app_num_media_edit', '_controller' => 'App\\Controller\\NumMediaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        547 => [
             [['_route' => 'app_num_media_delete', '_controller' => 'App\\Controller\\NumMediaController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -2,20 +2,33 @@
 
 namespace App\Form;
 
+use App\Entity\Article;
 use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('contenu')
-            ->add('createdAt')
-            ->add('article')
-            ->add('user');
+            ->add('contenu', TextareaType::class, [
+                'label' => 'Votre message'
+            ])
+          //  ->add('article', HiddenType::class)
+            ->add('send', SubmitType::class, [
+                'label' => 'Envoyer'
+            ]);
+
+
+        //  ->add('createdAt')
+        //  ->add('article')
+        //  ->add('user');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

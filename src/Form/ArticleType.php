@@ -15,8 +15,8 @@ class ArticleType extends AbstractType
             ->add('Titre')
             ->add('Contenu')
             ->add('featuredText')
-            ->add('createdAt')
-            ->add('updatedAt')
+           // ->add('createdAt')
+           // ->add('updatedAt')
             ->add('categorie')
             ->add('featuredImage')
         ;
