@@ -108,16 +108,16 @@ class __TwigTemplate_cf8324a47497afc6ef73abe260e02b14 extends Template
 \t\t\t\t\t\t<div class=\"col-xl-4 col-lg-4 col-md-6 col-sm-12\">
 \t\t\t\t\t\t\t<div class=\"single-footer-caption\">
 \t\t\t\t\t\t\t\t<div class=\"footer-tittle mb-50\">
-\t\t\t\t\t\t\t\t\t<h4>Subscribe newsletter</h4>
+\t\t\t\t\t\t\t\t\t<h4>S'inscrire ici</h4>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<!-- Form -->
 \t\t\t\t\t\t\t\t<div class=\"footer-form\">
 \t\t\t\t\t\t\t\t\t<div id=\"mc_embed_signup\">
 \t\t\t\t\t\t\t\t\t\t<form target=\"_blank\" action=\"https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01\" method=\"get\" class=\"subscribe_form relative mail_part\" novalidate=\"true\">
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" name=\"EMAIL\" id=\"newsletter-form-email\" placeholder=\" Email Address \" class=\"placeholder hide-on-focus\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Enter your email'\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" name=\"EMAIL\" id=\"newsletter-form-email\" placeholder=\" Address Email  \" class=\"placeholder hide-on-focus\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Entre ton email'\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"form-icon\">
 \t\t\t\t\t\t\t\t\t\t\t\t<button type=\"submit\" name=\"submit\" id=\"newsletter-submit\" class=\"email_icon newsletter-submit button-contactForm\">
-\t\t\t\t\t\t\t\t\t\t\t\t\tSubscribe
+\t\t\t\t\t\t\t\t\t\t\t\t\tS'inscrire
 \t\t\t\t\t\t\t\t\t\t\t\t</button>
 \t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"mt-10 info\"></div>
@@ -126,7 +126,7 @@ class __TwigTemplate_cf8324a47497afc6ef73abe260e02b14 extends Template
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"footer-tittle\">
 \t\t\t\t\t\t\t\t\t<div class=\"footer-pera\">
-\t\t\t\t\t\t\t\t\t\t<p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium misem ut ipsum.</p>
+\t\t\t\t\t\t\t\t\t\t<p>Inscris toi pour plus d'information et avoir des conseils de proffessionnels sante.</p>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
@@ -230,16 +230,16 @@ class __TwigTemplate_cf8324a47497afc6ef73abe260e02b14 extends Template
 \t\t\t\t\t\t<div class=\"col-xl-4 col-lg-4 col-md-6 col-sm-12\">
 \t\t\t\t\t\t\t<div class=\"single-footer-caption\">
 \t\t\t\t\t\t\t\t<div class=\"footer-tittle mb-50\">
-\t\t\t\t\t\t\t\t\t<h4>Subscribe newsletter</h4>
+\t\t\t\t\t\t\t\t\t<h4>S'inscrire ici</h4>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<!-- Form -->
 \t\t\t\t\t\t\t\t<div class=\"footer-form\">
 \t\t\t\t\t\t\t\t\t<div id=\"mc_embed_signup\">
 \t\t\t\t\t\t\t\t\t\t<form target=\"_blank\" action=\"https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01\" method=\"get\" class=\"subscribe_form relative mail_part\" novalidate=\"true\">
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" name=\"EMAIL\" id=\"newsletter-form-email\" placeholder=\" Email Address \" class=\"placeholder hide-on-focus\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Enter your email'\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"email\" name=\"EMAIL\" id=\"newsletter-form-email\" placeholder=\" Address Email  \" class=\"placeholder hide-on-focus\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Entre ton email'\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"form-icon\">
 \t\t\t\t\t\t\t\t\t\t\t\t<button type=\"submit\" name=\"submit\" id=\"newsletter-submit\" class=\"email_icon newsletter-submit button-contactForm\">
-\t\t\t\t\t\t\t\t\t\t\t\t\tSubscribe
+\t\t\t\t\t\t\t\t\t\t\t\t\tS'inscrire
 \t\t\t\t\t\t\t\t\t\t\t\t</button>
 \t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"mt-10 info\"></div>
@@ -248,7 +248,7 @@ class __TwigTemplate_cf8324a47497afc6ef73abe260e02b14 extends Template
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"footer-tittle\">
 \t\t\t\t\t\t\t\t\t<div class=\"footer-pera\">
-\t\t\t\t\t\t\t\t\t\t<p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium misem ut ipsum.</p>
+\t\t\t\t\t\t\t\t\t\t<p>Inscris toi pour plus d'information et avoir des conseils de proffessionnels sante.</p>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>

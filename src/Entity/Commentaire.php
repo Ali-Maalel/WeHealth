@@ -46,7 +46,11 @@ class Commentaire
 
 
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAT(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+    public function getCreated_at(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
@@ -60,6 +64,10 @@ class Commentaire
     public function getUpdateAt(): ?\DateTimeInterface
     {
         return $this->update_at;
+    }
+    public function getUpdate_at(): ?\DateTimeInterface
+    {
+        return $this->created_at;
     }
     public function setUpdateAt(\DateTimeInterface $update_at): self
     {

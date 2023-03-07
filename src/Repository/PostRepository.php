@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Post;
+use App\Entity\Topic;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -53,6 +54,46 @@ class PostRepository extends ServiceEntityRepository
         ;
     }
 
+    public function getCount()
+    {
+        $db = $this->createQueryBuilder('a');
+        $db
+            ->select( 'a', 't')
+            ->from('App\Entity\Topic', 't')
+            ->innerJoin('a.topic', 'j')
+            ->addSelect('COUNT(j) as count')
+            ->groupBy('a.topic')
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(30);
+        $result = $db->getQuery()->getResult();
+        return $result;
+    }
+
+    private function findByCaseInsensitiveQuery(array $conditions): Query
+    {
+        $conditionString = [];
+        $parameters = [];
+        foreach ($conditions as $k => $v) {
+            $conditionString[] = "LOWER(o.$k) = :$k";
+            $parameters[$k] = strtolower((string) $v);
+        }
+
+        return $this->createQueryBuilder('o')
+            ->where(join(' AND ', $conditionString))
+            ->setParameters($parameters)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function search($mots){
+        $query = $this->createQueryBuilder('p');
+        if($mots != null){
+            $query->where('MATCH_AGAINST(p.content, p.titre, p.auteur) AGAINST (:mots boolean)>0')
+            ->setParameter('mots', $mots);
+        }
+        return $query->getQuery()->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Post
 //    {
 //        return $this->createQueryBuilder('p')
@@ -62,4 +103,10 @@ class PostRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+/*
+->addSelect('COUNT(p) as count')
+            ->groupBy('p.topic')
+            ->orderBy('p.id', 'DESC')
+*/ 
 }

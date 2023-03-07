@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Topic;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,6 +16,7 @@ class Topic1Type extends AbstractType
         $builder
             ->add('slug')
             ->add('libelle')
+            ->add('save',SubmitType::class)
         ;
     }
 

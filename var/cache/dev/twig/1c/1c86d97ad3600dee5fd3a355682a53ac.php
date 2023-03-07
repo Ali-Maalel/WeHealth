@@ -71,7 +71,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t\t<!-- Logo -->
 \t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
 \t\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t\t<a href=\"index.html\"><img class=\"logowehealth \"src=\"assets/img/logo/applogo.png\" alt=\"\" width=\"110\" height=\"70\"></a>
+\t\t\t\t\t\t\t\t<a href=\"index.html\"><img class=\"logowehealth \"src=\"assets/img/logo/loder.png\" alt=\"\" width=\"110\" height=\"70\"></a>
 
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
@@ -165,7 +165,7 @@ class __TwigTemplate_f108deb58a0c6fb7debbe41c8830918f extends Template
 \t\t\t\t\t\t<!-- Logo -->
 \t\t\t\t\t\t<div class=\"col-xl-2 col-lg-2 col-md-1\">
 \t\t\t\t\t\t\t<div class=\"logo\">
-\t\t\t\t\t\t\t\t<a href=\"index.html\"><img class=\"logowehealth \"src=\"assets/img/logo/applogo.png\" alt=\"\" width=\"110\" height=\"70\"></a>
+\t\t\t\t\t\t\t\t<a href=\"index.html\"><img class=\"logowehealth \"src=\"assets/img/logo/loder.png\" alt=\"\" width=\"110\" height=\"70\"></a>
 
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>

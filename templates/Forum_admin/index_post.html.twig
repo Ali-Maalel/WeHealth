@@ -1,0 +1,51 @@
+{% extends 'Forum_admin/Forum_layout.html.twig' %}
+{% block entete %}Liste des Posts {% endblock %}
+
+{% block contenu %}
+<div class="row">
+    {{ form(form) }}
+    <div class="clearfix"></div>
+        <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">Liste de tous les Posts</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Topics</th>
+                    <th>Auteur</th>
+                    <th>Create Date</th>
+                    <th>Contenue</th>
+                    
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for post in forum_items %}
+                  <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.titre }}</td>
+                    <td>{{ post.topic.libelle }}</td>
+                    <td>{{ post.auteur }}</td>
+                    <td>{{ post.created_at|date("m/d/Y")  }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>
+                        <div class="bs-component" style="margin-bottom: 15px;">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{{ path('app_post_edit_admin', {'id': post.id}) }}" class="btn btn-secondary" type="button">edit</a>
+                            <a href="{{ path('app_post_delete', {'id': post.id}) }}" class="btn btn-secondary" type="button">delete</a>
+                        </div>
+                        </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+</div>
+{% endblock %}

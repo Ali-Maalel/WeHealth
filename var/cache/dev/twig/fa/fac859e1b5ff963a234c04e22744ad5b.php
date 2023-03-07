@@ -100,8 +100,8 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
 \t\t\t\t\t\t\t\t<div class=\"hero-wrapper\">
 \t\t\t\t\t\t\t\t\t<div class=\"hero__caption\">
 \t\t\t\t\t\t\t\t\t\t<h1 data-animation=\"fadeInUp\" data-delay=\".3s\">Blog</h1>
-\t\t\t\t\t\t\t\t\t\t<p data-animation=\"fadeInUp\" data-delay=\".6s\">Almost before we knew it, we<br>
-\t\t\t\t\t\t\t\t\t\t\thad left the ground</p>
+\t\t\t\t\t\t\t\t\t\t<p data-animation=\"fadeInUp\" data-delay=\".6s\">Information et temoignage des patients, et<br>
+\t\t\t\t\t\t\t\t\t\t\tleurs proches.</p>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
@@ -531,8 +531,8 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
 \t\t\t\t\t\t\t\t<div class=\"hero-wrapper\">
 \t\t\t\t\t\t\t\t\t<div class=\"hero__caption\">
 \t\t\t\t\t\t\t\t\t\t<h1 data-animation=\"fadeInUp\" data-delay=\".3s\">Blog</h1>
-\t\t\t\t\t\t\t\t\t\t<p data-animation=\"fadeInUp\" data-delay=\".6s\">Almost before we knew it, we<br>
-\t\t\t\t\t\t\t\t\t\t\thad left the ground</p>
+\t\t\t\t\t\t\t\t\t\t<p data-animation=\"fadeInUp\" data-delay=\".6s\">Information et temoignage des patients, et<br>
+\t\t\t\t\t\t\t\t\t\t\tleurs proches.</p>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>

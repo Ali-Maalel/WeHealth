@@ -39,6 +39,29 @@ class TopicRepository extends ServiceEntityRepository
         }
     }
 
+    public function getCount(): array
+    {
+        $query = $this->createQueryBuilder('t')
+        ->addSelect('p') // to make Doctrine actually use the join
+        ->leftJoin('t.posts', 'p.id')
+        ->where('r.foo = :parameter')
+        ->setParameter('parameter', $parameter)
+        ->getQuery();
+
+    return $query->getResult();
+    }
+
+    public function retrieveHydratedTopics()
+    {
+        return $this->createQueryBuilder('c')
+                    ->select('c, p')
+                    ->leftJoin('c.posts', 'p')
+                    ->getQuery()
+                    ->execute();
+    }
+
+
+
 //    /**
 //     * @return Topic[] Returns an array of Topic objects
 //     */
