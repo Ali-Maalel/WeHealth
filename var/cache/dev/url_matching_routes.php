@@ -22,19 +22,22 @@ return [
         '/blog' => [[['_route' => 'app_blog', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, false, false, null]],
         '/coach' => [[['_route' => 'app_coach_index', '_controller' => 'App\\Controller\\CoachController::index'], null, ['GET' => 0], null, true, false, null]],
         '/coach/coach/new' => [[['_route' => 'app_coach_new', '_controller' => 'App\\Controller\\CoachController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/evennement' => [[['_route' => 'app_evennement_index', '_controller' => 'App\\Controller\\EvennementController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/evennement/new' => [[['_route' => 'app_evennement_new', '_controller' => 'App\\Controller\\EvennementController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/patient' => [[['_route' => 'app_patient_index', '_controller' => 'App\\Controller\\PatientController::index'], null, ['GET' => 0], null, true, false, null]],
         '/patient/patient/new' => [[['_route' => 'app_patient_new', '_controller' => 'App\\Controller\\PatientController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/post' => [[['_route' => 'app_post_index', '_controller' => 'App\\Controller\\PostController::index'], null, ['GET' => 0], null, true, false, null]],
         '/post/new' => [[['_route' => 'app_post_new', '_controller' => 'App\\Controller\\PostController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/professionnel/sante' => [[['_route' => 'app_professionnel_sante_index', '_controller' => 'App\\Controller\\ProfessionnelSanteController::index'], null, ['GET' => 0], null, true, false, null]],
         '/professionnel/sante/new' => [[['_route' => 'app_professionnel_sante_new', '_controller' => 'App\\Controller\\ProfessionnelSanteController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
-        '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, null, null, false, false, null]],
+        '/registration' => [[['_route' => 'registration', '_controller' => 'App\\Controller\\RegistrationController::index'], null, null, null, false, false, null]],
         '/security' => [[['_route' => 'app_security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
         '/signup' => [[['_route' => 'app_signup', '_controller' => 'App\\Controller\\SignupController::index'], null, null, null, false, false, null]],
         '/signup/addUser' => [[['_route' => 'app_signup_addUser', '_controller' => 'App\\Controller\\SignupController::addUser'], null, null, null, false, false, null]],
         '/user' => [[['_route' => 'app_user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
         '/user/new' => [[['_route' => 'app_user_new', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/video' => [[['_route' => 'app_video_index', '_controller' => 'App\\Controller\\VideoController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/video/new' => [[['_route' => 'app_video_new', '_controller' => 'App\\Controller\\VideoController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [[['_route' => 'app_wehealth', '_controller' => 'App\\Controller\\WehealthController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -62,34 +65,44 @@ return [
                     .')'
                     .'|delete/([^/]++)(*:267)'
                 .')'
+                .'|/evennement/([^/]++)(?'
+                    .'|(*:299)'
+                    .'|/edit(*:312)'
+                    .'|(*:320)'
+                .')'
                 .'|/p(?'
                     .'|atient/patient/(?'
                         .'|([^/]++)(?'
-                            .'|(*:310)'
-                            .'|/edit(*:323)'
+                            .'|(*:363)'
+                            .'|/edit(*:376)'
                         .')'
-                        .'|delete/([^/]++)(*:347)'
+                        .'|delete/([^/]++)(*:400)'
                     .')'
                     .'|ost/([^/]++)(?'
-                        .'|(*:371)'
-                        .'|/edit(*:384)'
-                        .'|(*:392)'
+                        .'|(*:424)'
+                        .'|/edit(*:437)'
+                        .'|(*:445)'
                     .')'
                     .'|rofessionnel/sante/([^/]++)(?'
-                        .'|(*:431)'
-                        .'|/edit(*:444)'
-                        .'|(*:452)'
+                        .'|(*:484)'
+                        .'|/edit(*:497)'
+                        .'|(*:505)'
                     .')'
                 .')'
                 .'|/user/(?'
-                    .'|show/([^/]++)(*:484)'
-                    .'|([^/]++)/edit(*:505)'
-                    .'|delete/([^/]++)(*:528)'
-                    .'|blockUser/([^/]++)(*:554)'
+                    .'|show/([^/]++)(*:537)'
+                    .'|([^/]++)/edit(*:558)'
+                    .'|delete/([^/]++)(*:581)'
+                    .'|blockUser/([^/]++)(*:607)'
                     .'|u(?'
-                        .'|nblockUser/([^/]++)(*:585)'
-                        .'|sers/([^/]++)/unblock(*:614)'
+                        .'|nblockUser/([^/]++)(*:638)'
+                        .'|sers/([^/]++)/unblock(*:667)'
                     .')'
+                .')'
+                .'|/video/([^/]++)(?'
+                    .'|(*:695)'
+                    .'|/edit(*:708)'
+                    .'|(*:716)'
                 .')'
             .')/?$}sDu',
     ],
@@ -105,22 +118,28 @@ return [
         230 => [[['_route' => 'app_coach_show', '_controller' => 'App\\Controller\\CoachController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         243 => [[['_route' => 'app_coach_edit', '_controller' => 'App\\Controller\\CoachController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         267 => [[['_route' => 'app_coach_delete', '_controller' => 'App\\Controller\\CoachController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        310 => [[['_route' => 'app_patient_show', '_controller' => 'App\\Controller\\PatientController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        323 => [[['_route' => 'app_patient_edit', '_controller' => 'App\\Controller\\PatientController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        347 => [[['_route' => 'app_patient_delete', '_controller' => 'App\\Controller\\PatientController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        371 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        384 => [[['_route' => 'app_post_edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        392 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        431 => [[['_route' => 'app_professionnel_sante_show', '_controller' => 'App\\Controller\\ProfessionnelSanteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        444 => [[['_route' => 'app_professionnel_sante_edit', '_controller' => 'App\\Controller\\ProfessionnelSanteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        452 => [[['_route' => 'app_professionnel_sante_delete', '_controller' => 'App\\Controller\\ProfessionnelSanteController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        484 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        505 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        528 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        554 => [[['_route' => 'app_user_blockUser', '_controller' => 'App\\Controller\\UserController::blockUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        585 => [[['_route' => 'app_user_unblockUser', '_controller' => 'App\\Controller\\UserController::unblockUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        614 => [
-            [['_route' => 'admin_unblock_user', '_controller' => 'App\\Controller\\UserController::unblockUser'], ['id'], null, null, false, false, null],
+        299 => [[['_route' => 'app_evennement_show', '_controller' => 'App\\Controller\\EvennementController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        312 => [[['_route' => 'app_evennement_edit', '_controller' => 'App\\Controller\\EvennementController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        320 => [[['_route' => 'app_evennement_delete', '_controller' => 'App\\Controller\\EvennementController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        363 => [[['_route' => 'app_patient_show', '_controller' => 'App\\Controller\\PatientController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        376 => [[['_route' => 'app_patient_edit', '_controller' => 'App\\Controller\\PatientController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        400 => [[['_route' => 'app_patient_delete', '_controller' => 'App\\Controller\\PatientController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        424 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        437 => [[['_route' => 'app_post_edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        445 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        484 => [[['_route' => 'app_professionnel_sante_show', '_controller' => 'App\\Controller\\ProfessionnelSanteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        497 => [[['_route' => 'app_professionnel_sante_edit', '_controller' => 'App\\Controller\\ProfessionnelSanteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        505 => [[['_route' => 'app_professionnel_sante_delete', '_controller' => 'App\\Controller\\ProfessionnelSanteController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        537 => [[['_route' => 'app_user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        558 => [[['_route' => 'app_user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        581 => [[['_route' => 'app_user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        607 => [[['_route' => 'app_user_blockUser', '_controller' => 'App\\Controller\\UserController::blockUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        638 => [[['_route' => 'app_user_unblockUser', '_controller' => 'App\\Controller\\UserController::unblockUser'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        667 => [[['_route' => 'admin_unblock_user', '_controller' => 'App\\Controller\\UserController::unblockUser'], ['id'], null, null, false, false, null]],
+        695 => [[['_route' => 'app_video_show', '_controller' => 'App\\Controller\\VideoController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        708 => [[['_route' => 'app_video_edit', '_controller' => 'App\\Controller\\VideoController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        716 => [
+            [['_route' => 'app_video_delete', '_controller' => 'App\\Controller\\VideoController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

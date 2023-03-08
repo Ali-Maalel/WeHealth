@@ -23,11 +23,13 @@ class SecurityController extends AbstractController
     #[Route('/login', name: 'app_security_login')]
     public function login(Request $request, AuthenticationUtils $authenticationUtils)
     {
+        
         $form = $this->createForm(LoginFormType::class);
-
+        
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
                 //if ($user.login == $form.login)
+                
         }
 
         return $this->render('security/login.html.twig', [

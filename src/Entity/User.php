@@ -18,8 +18,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 50, unique: true)]
+    #[ORM\OneToOne( mappedBy:'user')]
     #[Assert\NotBlank(message: "your username is important")]
-    private ?string $login = null;
+    private ?string $Login = null;
 
     #[ORM\Column(length: 50)]
     private ?string $password = null;
@@ -55,12 +56,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getLogin(): ?string
     {
-        return $this->login;
+        return $this->Login;
     }
 
     public function setLogin(string $login): self
     {
-        $this->login = $login;
+        $this->Login = $login;
 
         return $this;
     }
