@@ -35,18 +35,28 @@ class AppsecurityController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils,Request $request, UserRepository $userRepository): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        
+         if ($this->getUser()) {
+             return $this->redirectToRoute('app_wehealth');
+         }
+         if ($request->isMethod('POST')) {
+            // Get the username and password from the form
+            $Login = $request->request->get('Login');
+            $password = $request->request->get('password');
 
+            // Get the user from the database
+            $user = $userRepository->loadUserByUsername($Login);
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $Login = $authenticationUtils->getLastUsername();
-
-        return $this->render('security/login.html.twig', ['Login' => $Login, 'error' => $error]);
+        return $this->redirectToRoute('app_wehealth');
+         }
+         $this->render('security/login.html.twig');
+         return $this->redirectToRoute('app_wehealth');
+         
     }
 
     /**
