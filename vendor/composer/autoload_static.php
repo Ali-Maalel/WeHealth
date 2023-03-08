@@ -108,6 +108,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'Svg\\' => 4,
+            'Snipe\\BanBuilder\\' => 17,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sabberworm\\CSS\\' => 15,
         ),
@@ -467,6 +468,10 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
         ),
+        'Snipe\\BanBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/snipe/banbuilder/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -629,6 +634,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'App\\Controller\\SignupController' => __DIR__ . '/../..' . '/src/Controller/SignupController.php',
         'App\\Controller\\WehealthController' => __DIR__ . '/../..' . '/src/Controller/WehealthController.php',
         'App\\Entity\\Article' => __DIR__ . '/../..' . '/src/Entity/Article.php',
+        'App\\Entity\\ArticleLike' => __DIR__ . '/../..' . '/src/Entity/ArticleLike.php',
         'App\\Entity\\Categorie' => __DIR__ . '/../..' . '/src/Entity/Categorie.php',
         'App\\Entity\\Coach' => __DIR__ . '/../..' . '/src/Entity/Coach.php',
         'App\\Entity\\Comment' => __DIR__ . '/../..' . '/src/Entity/Comment.php',
@@ -641,6 +647,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'App\\Form\\NumMediaType' => __DIR__ . '/../..' . '/src/Form/NumMediaType.php',
         'App\\Form\\SignupType' => __DIR__ . '/../..' . '/src/Form/SignupType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\ArticleLikeRepository' => __DIR__ . '/../..' . '/src/Repository/ArticleLikeRepository.php',
         'App\\Repository\\ArticleRepository' => __DIR__ . '/../..' . '/src/Repository/ArticleRepository.php',
         'App\\Repository\\CategorieRepository' => __DIR__ . '/../..' . '/src/Repository/CategorieRepository.php',
         'App\\Repository\\CoachRepository' => __DIR__ . '/../..' . '/src/Repository/CoachRepository.php',
@@ -3662,6 +3669,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'Sensio\\Bundle\\FrameworkExtraBundle\\Security\\ExpressionLanguage' => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src/Security/ExpressionLanguage.php',
         'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle' => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src/SensioFrameworkExtraBundle.php',
         'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser' => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src/Templating/TemplateGuesser.php',
+        'Snipe\\BanBuilder\\CensorWords' => __DIR__ . '/..' . '/snipe/banbuilder/src/CensorWords.php',
         'Svg\\CssLength' => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg/CssLength.php',
         'Svg\\DefaultStyle' => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg/DefaultStyle.php',
         'Svg\\Document' => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg/Document.php',

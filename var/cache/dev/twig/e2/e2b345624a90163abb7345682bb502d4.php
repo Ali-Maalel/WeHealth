@@ -89,15 +89,13 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
         echo "\t<h1>Comment index</h1>
 \t<div class=\"col-md-12\" style=\"margin-top: 20px;\">
 \t\t<div class=\"tile\">
-\t\t\t<a class=\"btn btn-primary float-right\" href=\"";
-        // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_comment_new");
-        echo "\">Create new</a>
+
 \t\t\t<div class=\"table-responsive\">
 \t\t\t\t<table class=\"table\" style=\"width: 70%; margin: 0 auto;\">
 \t\t\t\t\t<thead>
 \t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t<th>Id</th>
+\t\t\t\t\t\t\t<th>Article</th>
 \t\t\t\t\t\t\t<th>Contenu</th>
 \t\t\t\t\t\t\t<th>CreatedAt</th>
 \t\t\t\t\t\t\t<th>actions</th>
@@ -105,9 +103,9 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
 \t\t\t\t\t</thead>
 \t\t\t\t\t<tbody>
 \t\t\t\t\t\t";
-        // line 22
+        // line 23
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 23, $this->source); })()));
         $context['_iterated'] = false;
         $context['loop'] = [
           'parent' => $context['_parent'],
@@ -123,29 +121,30 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 23
+            // line 24
             echo "\t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t<td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "id", [], "any", false, false, false, 24), "html", null, true);
-            echo "</td>
-\t\t\t\t\t\t\t\t<td>";
             // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "contenu", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "id", [], "any", false, false, false, 25), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t\t\t<td>";
             // line 26
-            ((twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 26)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 26), "Y-m-d"), "html", null, true))) : (print ("")));
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "article", [], "any", false, false, false, 26), "html", null, true);
+            echo "</td>
+\t\t\t\t\t\t\t\t<td>";
+            // line 27
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "contenu", [], "any", false, false, false, 27), "html", null, true);
+            echo "</td>
+\t\t\t\t\t\t\t\t<td>";
+            // line 28
+            ((twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 28)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 28), "Y-m-d"), "html", null, true))) : (print ("")));
             echo "</td>
 \t\t\t\t\t\t\t\t<td>
-\t\t\t\t\t\t\t\t\t<a class=\"btn btn-primary\" href=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_comment_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["comment"], "id", [], "any", false, false, false, 28)]), "html", null, true);
-            echo "\">Edit</a>
+
 \t\t\t\t\t\t\t\t\t";
-            // line 29
-            $this->loadTemplate("comment/_delete_form.html.twig", "comment/index.html.twig", 29)->display(twig_array_merge($context, ["id" => twig_get_attribute($this->env, $this->source, $context["comment"], "id", [], "any", false, false, false, 29)]));
-            // line 30
+            // line 31
+            $this->loadTemplate("comment/_delete_form.html.twig", "comment/index.html.twig", 31)->display(twig_array_merge($context, ["id" => twig_get_attribute($this->env, $this->source, $context["comment"], "id", [], "any", false, false, false, 31)]));
+            // line 32
             echo "\t\t\t\t\t\t\t\t</td>
 \t\t\t\t\t\t\t</tr>
 \t\t\t\t\t\t";
@@ -160,7 +159,7 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
             }
         }
         if (!$context['_iterated']) {
-            // line 33
+            // line 35
             echo "\t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t<td colspan=\"4\">no records found</td>
 \t\t\t\t\t\t\t</tr>
@@ -169,7 +168,7 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 39
         echo "\t\t\t\t\t</tbody>
 \t\t\t\t</table>
 
@@ -195,7 +194,7 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
 
     public function getDebugInfo()
     {
-        return array (  173 => 37,  164 => 33,  149 => 30,  147 => 29,  143 => 28,  138 => 26,  134 => 25,  130 => 24,  127 => 23,  109 => 22,  94 => 10,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  172 => 39,  163 => 35,  148 => 32,  146 => 31,  140 => 28,  136 => 27,  132 => 26,  128 => 25,  125 => 24,  107 => 23,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -209,12 +208,13 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
 \t<h1>Comment index</h1>
 \t<div class=\"col-md-12\" style=\"margin-top: 20px;\">
 \t\t<div class=\"tile\">
-\t\t\t<a class=\"btn btn-primary float-right\" href=\"{{ path('app_comment_new') }}\">Create new</a>
+
 \t\t\t<div class=\"table-responsive\">
 \t\t\t\t<table class=\"table\" style=\"width: 70%; margin: 0 auto;\">
 \t\t\t\t\t<thead>
 \t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t<th>Id</th>
+\t\t\t\t\t\t\t<th>Article</th>
 \t\t\t\t\t\t\t<th>Contenu</th>
 \t\t\t\t\t\t\t<th>CreatedAt</th>
 \t\t\t\t\t\t\t<th>actions</th>
@@ -224,10 +224,11 @@ class __TwigTemplate_ff651469d7063dfb5074ba7bd7d3d190 extends Template
 \t\t\t\t\t\t{% for comment in comments %}
 \t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t<td>{{ comment.id }}</td>
+\t\t\t\t\t\t\t\t<td>{{ comment.article}}</td>
 \t\t\t\t\t\t\t\t<td>{{ comment.contenu }}</td>
 \t\t\t\t\t\t\t\t<td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d') : '' }}</td>
 \t\t\t\t\t\t\t\t<td>
-\t\t\t\t\t\t\t\t\t<a class=\"btn btn-primary\" href=\"{{ path('app_comment_edit', {'id': comment.id}) }}\">Edit</a>
+
 \t\t\t\t\t\t\t\t\t{% include 'comment/_delete_form.html.twig' with {'id': comment.id} %}
 \t\t\t\t\t\t\t\t</td>
 \t\t\t\t\t\t\t</tr>

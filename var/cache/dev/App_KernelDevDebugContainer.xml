@@ -483,6 +483,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\CensorWordsRepository" class="App\Repository\CensorWordsRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\CoachRepository" class="App\Repository\CoachRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -5537,7 +5541,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.OrU5Ysz"/>
+      <argument type="service" id=".service_locator..KzCoxH"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -6499,6 +6503,8 @@
     <service id=".abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieRepository" class="App\Repository\CategorieRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CensorWordsRepository" class="App\Repository\CensorWordsRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CensorWordsRepository" class="App\Repository\CensorWordsRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CoachRepository" class="App\Repository\CoachRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CoachRepository" class="App\Repository\CoachRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" abstract="true"/>
@@ -6994,6 +7000,33 @@
         <argument key="articleRepository" type="service_closure" id="App\Repository\ArticleRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.wqKCOCv" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="articleRepository" type="service_closure" id="App\Repository\ArticleRepository"/>
+        <argument key="serializer" type="service_closure" id="debug.serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.t6i3vFk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.E2lxaJq" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="articleRepository" type="service_closure" id="App\Repository\ArticleRepository"/>
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.E2AflHD" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="articleRepository" type="service_closure" id="App\Repository\ArticleRepository"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.QU_XjZK" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7053,6 +7086,13 @@
         <argument key="categorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.kV5epv5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
+        <argument key="serializer" type="service_closure" id="debug.serializer"/>
+      </argument>
+    </service>
     <service id=".service_locator.VXcOMBY" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7097,7 +7137,7 @@
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
-    <service id=".service_locator.UJf26jS" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.gTeloos" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\ArticleCrudController::autocomplete" type="service_closure" id=".service_locator.kEvhmk9"/>
@@ -7185,11 +7225,15 @@
         <argument key="App\Controller\Admin\NumMediaCrudController::persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\NumMediaCrudController::renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\NumMediaCrudController::updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ArticleController::createArticleAction" type="service_closure" id=".service_locator.t6i3vFk"/>
         <argument key="App\Controller\ArticleController::delete" type="service_closure" id=".service_locator.S51ENsP"/>
+        <argument key="App\Controller\ArticleController::delete_JSON" type="service_closure" id=".service_locator.E2AflHD"/>
         <argument key="App\Controller\ArticleController::dislikeArticle" type="service_closure" id=".service_locator.2nHEpth"/>
         <argument key="App\Controller\ArticleController::edit" type="service_closure" id=".service_locator.S51ENsP"/>
+        <argument key="App\Controller\ArticleController::editArticleAction" type="service_closure" id=".service_locator.E2lxaJq"/>
         <argument key="App\Controller\ArticleController::impressionPDF" type="service_closure" id=".service_locator.iooU8Kd"/>
         <argument key="App\Controller\ArticleController::index" type="service_closure" id=".service_locator.i9Y0h6B"/>
+        <argument key="App\Controller\ArticleController::index_JSON" type="service_closure" id=".service_locator.wqKCOCv"/>
         <argument key="App\Controller\ArticleController::likeArticle" type="service_closure" id=".service_locator.2nHEpth"/>
         <argument key="App\Controller\ArticleController::new" type="service_closure" id=".service_locator.i9Y0h6B"/>
         <argument key="App\Controller\ArticleController::show" type="service_closure" id=".service_locator.NyLbAvG"/>
@@ -7199,6 +7243,7 @@
         <argument key="App\Controller\CategorieController::delete" type="service_closure" id=".service_locator.4oDAgEZ"/>
         <argument key="App\Controller\CategorieController::edit" type="service_closure" id=".service_locator.4oDAgEZ"/>
         <argument key="App\Controller\CategorieController::index" type="service_closure" id=".service_locator.NeFqQFj"/>
+        <argument key="App\Controller\CategorieController::index_JSON" type="service_closure" id=".service_locator.kV5epv5"/>
         <argument key="App\Controller\CategorieController::new" type="service_closure" id=".service_locator.NeFqQFj"/>
         <argument key="App\Controller\CategorieController::show" type="service_closure" id=".service_locator.uSGXe_N"/>
         <argument key="App\Controller\CategorieController::showf" type="service_closure" id=".service_locator.i9Y0h6B"/>
@@ -7302,11 +7347,15 @@
         <argument key="App\Controller\Admin\NumMediaCrudController:persistEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\Admin\NumMediaCrudController:renderFilters" type="service_closure" id=".service_locator.kEvhmk9"/>
         <argument key="App\Controller\Admin\NumMediaCrudController:updateEntity" type="service_closure" id=".service_locator.aKM6MDa"/>
+        <argument key="App\Controller\ArticleController:createArticleAction" type="service_closure" id=".service_locator.t6i3vFk"/>
         <argument key="App\Controller\ArticleController:delete" type="service_closure" id=".service_locator.S51ENsP"/>
+        <argument key="App\Controller\ArticleController:delete_JSON" type="service_closure" id=".service_locator.E2AflHD"/>
         <argument key="App\Controller\ArticleController:dislikeArticle" type="service_closure" id=".service_locator.2nHEpth"/>
         <argument key="App\Controller\ArticleController:edit" type="service_closure" id=".service_locator.S51ENsP"/>
+        <argument key="App\Controller\ArticleController:editArticleAction" type="service_closure" id=".service_locator.E2lxaJq"/>
         <argument key="App\Controller\ArticleController:impressionPDF" type="service_closure" id=".service_locator.iooU8Kd"/>
         <argument key="App\Controller\ArticleController:index" type="service_closure" id=".service_locator.i9Y0h6B"/>
+        <argument key="App\Controller\ArticleController:index_JSON" type="service_closure" id=".service_locator.wqKCOCv"/>
         <argument key="App\Controller\ArticleController:likeArticle" type="service_closure" id=".service_locator.2nHEpth"/>
         <argument key="App\Controller\ArticleController:new" type="service_closure" id=".service_locator.i9Y0h6B"/>
         <argument key="App\Controller\ArticleController:show" type="service_closure" id=".service_locator.NyLbAvG"/>
@@ -7316,6 +7365,7 @@
         <argument key="App\Controller\CategorieController:delete" type="service_closure" id=".service_locator.4oDAgEZ"/>
         <argument key="App\Controller\CategorieController:edit" type="service_closure" id=".service_locator.4oDAgEZ"/>
         <argument key="App\Controller\CategorieController:index" type="service_closure" id=".service_locator.NeFqQFj"/>
+        <argument key="App\Controller\CategorieController:index_JSON" type="service_closure" id=".service_locator.kV5epv5"/>
         <argument key="App\Controller\CategorieController:new" type="service_closure" id=".service_locator.NeFqQFj"/>
         <argument key="App\Controller\CategorieController:show" type="service_closure" id=".service_locator.uSGXe_N"/>
         <argument key="App\Controller\CategorieController:showf" type="service_closure" id=".service_locator.i9Y0h6B"/>
@@ -7822,12 +7872,13 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.OrU5Ysz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator..KzCoxH" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleLikeRepository" type="service_closure" id="App\Repository\ArticleLikeRepository"/>
         <argument key="App\Repository\ArticleRepository" type="service_closure" id="App\Repository\ArticleRepository"/>
         <argument key="App\Repository\CategorieRepository" type="service_closure" id="App\Repository\CategorieRepository"/>
+        <argument key="App\Repository\CensorWordsRepository" type="service_closure" id="App\Repository\CensorWordsRepository"/>
         <argument key="App\Repository\CoachRepository" type="service_closure" id="App\Repository\CoachRepository"/>
         <argument key="App\Repository\CommentRepository" type="service_closure" id="App\Repository\CommentRepository"/>
         <argument key="App\Repository\NumMediaRepository" type="service_closure" id="App\Repository\NumMediaRepository"/>
@@ -8303,12 +8354,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.UJf26jS"/>
+      <argument type="service" id=".service_locator.gTeloos"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.UJf26jS"/>
+      <argument type="service" id=".service_locator.gTeloos"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -9291,7 +9342,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcherInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Menu\MenuItemMatcher"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.UJf26jS"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.gTeloos"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -9316,8 +9367,11 @@
     <service id=".service_locator.nTL_G5r" alias=".service_locator.esmk6IF"/>
     <service id=".service_locator.hNls88j" alias=".service_locator.ENGuM7_"/>
     <service id=".service_locator.6rNHno." alias=".service_locator.riFbGaB"/>
+    <service id=".service_locator.NgAxX3." alias=".service_locator.wqKCOCv"/>
+    <service id=".service_locator.hRS0YY9" alias=".service_locator.E2lxaJq"/>
     <service id=".service_locator.mklq2eA" alias=".service_locator.2nHEpth"/>
-    <service id=".service_locator.P4UUqE3" alias=".service_locator.UJf26jS"/>
+    <service id=".service_locator._bBLqhT" alias=".service_locator.kV5epv5"/>
+    <service id=".service_locator.faxTBDs" alias=".service_locator.gTeloos"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.l6ELYLY"/>
     <service id=".service_locator.4LuXREq" alias=".service_locator..kZj9_A"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -9384,6 +9438,10 @@
     <service id=".service_locator.YGHh.DA" alias=".service_locator.W.c5h2_"/>
     <service id=".service_locator..Z_8zjg" alias=".service_locator.st3ASTR"/>
     <service id=".service_locator.lQQ63Mn" alias=".service_locator.i9Y0h6B"/>
+    <service id=".service_locator.Lb5kchJ" alias=".service_locator.wqKCOCv"/>
+    <service id=".service_locator.hCumxIO" alias=".service_locator.t6i3vFk"/>
+    <service id=".service_locator.wsBlAiV" alias=".service_locator.E2lxaJq"/>
+    <service id=".service_locator.xnk8NjU" alias=".service_locator.E2AflHD"/>
     <service id=".service_locator.TM9rEeS" alias=".service_locator.QU_XjZK"/>
     <service id=".service_locator.YTyy9X4" alias=".service_locator.NyLbAvG"/>
     <service id=".service_locator.dww6otW" alias=".service_locator.S51ENsP"/>
@@ -9393,6 +9451,7 @@
     <service id=".service_locator.fxk3idd" alias=".service_locator.NeFqQFj"/>
     <service id=".service_locator.qvlr_tn" alias=".service_locator.uSGXe_N"/>
     <service id=".service_locator.YRozg1z" alias=".service_locator.4oDAgEZ"/>
+    <service id=".service_locator.IWmaggr" alias=".service_locator.kV5epv5"/>
     <service id=".service_locator.bTOCc1J" alias=".service_locator.VXcOMBY"/>
     <service id=".service_locator.SHgVz3H" alias=".service_locator.PK5KVtZ"/>
     <service id=".service_locator.bYmWu3J" alias=".service_locator.KBkob.L"/>

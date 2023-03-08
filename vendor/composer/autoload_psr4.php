@@ -80,6 +80,7 @@ return array(
     'Symfony\\Bridge\\Monolog\\' => array($vendorDir . '/symfony/monolog-bridge'),
     'Symfony\\Bridge\\Doctrine\\' => array($vendorDir . '/symfony/doctrine-bridge'),
     'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src/Svg'),
+    'Snipe\\BanBuilder\\' => array($vendorDir . '/snipe/banbuilder/src'),
     'Sensio\\Bundle\\FrameworkExtraBundle\\' => array($vendorDir . '/sensio/framework-extra-bundle/src'),
     'Sabberworm\\CSS\\' => array($vendorDir . '/sabberworm/php-css-parser/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),

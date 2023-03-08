@@ -11,6 +11,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 #[Route('/categorie')]
 class CategorieController extends AbstractController
@@ -101,4 +106,14 @@ class CategorieController extends AbstractController
 
         return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/json/getAll', name: 'app_categorie_index_json', methods: ['GET'])]
+public function index_JSON(SerializerInterface $serializer, CategorieRepository $categorieRepository): JsonResponse
+{
+    $categories = $categorieRepository->findAll();
+    $json = $serializer->serialize($categories, 'json', [
+        AbstractNormalizer::IGNORED_ATTRIBUTES => ['articles'],
+    ]);
+
+    return new JsonResponse($json, 200, [], true);
+}
 }

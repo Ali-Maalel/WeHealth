@@ -27,7 +27,7 @@ class Article
     private ?string $Contenu = null;
 
     #[ORM\Column(length: 100, nullable: true)]
-    #[Assert\Length(max: 100, maxMessage: 'Le texte en vedette ne doit pas dépasser {{ limit }} caractères.')]
+    #[Assert\Length(max: 200, maxMessage: 'Le texte en vedette ne doit pas dépasser {{ limit }} caractères.')]
     private ?string $featuredText = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -54,7 +54,6 @@ class Article
     {
         $this->comments = new ArrayCollection();
         $this->articleLikes = new ArrayCollection();
-      
     }
 
     public function getId(): ?int
@@ -176,9 +175,9 @@ class Article
         return $this;
     }
     public function __toString(): string
-{
-    return $this->getTitre(); 
-}
+    {
+        return $this->getTitre();
+    }
 
     /**
      * @return Collection<int, ArticleLike>
@@ -209,7 +208,4 @@ class Article
 
         return $this;
     }
-
- 
-
 }

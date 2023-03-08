@@ -100,7 +100,8 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t<!-- Preloader Start -->
 
 \t<main>
-\t\t<h1 class=\"text-center my-5\">Articles récents</h1>
+\t\t<h1 class=\"text-center my-5\" style=\"font-weight: bold;\">Articles récents</h1>
+
 \t\t<!--? Blog Area Start-->
 \t\t<div id=\"articles-list\"></div>
 \t</div>
@@ -108,75 +109,75 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t<section class=\"blog_area section-padding\">
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row\">
-\t\t\t\t<div class=\"col-lg-8 mb-5 mb-lg-0\">
-\t\t\t\t\t<div class=\"blog_left_sidebar\">
+\t\t\t\t<div class=\"col-lg-12 mb-5 mb-lg-0\" style=\"display: flex!important;\">
+\t\t\t\t\t<div class=\"blog_left_sidebar\" style=\"margin: 0 10px;\">
 \t\t\t\t\t\t";
-        // line 31
-        $context["leftCol"] = 5;
         // line 32
-        echo "\t\t\t\t\t\t";
-        $context["rightCol"] = 7;
+        $context["leftCol"] = 5;
         // line 33
         echo "\t\t\t\t\t\t";
+        $context["rightCol"] = 7;
+        // line 34
+        echo "\t\t\t\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 33, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 34, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 34
+            // line 35
             echo "\t\t\t\t\t\t\t<article class=\"blog_item\">
 \t\t\t\t\t\t\t\t<div class=\"blog_item_img\">
 \t\t\t\t\t\t\t\t\t";
-            // line 36
-            if (twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 36)) {
-                // line 37
+            // line 37
+            if (twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 37)) {
+                // line 38
                 echo "\t\t\t\t\t\t\t\t\t\t<a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 37)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 38)]), "html", null, true);
                 echo "\">
 \t\t\t\t\t\t\t\t\t\t\t<img class=\"card-img rounded-0\" src=\"/uploads/";
-                // line 38
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 38), "nomFichier", [], "any", false, false, false, 38), "html", null, true);
+                // line 39
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 39), "nomFichier", [], "any", false, false, false, 39), "html", null, true);
                 echo "\" alt=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 38), "altText", [], "any", false, false, false, 38), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 39), "altText", [], "any", false, false, false, 39), "html", null, true);
                 echo "\" loading=\"lazy\" width=\"350\" height=\"205\">
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t";
             }
-            // line 41
+            // line 42
             echo "\t\t\t\t\t\t\t\t\t<a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 41)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 42)]), "html", null, true);
             echo "\" class=\"blog_item_date\">
 \t\t\t\t\t\t\t\t\t\t<h3>";
-            // line 42
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 42), "d"), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 43), "d"), "html", null, true);
             echo "</h3>
 \t\t\t\t\t\t\t\t\t\t<p>";
-            // line 43
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 43), "M"), "html", null, true);
+            // line 44
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 44), "M"), "html", null, true);
             echo "</p>
 \t\t\t\t\t\t\t\t\t\t";
-            // line 44
-            if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 44)) > 0)) {
-                // line 45
+            // line 45
+            if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 45)) > 0)) {
+                // line 46
                 echo "\t\t\t\t\t\t\t\t\t\t\t<span class=\"blog_comment\">";
-                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 45)), "html", null, true);
+                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 46)), "html", null, true);
                 echo "</span>
 \t\t\t\t\t\t\t\t\t\t";
             }
-            // line 47
+            // line 48
             echo "\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"blog_details\">
 \t\t\t\t\t\t\t\t\t<a class=\"d-inline-block\" href=\"";
-            // line 50
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 50)]), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 51)]), "html", null, true);
             echo "\">
 \t\t\t\t\t\t\t\t\t\t<h2 class=\"blog-head\" style=\"color: #2d2d2d;\">";
-            // line 51
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 51), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 52), "html", null, true);
             echo "</h2>
 \t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t<p>";
-            // line 53
-            echo twig_escape_filter($this->env, (twig_slice($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["article"], "contenu", [], "any", false, false, false, 53)), 0, 130) . "..."), "html", null, true);
+            // line 54
+            echo twig_escape_filter($this->env, (twig_slice($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["article"], "contenu", [], "any", false, false, false, 54)), 0, 130) . "..."), "html", null, true);
             echo "</p>
 \t\t\t\t\t\t\t\t\t<ul class=\"blog-info-link\">
 
@@ -184,12 +185,12 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-comments\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t";
-            // line 59
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 59)), "html", null, true);
+            // line 60
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 60)), "html", null, true);
             echo "
 \t\t\t\t\t\t\t\t\t\t\t\t";
-            // line 60
-            echo (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 60)) > 1)) ? ("Comments") : ("Comment"));
+            // line 61
+            echo (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 61)) > 1)) ? ("Comments") : ("Comment"));
             echo "</a>
 \t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t</ul>
@@ -200,8 +201,151 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 66
+        // line 67
         echo "\t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"blog_right_sidebar mt-auto\">
+\t\t\t\t\t\t<div class=\"blog_right_sidebar\">
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget search_widget\">
+\t\t\t\t\t\t\t\t<form action=\"#\">
+\t\t\t\t\t\t\t\t\t<div class=\"form-group\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"input-group mb-3\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder='Search Keyword' onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Search Keyword'\">
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-group-append\">
+
+\t\t\t\t\t\t\t\t\t\t\t\t<button class=\"btns\" type=\"button\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"ti-search\"></i>
+\t\t\t\t\t\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Search</button>
+\t\t\t\t\t\t\t\t</form>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget post_category_widget\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title mb-4\" style=\"color: #2d2d2d;\">Catégories</h4>
+
+\t\t\t\t\t\t\t\t<ul class=\"list cat-list\">
+\t\t\t\t\t\t\t\t\t";
+        // line 90
+        $this->loadTemplate("widget/categories.html.twig", "blog/blog.html.twig", 90)->display($context);
+        // line 91
+        echo "\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget popular_post_widget\">
+\t\t\t\t\t\t\t\t<h3 class=\"widget_title\" style=\"color: #2d2d2d;\">Recent Post</h3>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_1.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">From life was you fish...</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>January 12, 2019</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_2.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">The Amazing Hubble</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>02 Hours ago</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_3.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Astronomy Or Astrology</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>03 Hours ago</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_4.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Asteroids telescope</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>01 Hours ago</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget tag_cloud_widget\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Tag Clouds</h4>
+\t\t\t\t\t\t\t\t<ul class=\"list\">
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">project</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">love</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">technology</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">travel</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">restaurant</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">life style</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">design</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">illustration</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t</aside>
+
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget instagram_feeds\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Instagram Feeds</h4>
+\t\t\t\t\t\t\t\t<ul class=\"instagram_row flex-wrap\">
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_5.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_6.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_7.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_8.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_9.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_10.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget newsletter_widget\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Newsletter</h4>
+\t\t\t\t\t\t\t\t<form action=\"#\">
+\t\t\t\t\t\t\t\t\t<div class=\"form-group\">
+\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Enter email'\" placeholder='Enter email' required>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Subscribe</button>
+\t\t\t\t\t\t\t\t</form>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t</div>
@@ -229,149 +373,7 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t</li>
 \t\t</ul>
 \t</nav>
-</div></div><div class=\"col-lg-4 float-right d-flex flex-column\">
-<div class=\"blog_right_sidebar mt-auto\">
-\t<div class=\"blog_right_sidebar\">
-\t\t<aside class=\"single_sidebar_widget search_widget\">
-\t\t\t<form action=\"#\">
-\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t<div class=\"input-group mb-3\">
-\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder='Search Keyword' onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Search Keyword'\">
-\t\t\t\t\t\t<div class=\"input-group-append\">
-\t\t\t\t\t\t\t<button class=\"btns\" type=\"button\">
-\t\t\t\t\t\t\t\t<i class=\"ti-search\"></i>
-\t\t\t\t\t\t\t</button>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Search</button>
-\t\t\t</form>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget post_category_widget\">
-\t\t\t<h4 class=\"widget_title mb-4\" style=\"color: #2d2d2d;\">Category</h4>
-
-\t\t\t<ul class=\"list cat-list\">
-\t\t\t\t";
-        // line 116
-        $this->loadTemplate("widget/categories.html.twig", "blog/blog.html.twig", 116)->display($context);
-        // line 117
-        echo "\t\t\t</ul>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget popular_post_widget\">
-\t\t\t<h3 class=\"widget_title\" style=\"color: #2d2d2d;\">Recent Post</h3>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_1.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">From life was you fish...</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>January 12, 2019</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_2.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">The Amazing Hubble</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>02 Hours ago</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_3.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Astronomy Or Astrology</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>03 Hours ago</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_4.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Asteroids telescope</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>01 Hours ago</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget tag_cloud_widget\">
-\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Tag Clouds</h4>
-\t\t\t<ul class=\"list\">
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">project</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">love</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">technology</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">travel</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">restaurant</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">life style</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">design</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">illustration</a>
-\t\t\t\t</li>
-\t\t\t</ul>
-\t\t</aside>
-
-\t\t<aside class=\"single_sidebar_widget instagram_feeds\">
-\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Instagram Feeds</h4>
-\t\t\t<ul class=\"instagram_row flex-wrap\">
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_5.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_6.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_7.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_8.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_9.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_10.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t</ul>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget newsletter_widget\">
-\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Newsletter</h4>
-\t\t\t<form action=\"#\">
-\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t<input type=\"email\" class=\"form-control\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Enter email'\" placeholder='Enter email' required>
-\t\t\t\t</div>
-\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Subscribe</button>
-\t\t\t</form>
-\t\t</aside>
-\t</div>
-</div></div></div></section><!-- Blog Area End -->";
+</div></div><div class=\"col-lg-4 float-right d-flex flex-column\"></div></div></section><!-- Blog Area End -->";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -392,7 +394,7 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 
     public function getDebugInfo()
     {
-        return array (  258 => 117,  256 => 116,  204 => 66,  192 => 60,  188 => 59,  179 => 53,  174 => 51,  170 => 50,  165 => 47,  159 => 45,  157 => 44,  153 => 43,  149 => 42,  144 => 41,  136 => 38,  131 => 37,  129 => 36,  125 => 34,  120 => 33,  117 => 32,  115 => 31,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  232 => 91,  230 => 90,  205 => 67,  193 => 61,  189 => 60,  180 => 54,  175 => 52,  171 => 51,  166 => 48,  160 => 46,  158 => 45,  154 => 44,  150 => 43,  145 => 42,  137 => 39,  132 => 38,  130 => 37,  126 => 35,  121 => 34,  118 => 33,  116 => 32,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -417,7 +419,8 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t<!-- Preloader Start -->
 
 \t<main>
-\t\t<h1 class=\"text-center my-5\">Articles récents</h1>
+\t\t<h1 class=\"text-center my-5\" style=\"font-weight: bold;\">Articles récents</h1>
+
 \t\t<!--? Blog Area Start-->
 \t\t<div id=\"articles-list\"></div>
 \t</div>
@@ -425,8 +428,8 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t<section class=\"blog_area section-padding\">
 \t\t<div class=\"container\">
 \t\t\t<div class=\"row\">
-\t\t\t\t<div class=\"col-lg-8 mb-5 mb-lg-0\">
-\t\t\t\t\t<div class=\"blog_left_sidebar\">
+\t\t\t\t<div class=\"col-lg-12 mb-5 mb-lg-0\" style=\"display: flex!important;\">
+\t\t\t\t\t<div class=\"blog_left_sidebar\" style=\"margin: 0 10px;\">
 \t\t\t\t\t\t{% set leftCol = 5 %}
 \t\t\t\t\t\t{% set rightCol = 7 %}
 \t\t\t\t\t\t{% for article in articles %}
@@ -463,6 +466,146 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t\t\t\t\t</article>
 \t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t</div>
+\t\t\t\t\t<div class=\"blog_right_sidebar mt-auto\">
+\t\t\t\t\t\t<div class=\"blog_right_sidebar\">
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget search_widget\">
+\t\t\t\t\t\t\t\t<form action=\"#\">
+\t\t\t\t\t\t\t\t\t<div class=\"form-group\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"input-group mb-3\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder='Search Keyword' onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Search Keyword'\">
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-group-append\">
+
+\t\t\t\t\t\t\t\t\t\t\t\t<button class=\"btns\" type=\"button\">
+\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"ti-search\"></i>
+\t\t\t\t\t\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Search</button>
+\t\t\t\t\t\t\t\t</form>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget post_category_widget\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title mb-4\" style=\"color: #2d2d2d;\">Catégories</h4>
+
+\t\t\t\t\t\t\t\t<ul class=\"list cat-list\">
+\t\t\t\t\t\t\t\t\t{% include 'widget/categories.html.twig' %}
+\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget popular_post_widget\">
+\t\t\t\t\t\t\t\t<h3 class=\"widget_title\" style=\"color: #2d2d2d;\">Recent Post</h3>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_1.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">From life was you fish...</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>January 12, 2019</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_2.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">The Amazing Hubble</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>02 Hours ago</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_3.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Astronomy Or Astrology</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>03 Hours ago</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"media post_item\">
+\t\t\t\t\t\t\t\t\t<img src=\"assets/img/post/post_4.png\" alt=\"post\">
+\t\t\t\t\t\t\t\t\t<div class=\"media-body\">
+\t\t\t\t\t\t\t\t\t\t<a href=\"blog_details.html\">
+\t\t\t\t\t\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Asteroids telescope</h3>
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t\t<p>01 Hours ago</p>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget tag_cloud_widget\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Tag Clouds</h4>
+\t\t\t\t\t\t\t\t<ul class=\"list\">
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">project</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">love</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">technology</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">travel</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">restaurant</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">life style</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">design</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">illustration</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t</aside>
+
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget instagram_feeds\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Instagram Feeds</h4>
+\t\t\t\t\t\t\t\t<ul class=\"instagram_row flex-wrap\">
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_5.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_6.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_7.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_8.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_9.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
+\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_10.png\" alt=\"\">
+\t\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget newsletter_widget\">
+\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Newsletter</h4>
+\t\t\t\t\t\t\t\t<form action=\"#\">
+\t\t\t\t\t\t\t\t\t<div class=\"form-group\">
+\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Enter email'\" placeholder='Enter email' required>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Subscribe</button>
+\t\t\t\t\t\t\t\t</form>
+\t\t\t\t\t\t\t</aside>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t</div>
@@ -490,146 +633,7 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t</li>
 \t\t</ul>
 \t</nav>
-</div></div><div class=\"col-lg-4 float-right d-flex flex-column\">
-<div class=\"blog_right_sidebar mt-auto\">
-\t<div class=\"blog_right_sidebar\">
-\t\t<aside class=\"single_sidebar_widget search_widget\">
-\t\t\t<form action=\"#\">
-\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t<div class=\"input-group mb-3\">
-\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder='Search Keyword' onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Search Keyword'\">
-\t\t\t\t\t\t<div class=\"input-group-append\">
-\t\t\t\t\t\t\t<button class=\"btns\" type=\"button\">
-\t\t\t\t\t\t\t\t<i class=\"ti-search\"></i>
-\t\t\t\t\t\t\t</button>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Search</button>
-\t\t\t</form>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget post_category_widget\">
-\t\t\t<h4 class=\"widget_title mb-4\" style=\"color: #2d2d2d;\">Category</h4>
-
-\t\t\t<ul class=\"list cat-list\">
-\t\t\t\t{% include 'widget/categories.html.twig' %}
-\t\t\t</ul>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget popular_post_widget\">
-\t\t\t<h3 class=\"widget_title\" style=\"color: #2d2d2d;\">Recent Post</h3>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_1.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">From life was you fish...</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>January 12, 2019</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_2.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">The Amazing Hubble</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>02 Hours ago</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_3.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Astronomy Or Astrology</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>03 Hours ago</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<div class=\"media post_item\">
-\t\t\t\t<img src=\"assets/img/post/post_4.png\" alt=\"post\">
-\t\t\t\t<div class=\"media-body\">
-\t\t\t\t\t<a href=\"blog_details.html\">
-\t\t\t\t\t\t<h3 style=\"color: #2d2d2d;\">Asteroids telescope</h3>
-\t\t\t\t\t</a>
-\t\t\t\t\t<p>01 Hours ago</p>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget tag_cloud_widget\">
-\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Tag Clouds</h4>
-\t\t\t<ul class=\"list\">
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">project</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">love</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">technology</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">travel</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">restaurant</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">life style</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">design</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">illustration</a>
-\t\t\t\t</li>
-\t\t\t</ul>
-\t\t</aside>
-
-\t\t<aside class=\"single_sidebar_widget instagram_feeds\">
-\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Instagram Feeds</h4>
-\t\t\t<ul class=\"instagram_row flex-wrap\">
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_5.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_6.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_7.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_8.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_9.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_10.png\" alt=\"\">
-\t\t\t\t\t</a>
-\t\t\t\t</li>
-\t\t\t</ul>
-\t\t</aside>
-\t\t<aside class=\"single_sidebar_widget newsletter_widget\">
-\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Newsletter</h4>
-\t\t\t<form action=\"#\">
-\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t<input type=\"email\" class=\"form-control\" onfocus=\"this.placeholder = ''\" onblur=\"this.placeholder = 'Enter email'\" placeholder='Enter email' required>
-\t\t\t\t</div>
-\t\t\t\t<button class=\"button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn\" type=\"submit\">Subscribe</button>
-\t\t\t</form>
-\t\t</aside>
-\t</div>
-</div></div></div></section><!-- Blog Area End -->{% endblock %}
+</div></div><div class=\"col-lg-4 float-right d-flex flex-column\"></div></div></section><!-- Blog Area End -->{% endblock %}
 ", "blog/blog.html.twig", "C:\\Users\\yasmi\\Pidev WeHealth\\WeHealth\\templates\\blog\\blog.html.twig");
     }
 }

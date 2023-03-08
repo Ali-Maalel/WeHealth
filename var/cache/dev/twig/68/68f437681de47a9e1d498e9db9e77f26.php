@@ -49,7 +49,7 @@ class __TwigTemplate_2cbead3b3eabb22db69dba01398b44d3 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/page/content.html.twig"));
 
         // line 3
-        $context["__internal_ac749d652d2ce4335a3f038fe3cd8044a6a37f87672a4cdc237c46ff61b98325"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 3, $this->source); })()), "i18n", [], "any", false, false, false, 3), "translationDomain", [], "any", false, false, false, 3);
+        $context["__internal_a0468ff1fe69e80eea409c702ba660fc698f8543bec7c915c55ba72db9c08f8e"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 3, $this->source); })()), "i18n", [], "any", false, false, false, 3), "translationDomain", [], "any", false, false, false, 3);
         // line 2
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
         

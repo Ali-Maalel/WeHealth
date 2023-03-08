@@ -16,38 +16,54 @@
 		<a href="{{ path('app_PdfArticle', { 'id': article.id }) }}" class="btn btn-primary">Download PDF</a>
 		<br/>
 		{% if liked %}
-		<a href="{{ path('article_dislike', { 'id': article.id }) }}"> <img src="{{ asset( "assets/img/icon/dislike.png")}} "/> </a>
+			<a href="{{ path('article_dislike', { 'id': article.id }) }}">
+				<img src="{{ asset( "assets/img/icon/dislike.png")}} "/>
+			</a>
 		{% else %}
-		<a href="{{ path('article_like', { 'id': article.id }) }}"> <img src="{{ asset( "assets/img/icon/like.png")}} "/> </a>
+			<a href="{{ path('article_like', { 'id': article.id }) }}">
+				<img src="{{ asset( "assets/img/icon/like.png")}} "/>
+			</a>
 		{% endif %}
 		<h2 class="comments-title mt-5">
 			<span id="comment-count">{{ article.comments|length }}</span>
 			commentaire(s)</h2>
-		<hr>
 		<table>
 			<thead>
 				<tr>
-					<th>username</th>
-					<th>contenu</th>
+					<th>Utilisateur</th>
+					<th>Commentaire</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for comment in article.comments %}
-					<tr>
-						<td>{{comment.user.nom}} {{comment.user.prenom}}</td>
-						<td>{{comment.contenu}} - {{comment.createdAt|date("m/d/Y H:i")}}</td>
+					<tr style="background-color: '#f2f2f2', '#fff' ">
+						<td style="padding: 8px; font-weight: bold; margin-bottom: 5px;">
+							{{comment.user.nom}}
+							{{comment.user.prenom}}
+						</td>
+						<td style="padding: 8px;">
+							<p>{{comment.contenu}}</p>
+							<span>{{comment.createdAt|date("m/d/Y H:i")}}</span>
+						</td>
 					</tr>
 				{% endfor %}
+				<!-- Ajoutez cette balise de fermeture pour la boucle "for" -->
 			</tbody>
 		</table>
-
 		<hr>
-
 		<div class="comment-area mb-5">
 			{{ form(commentForm, { attr: { class: 'comment-form' } }) }}
+				{% if cleanedComment is not null and cleanedComment.dirty is defined and cleanedComment.dirty is not empty %}
+					<div class="alert alert-danger mt-3">
+						Le commentaire contient les mots inappropriés suivants :
+						{{ cleanedComment.dirty|join(', ') }}
+					</div>
+				{% endif %}
 			</div>
 
+
 		</div>
+
 	</div>
 
 

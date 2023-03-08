@@ -67,10 +67,10 @@ class Article extends \App\Entity\Article implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Titre', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Contenu', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredText', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'createdAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'updatedAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'categorie', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'comments', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredImage'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Titre', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Contenu', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredText', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'createdAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'updatedAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'categorie', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'comments', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredImage', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'articleLikes'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Titre', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Contenu', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredText', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'createdAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'updatedAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'categorie', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'comments', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredImage'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Titre', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'Contenu', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredText', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'createdAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'updatedAt', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'categorie', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'comments', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'featuredImage', '' . "\0" . 'App\\Entity\\Article' . "\0" . 'articleLikes'];
     }
 
     /**
@@ -388,6 +388,39 @@ class Article extends \App\Entity\Article implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getArticleLikes(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArticleLikes', []);
+
+        return parent::getArticleLikes();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addArticleLike(\App\Entity\ArticleLike $articleLike): \App\Entity\Article
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addArticleLike', [$articleLike]);
+
+        return parent::addArticleLike($articleLike);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeArticleLike(\App\Entity\ArticleLike $articleLike): \App\Entity\Article
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeArticleLike', [$articleLike]);
+
+        return parent::removeArticleLike($articleLike);
     }
 
 }

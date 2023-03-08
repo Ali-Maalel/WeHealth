@@ -112,76 +112,104 @@ class __TwigTemplate_af8c9fe33c55b5a15c33f706f8f9cce1 extends Template
         // line 18
         if ((isset($context["liked"]) || array_key_exists("liked", $context) ? $context["liked"] : (function () { throw new RuntimeError('Variable "liked" does not exist.', 18, $this->source); })())) {
             // line 19
-            echo "\t\t<a href=\"";
+            echo "\t\t\t<a href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_dislike", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19)]), "html", null, true);
-            echo "\"> <img src=\"";
+            echo "\">
+\t\t\t\t<img src=\"";
+            // line 20
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/icon/dislike.png"), "html", null, true);
-            echo " \"/> </a>
+            echo " \"/>
+\t\t\t</a>
 \t\t";
         } else {
-            // line 21
-            echo "\t\t<a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_like", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21)]), "html", null, true);
-            echo "\"> <img src=\"";
+            // line 23
+            echo "\t\t\t<a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_like", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 23, $this->source); })()), "id", [], "any", false, false, false, 23)]), "html", null, true);
+            echo "\">
+\t\t\t\t<img src=\"";
+            // line 24
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/icon/like.png"), "html", null, true);
-            echo " \"/> </a>
+            echo " \"/>
+\t\t\t</a>
 \t\t";
         }
-        // line 23
+        // line 27
         echo "\t\t<h2 class=\"comments-title mt-5\">
 \t\t\t<span id=\"comment-count\">";
-        // line 24
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 24, $this->source); })()), "comments", [], "any", false, false, false, 24)), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 28, $this->source); })()), "comments", [], "any", false, false, false, 28)), "html", null, true);
         echo "</span>
 \t\t\tcommentaire(s)</h2>
-\t\t<hr>
 \t\t<table>
 \t\t\t<thead>
 \t\t\t\t<tr>
-\t\t\t\t\t<th>username</th>
-\t\t\t\t\t<th>contenu</th>
+\t\t\t\t\t<th>Utilisateur</th>
+\t\t\t\t\t<th>Commentaire</th>
 \t\t\t\t</tr>
 \t\t\t</thead>
 \t\t\t<tbody>
 \t\t\t\t";
-        // line 35
+        // line 38
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 35, $this->source); })()), "comments", [], "any", false, false, false, 35));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 38, $this->source); })()), "comments", [], "any", false, false, false, 38));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 36
-            echo "\t\t\t\t\t<tr>
-\t\t\t\t\t\t<td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 37), "nom", [], "any", false, false, false, 37), "html", null, true);
-            echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 37), "prenom", [], "any", false, false, false, 37), "html", null, true);
-            echo "</td>
-\t\t\t\t\t\t<td>";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "contenu", [], "any", false, false, false, 38), "html", null, true);
-            echo " - ";
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 38), "m/d/Y H:i"), "html", null, true);
-            echo "</td>
+            // line 39
+            echo "\t\t\t\t\t<tr style=\"background-color: '#f2f2f2', '#fff' \">
+\t\t\t\t\t\t<td style=\"padding: 8px; font-weight: bold; margin-bottom: 5px;\">
+\t\t\t\t\t\t\t";
+            // line 41
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 41), "nom", [], "any", false, false, false, 41), "html", null, true);
+            echo "
+\t\t\t\t\t\t\t";
+            // line 42
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 42), "prenom", [], "any", false, false, false, 42), "html", null, true);
+            echo "
+\t\t\t\t\t\t</td>
+\t\t\t\t\t\t<td style=\"padding: 8px;\">
+\t\t\t\t\t\t\t<p>";
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "contenu", [], "any", false, false, false, 45), "html", null, true);
+            echo "</p>
+\t\t\t\t\t\t\t<span>";
+            // line 46
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 46), "m/d/Y H:i"), "html", null, true);
+            echo "</span>
+\t\t\t\t\t\t</td>
 \t\t\t\t\t</tr>
 \t\t\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
-        echo "\t\t\t</tbody>
+        // line 50
+        echo "\t\t\t\t<!-- Ajoutez cette balise de fermeture pour la boucle \"for\" -->
+\t\t\t</tbody>
 \t\t</table>
-
 \t\t<hr>
-
 \t\t<div class=\"comment-area mb-5\">
 \t\t\t";
-        // line 47
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 47, $this->source); })()), 'form', ["attr" => ["class" => "comment-form"]]);
+        // line 55
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 55, $this->source); })()), 'form', ["attr" => ["class" => "comment-form"]]);
         echo "
-\t\t\t</div>
+\t\t\t\t";
+        // line 56
+        if ((( !(null === (isset($context["cleanedComment"]) || array_key_exists("cleanedComment", $context) ? $context["cleanedComment"] : (function () { throw new RuntimeError('Variable "cleanedComment" does not exist.', 56, $this->source); })())) && twig_get_attribute($this->env, $this->source, ($context["cleanedComment"] ?? null), "dirty", [], "any", true, true, false, 56)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["cleanedComment"]) || array_key_exists("cleanedComment", $context) ? $context["cleanedComment"] : (function () { throw new RuntimeError('Variable "cleanedComment" does not exist.', 56, $this->source); })()), "dirty", [], "any", false, false, false, 56)))) {
+            // line 57
+            echo "\t\t\t\t\t<div class=\"alert alert-danger mt-3\">
+\t\t\t\t\t\tLe commentaire contient les mots inappropriés suivants :
+\t\t\t\t\t\t";
+            // line 59
+            echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, (isset($context["cleanedComment"]) || array_key_exists("cleanedComment", $context) ? $context["cleanedComment"] : (function () { throw new RuntimeError('Variable "cleanedComment" does not exist.', 59, $this->source); })()), "dirty", [], "any", false, false, false, 59), ", "), "html", null, true);
+            echo "
+\t\t\t\t\t</div>
+\t\t\t\t";
+        }
+        // line 62
+        echo "\t\t\t</div>
+
 
 \t\t</div>
+
 \t</div>
 
 
@@ -209,7 +237,7 @@ class __TwigTemplate_af8c9fe33c55b5a15c33f706f8f9cce1 extends Template
 
     public function getDebugInfo()
     {
-        return array (  180 => 47,  172 => 41,  161 => 38,  155 => 37,  152 => 36,  148 => 35,  134 => 24,  131 => 23,  123 => 21,  115 => 19,  113 => 18,  108 => 16,  103 => 14,  95 => 9,  92 => 8,  82 => 7,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  208 => 62,  202 => 59,  198 => 57,  196 => 56,  192 => 55,  185 => 50,  175 => 46,  171 => 45,  165 => 42,  161 => 41,  157 => 39,  153 => 38,  140 => 28,  137 => 27,  131 => 24,  126 => 23,  120 => 20,  115 => 19,  113 => 18,  108 => 16,  103 => 14,  95 => 9,  92 => 8,  82 => 7,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -232,38 +260,54 @@ class __TwigTemplate_af8c9fe33c55b5a15c33f706f8f9cce1 extends Template
 \t\t<a href=\"{{ path('app_PdfArticle', { 'id': article.id }) }}\" class=\"btn btn-primary\">Download PDF</a>
 \t\t<br/>
 \t\t{% if liked %}
-\t\t<a href=\"{{ path('article_dislike', { 'id': article.id }) }}\"> <img src=\"{{ asset( \"assets/img/icon/dislike.png\")}} \"/> </a>
+\t\t\t<a href=\"{{ path('article_dislike', { 'id': article.id }) }}\">
+\t\t\t\t<img src=\"{{ asset( \"assets/img/icon/dislike.png\")}} \"/>
+\t\t\t</a>
 \t\t{% else %}
-\t\t<a href=\"{{ path('article_like', { 'id': article.id }) }}\"> <img src=\"{{ asset( \"assets/img/icon/like.png\")}} \"/> </a>
+\t\t\t<a href=\"{{ path('article_like', { 'id': article.id }) }}\">
+\t\t\t\t<img src=\"{{ asset( \"assets/img/icon/like.png\")}} \"/>
+\t\t\t</a>
 \t\t{% endif %}
 \t\t<h2 class=\"comments-title mt-5\">
 \t\t\t<span id=\"comment-count\">{{ article.comments|length }}</span>
 \t\t\tcommentaire(s)</h2>
-\t\t<hr>
 \t\t<table>
 \t\t\t<thead>
 \t\t\t\t<tr>
-\t\t\t\t\t<th>username</th>
-\t\t\t\t\t<th>contenu</th>
+\t\t\t\t\t<th>Utilisateur</th>
+\t\t\t\t\t<th>Commentaire</th>
 \t\t\t\t</tr>
 \t\t\t</thead>
 \t\t\t<tbody>
 \t\t\t\t{% for comment in article.comments %}
-\t\t\t\t\t<tr>
-\t\t\t\t\t\t<td>{{comment.user.nom}} {{comment.user.prenom}}</td>
-\t\t\t\t\t\t<td>{{comment.contenu}} - {{comment.createdAt|date(\"m/d/Y H:i\")}}</td>
+\t\t\t\t\t<tr style=\"background-color: '#f2f2f2', '#fff' \">
+\t\t\t\t\t\t<td style=\"padding: 8px; font-weight: bold; margin-bottom: 5px;\">
+\t\t\t\t\t\t\t{{comment.user.nom}}
+\t\t\t\t\t\t\t{{comment.user.prenom}}
+\t\t\t\t\t\t</td>
+\t\t\t\t\t\t<td style=\"padding: 8px;\">
+\t\t\t\t\t\t\t<p>{{comment.contenu}}</p>
+\t\t\t\t\t\t\t<span>{{comment.createdAt|date(\"m/d/Y H:i\")}}</span>
+\t\t\t\t\t\t</td>
 \t\t\t\t\t</tr>
 \t\t\t\t{% endfor %}
+\t\t\t\t<!-- Ajoutez cette balise de fermeture pour la boucle \"for\" -->
 \t\t\t</tbody>
 \t\t</table>
-
 \t\t<hr>
-
 \t\t<div class=\"comment-area mb-5\">
 \t\t\t{{ form(commentForm, { attr: { class: 'comment-form' } }) }}
+\t\t\t\t{% if cleanedComment is not null and cleanedComment.dirty is defined and cleanedComment.dirty is not empty %}
+\t\t\t\t\t<div class=\"alert alert-danger mt-3\">
+\t\t\t\t\t\tLe commentaire contient les mots inappropriés suivants :
+\t\t\t\t\t\t{{ cleanedComment.dirty|join(', ') }}
+\t\t\t\t\t</div>
+\t\t\t\t{% endif %}
 \t\t\t</div>
 
+
 \t\t</div>
+
 \t</div>
 
 
