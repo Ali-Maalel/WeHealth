@@ -146,6 +146,10 @@ return [[
 '[C]App%5CController%5CUserController%23edit' => 1,
 'App%5CController%5CUserController%23delete' => 0,
 '[C]App%5CController%5CUserController%23delete' => 1,
+'App%5CController%5CUserController%23blockUser' => 0,
+'[C]App%5CController%5CUserController%23blockUser' => 1,
+'App%5CController%5CUserController%23unblockUser' => 3,
+'[C]App%5CController%5CUserController%23unblockUser' => 1,
 'App%5CController%5CWehealthController' => 0,
 '[C]App%5CController%5CWehealthController' => 1,
 'App%5CController%5CWehealthController%23index' => 0,
@@ -198,10 +202,6 @@ return [[
 '[C]App%5CEntity%5CUser%23getLogin' => 1,
 'App%5CEntity%5CUser%23setLogin' => 0,
 '[C]App%5CEntity%5CUser%23setLogin' => 1,
-'App%5CEntity%5CUser%23getPassword' => 0,
-'[C]App%5CEntity%5CUser%23getPassword' => 1,
-'App%5CEntity%5CUser%23setPassword' => 0,
-'[C]App%5CEntity%5CUser%23setPassword' => 1,
 'App%5CEntity%5CUser%23getNom' => 0,
 '[C]App%5CEntity%5CUser%23getNom' => 1,
 'App%5CEntity%5CUser%23setNom' => 0,
@@ -222,6 +222,26 @@ return [[
 '[C]App%5CEntity%5CUser%23getTypeuser' => 1,
 'App%5CEntity%5CUser%23setTypeuser' => 0,
 '[C]App%5CEntity%5CUser%23setTypeuser' => 1,
+'App%5CEntity%5CUser%23isBlocked' => 0,
+'[C]App%5CEntity%5CUser%23isBlocked' => 1,
+'App%5CEntity%5CUser%23setBlocked' => 0,
+'[C]App%5CEntity%5CUser%23setBlocked' => 1,
+'App%5CEntity%5CUser%23getUserIdentifier' => 0,
+'[C]App%5CEntity%5CUser%23getUserIdentifier' => 1,
+'App%5CEntity%5CUser%23getRoles' => 0,
+'[C]App%5CEntity%5CUser%23getRoles' => 1,
+'App%5CEntity%5CUser%23setRoles' => 0,
+'[C]App%5CEntity%5CUser%23setRoles' => 1,
+'App%5CEntity%5CUser%23getPassword' => 0,
+'[C]App%5CEntity%5CUser%23getPassword' => 1,
+'App%5CEntity%5CUser%23setPassword' => 0,
+'[C]App%5CEntity%5CUser%23setPassword' => 1,
+'App%5CEntity%5CUser%23eraseCredentials' => 0,
+'[C]App%5CEntity%5CUser%23eraseCredentials' => 1,
+'App%5CEntity%5CUser%23isVerified' => 0,
+'[C]App%5CEntity%5CUser%23isVerified' => 1,
+'App%5CEntity%5CUser%23setIsVerified' => 0,
+'[C]App%5CEntity%5CUser%23setIsVerified' => 1,
 'App%5CEntity%5CCoach%24id' => 0,
 '[C]App%5CEntity%5CCoach%24id' => 1,
 'App%5CEntity%5CCoach%24CIN' => 0,
@@ -380,6 +400,12 @@ return [[
 '[C]App%5CEntity%5CUser%24telephone' => 1,
 'App%5CEntity%5CUser%24typeuser' => 0,
 '[C]App%5CEntity%5CUser%24typeuser' => 1,
+'App%5CEntity%5CUser%24isVerified' => 0,
+'[C]App%5CEntity%5CUser%24isVerified' => 1,
+'App%5CEntity%5CUser%24blocked' => 0,
+'[C]App%5CEntity%5CUser%24blocked' => 1,
+'App%5CEntity%5CUser%24roles' => 0,
+'[C]App%5CEntity%5CUser%24roles' => 1,
 'App%5CEntity%5CUsers' => 0,
 '[C]App%5CEntity%5CUsers' => 1,
 'App%5CEntity%5CUsers%23getId' => 0,
@@ -962,7 +988,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1677592729,
+1 => 1678289698,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -982,6 +1008,55 @@ return [[
                 ],
                 'name' => [
                     'app_blog',
+                ],
+                'requirements' => [
+                    [],
+                ],
+                'options' => [
+                    [],
+                ],
+                'defaults' => [
+                    [],
+                ],
+                'host' => [
+                    null,
+                ],
+                'condition' => [
+                    null,
+                ],
+                'priority' => [
+                    null,
+                ],
+                'env' => [
+                    null,
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+3 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        ],
+        null,
+        [
+            'Symfony\\Component\\Routing\\Annotation\\Route' => [
+                'path' => [
+                    '/users/{id}/unblock',
+                ],
+                'methods' => [
+                    [],
+                ],
+                'schemes' => [
+                    [],
+                ],
+                'name' => [
+                    'admin_unblock_user',
                 ],
                 'requirements' => [
                     [],

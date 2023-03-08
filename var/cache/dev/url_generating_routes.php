@@ -43,6 +43,7 @@ return [
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'app_verify_email' => [[], ['_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], [], [['text', '/verify/email']], [], [], []],
     'app_security' => [[], ['_controller' => 'App\\Controller\\SecurityController::index'], [], [['text', '/security']], [], [], []],
+    'app_security_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'app_signup' => [[], ['_controller' => 'App\\Controller\\SignupController::index'], [], [['text', '/signup']], [], [], []],
     'app_signup_addUser' => [[], ['_controller' => 'App\\Controller\\SignupController::addUser'], [], [['text', '/signup/addUser']], [], [], []],
     'app_user_index' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/user/']], [], [], []],
@@ -53,5 +54,5 @@ return [
     'app_user_blockUser' => [['id'], ['_controller' => 'App\\Controller\\UserController::blockUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/blockUser']], [], [], []],
     'app_user_unblockUser' => [['id'], ['_controller' => 'App\\Controller\\UserController::unblockUser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user/unblockUser']], [], [], []],
     'admin_unblock_user' => [['id'], ['_controller' => 'App\\Controller\\UserController::unblockUser'], [], [['text', '/unblock'], ['variable', '/', '[^/]++', 'id', true], ['text', '/user/users']], [], [], []],
-    'app_wehealth' => [[], ['_controller' => 'App\\Controller\\WehealthController::index'], [], [['text', '/wehealth']], [], [], []],
+    'app_wehealth' => [[], ['_controller' => 'App\\Controller\\WehealthController::index'], [], [['text', '/']], [], [], []],
 ];

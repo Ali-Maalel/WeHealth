@@ -3,6 +3,7 @@
 namespace App\Controller;
 //use SymfonyCasts\Bundle\VerifyEmail\Exception;
 use App\Entity\Users;
+use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Repository\UsersRepository;
 use App\Security\AppAuthenticator;
@@ -32,7 +33,7 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, AppAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
-        $user = new Users();
+        $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
