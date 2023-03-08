@@ -337,6 +337,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\AdminController"/>
+      </call>
+    </service>
     <service id="App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -1864,7 +1871,6 @@
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
-            <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.id.xlf</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>C:\Users\lenovo\Desktop\Cities.Skylines.v1.16.0.f3.Incl.ALL.DLC\Nouveau dossier\WeHealth\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
@@ -6089,6 +6095,9 @@
       <argument type="service" id="symfonycasts.verify_email.token_generator"/>
       <argument>3600</argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AppsecurityController" class="App\Controller\AppsecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6497,6 +6506,13 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.ZCdnETC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="user" type="service_closure" id=".errored..service_locator.ZCdnETC.App\Entity\User"/>
+        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.zFcJjKU" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6613,16 +6629,11 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.4T4EJFR.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.9uW928t" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.WGbsqvt" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="user" type="service_closure" id=".errored..service_locator.9uW928t.App\Entity\User"/>
-        <argument key="userRepository" type="service_closure" id="App\Repository\UserRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.ntMaQrF" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
+        <argument key="App\Controller\AdminController::blockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
+        <argument key="App\Controller\AdminController::unblockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
         <argument key="App\Controller\AppsecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\CoachController::delete" type="service_closure" id=".service_locator.Hx9tlLO"/>
         <argument key="App\Controller\CoachController::edit" type="service_closure" id=".service_locator.Hx9tlLO"/>
@@ -6648,15 +6659,19 @@
         <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator.As7OUdO"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\SignupController::addUser" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.9uW928t"/>
-        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController::blockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
+        <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.ZCdnETC"/>
+        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.ZCdnETC"/>
         <argument key="App\Controller\UserController::index" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\UserController::new" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\UserController::show" type="service_closure" id=".service_locator.4T4EJFR"/>
+        <argument key="App\Controller\UserController::unblockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="App\Controller\AdminController:blockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
+        <argument key="App\Controller\AdminController:unblockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
         <argument key="App\Controller\AppsecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\CoachController:delete" type="service_closure" id=".service_locator.Hx9tlLO"/>
         <argument key="App\Controller\CoachController:edit" type="service_closure" id=".service_locator.Hx9tlLO"/>
@@ -6682,11 +6697,13 @@
         <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator.As7OUdO"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\SignupController:addUser" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.9uW928t"/>
-        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.9uW928t"/>
+        <argument key="App\Controller\UserController:blockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
+        <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.ZCdnETC"/>
+        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.ZCdnETC"/>
         <argument key="App\Controller\UserController:index" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\UserController:new" type="service_closure" id=".service_locator.Q1F27w5"/>
         <argument key="App\Controller\UserController:show" type="service_closure" id=".service_locator.4T4EJFR"/>
+        <argument key="App\Controller\UserController:unblockUser" type="service_closure" id=".service_locator.ZCdnETC"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -7229,6 +7246,12 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\AdminController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AdminController"/>
+      <argument>App\Controller\AdminController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
     <service id=".service_locator.jIxfAsi.App\Controller\AppsecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\AppsecurityController"/>
       <argument>App\Controller\AppsecurityController</argument>
@@ -7561,12 +7584,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ntMaQrF"/>
+      <argument type="service" id=".service_locator.WGbsqvt"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ntMaQrF"/>
+      <argument type="service" id=".service_locator.WGbsqvt"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -7586,6 +7609,7 @@
       </call>
     </service>
     <service id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.ZCdnETC.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.Veo9UrM.App\Entity\Coach" class="App\Entity\Coach"/>
     <service id=".errored..service_locator.Hx9tlLO.App\Entity\Coach" class="App\Entity\Coach"/>
     <service id=".errored..service_locator.KAlXsed.App\Entity\Patient" class="App\Entity\Patient"/>
@@ -7595,7 +7619,6 @@
     <service id=".errored..service_locator.Zyk16jE.App\Entity\ProfessionnelSante" class="App\Entity\ProfessionnelSante"/>
     <service id=".errored..service_locator.HXWB3r1.App\Entity\ProfessionnelSante" class="App\Entity\ProfessionnelSante"/>
     <service id=".errored..service_locator.4T4EJFR.App\Entity\User" class="App\Entity\User"/>
-    <service id=".errored..service_locator.9uW928t.App\Entity\User" class="App\Entity\User"/>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
       <argument type="collection"/>
@@ -8510,7 +8533,7 @@
     <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ntMaQrF"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.WGbsqvt"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8531,8 +8554,9 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
+    <service id=".service_locator.9uW928t" alias=".service_locator.ZCdnETC"/>
     <service id=".service_locator.gwY_rIW" alias=".service_locator.qV1Yx19"/>
-    <service id=".service_locator.z6e.NDC" alias=".service_locator.ntMaQrF"/>
+    <service id=".service_locator.Yzfr9Rl" alias=".service_locator.WGbsqvt"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.qDeKQks" alias=".service_locator.2mmeurz"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8582,6 +8606,7 @@
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
+    <service id=".service_locator.vuy.C8K" alias=".service_locator.ZCdnETC"/>
     <service id=".service_locator.URfgn8g" alias=".service_locator.zFcJjKU"/>
     <service id=".service_locator.v7AHUGu" alias=".service_locator.RNsiPAw"/>
     <service id=".service_locator.nz3onHo" alias=".service_locator.Veo9UrM"/>
@@ -8600,7 +8625,6 @@
     <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
     <service id=".service_locator.HO7.gFw" alias=".service_locator.Q1F27w5"/>
     <service id=".service_locator.Zp0NSXM" alias=".service_locator.4T4EJFR"/>
-    <service id=".service_locator.S89QQxH" alias=".service_locator.9uW928t"/>
     <service id=".service_locator.eAaUVIw" alias=".service_locator.jIxfAsi"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>

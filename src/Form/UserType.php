@@ -19,6 +19,7 @@ class UserType extends AbstractType
             ->add('email')
             ->add('telephone')
             ->add('typeuser')
+            ->add('blocked')
         ;
     }
 
