@@ -13,15 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/commentaire')]
 class CommentaireController extends AbstractController
 {
-    #[Route('/admin', name: 'app_commentaire_index', methods: ['GET'])]
+    #[Route('/', name: 'app_commentaire_index', methods: ['GET'])]
     public function index(CommentaireRepository $commentaireRepository): Response
     {
-        return $this->render('Forum_admin/index_commentaire.html.twig', [
+        return $this->render('commentaire/index.html.twig', [
             'commentaires' => $commentaireRepository->findAll(),
         ]);
     }
 
-    #[Route('/admin/new', name: 'app_commentaire_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_commentaire_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CommentaireRepository $commentaireRepository): Response
     {
         $commentaire = new Commentaire();
@@ -35,7 +35,7 @@ class CommentaireController extends AbstractController
             return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('Forum_admin/add_commentaire.html.twig', [
+        return $this->renderForm('commentaire/new.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form,
         ]);
@@ -49,7 +49,7 @@ class CommentaireController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/{id}/edit', name: 'app_commentaire_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'app_commentaire_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Commentaire $commentaire, CommentaireRepository $commentaireRepository): Response
     {
         $form = $this->createForm(Commentaire1Type::class, $commentaire);
@@ -61,7 +61,7 @@ class CommentaireController extends AbstractController
             return $this->redirectToRoute('app_commentaire_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('Forum_admin/edit_commentaire.html.twig', [
+        return $this->renderForm('commentaire/edit.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form,
         ]);

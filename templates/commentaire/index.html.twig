@@ -3,6 +3,7 @@
 {% block title %}Commentaire index{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Commentaire index</h1>
 
     <table class="table">
@@ -24,10 +25,16 @@
                 <td>{{ commentaire.createdAt|date("m/d/Y") }}</td>
                 <td>{{ commentaire.updateAt|date("m/d/Y") }}</td>
                 <td>{{ commentaire.content }}</td>
+                
                 <td>
-                    <a href="{{ path('app_commentaire_show', {'id': commentaire.id}) }}">show</a>
-                    <a href="{{ path('app_commentaire_edit', {'id': commentaire.id}) }}">edit</a>
+                <ul class="blog-info-link">
+                    <li><a href="{{ path('app_commentaire_delete', {'id': commentaire.id}) }}">Delete</a></li>
+                    <li><a href="{{ path('app_commentaire_edit', {'id': commentaire.id}) }}">Edit</a></li>
+                 
+                    </ul>
+                    
                 </td>
+                
             </tr>
         {% else %}
             <tr>
@@ -38,4 +45,5 @@
     </table>
 
     <a href="{{ path('app_commentaire_new') }}">Create new</a>
+    </div>
 {% endblock %}

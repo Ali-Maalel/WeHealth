@@ -15,8 +15,8 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/blog' => [[['_route' => 'app_blog', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, false, false, null]],
-        '/commentaire/admin' => [[['_route' => 'app_commentaire_index', '_controller' => 'App\\Controller\\CommentaireController::index'], null, ['GET' => 0], null, false, false, null]],
-        '/commentaire/admin/new' => [[['_route' => 'app_commentaire_new', '_controller' => 'App\\Controller\\CommentaireController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/commentaire' => [[['_route' => 'app_commentaire_index', '_controller' => 'App\\Controller\\CommentaireController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/commentaire/new' => [[['_route' => 'app_commentaire_new', '_controller' => 'App\\Controller\\CommentaireController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/media' => [[['_route' => 'app_media_index', '_controller' => 'App\\Controller\\MediaController::index'], null, ['GET' => 0], null, true, false, null]],
         '/media/new' => [[['_route' => 'app_media_new', '_controller' => 'App\\Controller\\MediaController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/post' => [[['_route' => 'app_post_index', '_controller' => 'App\\Controller\\PostController::index'], null, ['GET' => 0], null, true, false, null]],
@@ -48,37 +48,37 @@ return [
                     .')'
                 .')'
                 .'|/commentaire/(?'
-                    .'|([^/]++)(*:193)'
-                    .'|admin/([^/]++)/(?'
-                        .'|edit(*:223)'
-                        .'|delete(*:237)'
+                    .'|([^/]++)(?'
+                        .'|(*:196)'
+                        .'|/edit(*:209)'
                     .')'
+                    .'|admin/([^/]++)/delete(*:239)'
                 .')'
                 .'|/media/([^/]++)(?'
-                    .'|(*:265)'
-                    .'|/edit(*:278)'
-                    .'|(*:286)'
+                    .'|(*:266)'
+                    .'|/edit(*:279)'
+                    .'|(*:287)'
                 .')'
                 .'|/post/(?'
                     .'|admin/([^/]++)/(?'
-                        .'|edit(*:326)'
+                        .'|edit(*:327)'
                         .'|d(?'
-                            .'|elete(*:343)'
-                            .'|islike(*:357)'
+                            .'|elete(*:344)'
+                            .'|islike(*:358)'
                         .')'
-                        .'|like(*:370)'
+                        .'|like(*:371)'
                     .')'
-                    .'|([^/]++)(*:387)'
-                    .'|AllPostJson(*:406)'
-                    .'|updatePostJson/([^/]++)(*:437)'
-                    .'|deletePostJson/([^/]++)(*:468)'
+                    .'|([^/]++)(*:388)'
+                    .'|AllPostJson(*:407)'
+                    .'|updatePostJson/([^/]++)(*:438)'
+                    .'|deletePostJson/([^/]++)(*:469)'
                 .')'
                 .'|/topic/(?'
                     .'|admin/([^/]++)/(?'
-                        .'|edit(*:509)'
-                        .'|delete(*:523)'
+                        .'|edit(*:510)'
+                        .'|delete(*:524)'
                     .')'
-                    .'|([^/]++)(*:540)'
+                    .'|([^/]++)(*:541)'
                 .')'
             .')/?$}sDu',
     ],
@@ -90,23 +90,23 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        193 => [[['_route' => 'app_commentaire_show', '_controller' => 'App\\Controller\\CommentaireController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        223 => [[['_route' => 'app_commentaire_edit', '_controller' => 'App\\Controller\\CommentaireController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        237 => [[['_route' => 'app_commentaire_delete', '_controller' => 'App\\Controller\\CommentaireController::delete'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, false, null]],
-        265 => [[['_route' => 'app_media_show', '_controller' => 'App\\Controller\\MediaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        278 => [[['_route' => 'app_media_edit', '_controller' => 'App\\Controller\\MediaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        286 => [[['_route' => 'app_media_delete', '_controller' => 'App\\Controller\\MediaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        326 => [[['_route' => 'app_post_edit_admin', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        343 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, false, null]],
-        357 => [[['_route' => 'app_post_dislike', '_controller' => 'App\\Controller\\PostController::dislike'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        370 => [[['_route' => 'app_post_like', '_controller' => 'App\\Controller\\PostController::like'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        387 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        406 => [[['_route' => 'listPosts', '_controller' => 'App\\Controller\\PostController::getPosts'], [], ['GET' => 0], null, false, false, null]],
-        437 => [[['_route' => 'updatePostJson', '_controller' => 'App\\Controller\\PostController::updatePostJson'], ['id'], null, null, false, true, null]],
-        468 => [[['_route' => 'deletePostJson', '_controller' => 'App\\Controller\\PostController::deletePostJson'], ['id'], null, null, false, true, null]],
-        509 => [[['_route' => 'app_topic_edit', '_controller' => 'App\\Controller\\TopicController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        523 => [[['_route' => 'app_topic_delete', '_controller' => 'App\\Controller\\TopicController::delete'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, false, null]],
-        540 => [
+        196 => [[['_route' => 'app_commentaire_show', '_controller' => 'App\\Controller\\CommentaireController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        209 => [[['_route' => 'app_commentaire_edit', '_controller' => 'App\\Controller\\CommentaireController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        239 => [[['_route' => 'app_commentaire_delete', '_controller' => 'App\\Controller\\CommentaireController::delete'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, false, null]],
+        266 => [[['_route' => 'app_media_show', '_controller' => 'App\\Controller\\MediaController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        279 => [[['_route' => 'app_media_edit', '_controller' => 'App\\Controller\\MediaController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        287 => [[['_route' => 'app_media_delete', '_controller' => 'App\\Controller\\MediaController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        327 => [[['_route' => 'app_post_edit_admin', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        344 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, false, null]],
+        358 => [[['_route' => 'app_post_dislike', '_controller' => 'App\\Controller\\PostController::dislike'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        371 => [[['_route' => 'app_post_like', '_controller' => 'App\\Controller\\PostController::like'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        388 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        407 => [[['_route' => 'listPosts', '_controller' => 'App\\Controller\\PostController::getPosts'], [], ['GET' => 0], null, false, false, null]],
+        438 => [[['_route' => 'updatePostJson', '_controller' => 'App\\Controller\\PostController::updatePostJson'], ['id'], null, null, false, true, null]],
+        469 => [[['_route' => 'deletePostJson', '_controller' => 'App\\Controller\\PostController::deletePostJson'], ['id'], null, null, false, true, null]],
+        510 => [[['_route' => 'app_topic_edit', '_controller' => 'App\\Controller\\TopicController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        524 => [[['_route' => 'app_topic_delete', '_controller' => 'App\\Controller\\TopicController::delete'], ['id'], ['GET' => 0, 'DELETE' => 1], null, false, false, null]],
+        541 => [
             [['_route' => 'app_topic_show', '_controller' => 'App\\Controller\\TopicController::show'], ['id'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

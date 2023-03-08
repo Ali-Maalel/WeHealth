@@ -17,7 +17,9 @@
                 <p>{{items.content}}</p>
                 <ul class="blog-info-link">
                     <li><a href="#"><i class="fa fa-user"></i>{{items.auteur}}</a></li>
-                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                    
+                    <li><a href="{{ path('app_commentaire_new', { 'id': items.id }) }}"><i class="fa fa-comments"></i> </a></li>
+                    <li><a href="{{ path('app_commentaire_index', { 'id': items.id }) }}"><i class="fa fa-comments"></i>Commentaire </a></li>
                     <li><a href="{{ path('app_post_like', { 'id': items.id }) }}"><i class="fa fa-comments"></i>like ({{ items.like_count }}) </a></li>
                     <li><a href="{{ path('app_post_dislike', { 'id': items.id }) }}"><i class="fa fa-comments"></i>dislike ({{ items.dislike_count }}) </a></li>
                 </ul>
