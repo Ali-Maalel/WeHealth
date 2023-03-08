@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\User;
 use App\Repository\UsersRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Entity\mappedBy ;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 #[UniqueEntity(fields: ['Login'], message: 'There is already an account with this Login')]
@@ -17,8 +18,10 @@ class Users extends User implements UserInterface, PasswordAuthenticatedUserInte
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 180, unique: true)]
-    private ?string $Loginn = null;
+     #[ORM\Column(length: 180, unique: true)]
+     #[ORM\Entity(repositoryClass: UserRepository::class)]
+     #[ORM\OneToOne( mappedBy:'user')]
+     private ?string $Login = null;
 
     #[ORM\Column]
     private array $roles = [];
@@ -37,27 +40,27 @@ class Users extends User implements UserInterface, PasswordAuthenticatedUserInte
         return $this->id;
     }
 
-    public function getLogin(): ?string
-    {
-        return $this->Loginn;
-    }
+     public function getLogin(): ?string
+     {
+         return $this->Login;
+     }
 
-    public function setLogin(string $Login): self
-    {
-        $this->Loginn = $Login;
+     public function setLogin(string $Login): self
+     {
+         $this->Login = $Login;
 
-        return $this;
-    }
+         return $this;
+     }
 
     /**
      * A visual identifier that represents this user.
      *
      * @see UserInterface
      */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->Loginn;
-    }
+     public function getUserIdentifier(): string
+     {
+         return (string) $this->Login;
+     }
 
     /**
      * @see UserInterface

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CoachRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CoachRepository::class)]
 class Coach extends User

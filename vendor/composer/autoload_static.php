@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
+class ComposerStaticInit3b8d88ff1d96f834ea3455b0d2abb82e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -17,6 +17,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
     );
@@ -576,9 +577,11 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
     );
 
     public static $classMap = array (
+        'App\\Controller\\AdminController' => __DIR__ . '/../..' . '/src/Controller/AdminController.php',
         'App\\Controller\\AppsecurityController' => __DIR__ . '/../..' . '/src/Controller/AppsecurityController.php',
         'App\\Controller\\BlogController' => __DIR__ . '/../..' . '/src/Controller/BlogController.php',
         'App\\Controller\\CoachController' => __DIR__ . '/../..' . '/src/Controller/CoachController.php',
+        'App\\Controller\\EvennementController' => __DIR__ . '/../..' . '/src/Controller/EvennementController.php',
         'App\\Controller\\PatientController' => __DIR__ . '/../..' . '/src/Controller/PatientController.php',
         'App\\Controller\\PostController' => __DIR__ . '/../..' . '/src/Controller/PostController.php',
         'App\\Controller\\ProfessionnelSanteController' => __DIR__ . '/../..' . '/src/Controller/ProfessionnelSanteController.php',
@@ -586,18 +589,23 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\Controller\\SignupController' => __DIR__ . '/../..' . '/src/Controller/SignupController.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
+        'App\\Controller\\VideoController' => __DIR__ . '/../..' . '/src/Controller/VideoController.php',
         'App\\Controller\\WehealthController' => __DIR__ . '/../..' . '/src/Controller/WehealthController.php',
         'App\\Entity\\Article' => __DIR__ . '/../..' . '/src/Entity/Article.php',
         'App\\Entity\\Coach' => __DIR__ . '/../..' . '/src/Entity/Coach.php',
         'App\\Entity\\Commentaire' => __DIR__ . '/../..' . '/src/Entity/Commentaire.php',
+        'App\\Entity\\Evennement' => __DIR__ . '/../..' . '/src/Entity/Evennement.php',
         'App\\Entity\\Media' => __DIR__ . '/../..' . '/src/Entity/Media.php',
         'App\\Entity\\Patient' => __DIR__ . '/../..' . '/src/Entity/Patient.php',
         'App\\Entity\\Post' => __DIR__ . '/../..' . '/src/Entity/Post.php',
         'App\\Entity\\ProfessionnelSante' => __DIR__ . '/../..' . '/src/Entity/ProfessionnelSante.php',
         'App\\Entity\\Topic' => __DIR__ . '/../..' . '/src/Entity/Topic.php',
+        'App\\Entity\\Type' => __DIR__ . '/../..' . '/src/Entity/Type.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Entity\\Users' => __DIR__ . '/../..' . '/src/Entity/Users.php',
+        'App\\Entity\\Video' => __DIR__ . '/../..' . '/src/Entity/Video.php',
         'App\\Form\\CoachType' => __DIR__ . '/../..' . '/src/Form/CoachType.php',
+        'App\\Form\\EvennementType' => __DIR__ . '/../..' . '/src/Form/EvennementType.php',
         'App\\Form\\FormuType' => __DIR__ . '/../..' . '/src/Form/FormuType.php',
         'App\\Form\\LoginFormType' => __DIR__ . '/../..' . '/src/Form/LoginFormType.php',
         'App\\Form\\PatientType' => __DIR__ . '/../..' . '/src/Form/PatientType.php',
@@ -606,18 +614,22 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',
         'App\\Form\\SignupType' => __DIR__ . '/../..' . '/src/Form/SignupType.php',
         'App\\Form\\UserType' => __DIR__ . '/../..' . '/src/Form/UserType.php',
+        'App\\Form\\VideoType' => __DIR__ . '/../..' . '/src/Form/VideoType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\ArticleRepository' => __DIR__ . '/../..' . '/src/Repository/ArticleRepository.php',
         'App\\Repository\\CoachRepository' => __DIR__ . '/../..' . '/src/Repository/CoachRepository.php',
         'App\\Repository\\CommentaireRepository' => __DIR__ . '/../..' . '/src/Repository/CommentaireRepository.php',
+        'App\\Repository\\EvennementRepository' => __DIR__ . '/../..' . '/src/Repository/EvennementRepository.php',
         'App\\Repository\\ForumRepository' => __DIR__ . '/../..' . '/src/Repository/ForumRepository.php',
         'App\\Repository\\MediaRepository' => __DIR__ . '/../..' . '/src/Repository/MediaRepository.php',
         'App\\Repository\\PatientRepository' => __DIR__ . '/../..' . '/src/Repository/PatientRepository.php',
         'App\\Repository\\PostRepository' => __DIR__ . '/../..' . '/src/Repository/PostRepository.php',
         'App\\Repository\\ProfessionnelSanteRepository' => __DIR__ . '/../..' . '/src/Repository/ProfessionnelSanteRepository.php',
         'App\\Repository\\TopicRepository' => __DIR__ . '/../..' . '/src/Repository/TopicRepository.php',
+        'App\\Repository\\TypeRepository' => __DIR__ . '/../..' . '/src/Repository/TypeRepository.php',
         'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'App\\Repository\\UsersRepository' => __DIR__ . '/../..' . '/src/Repository/UsersRepository.php',
+        'App\\Repository\\VideoRepository' => __DIR__ . '/../..' . '/src/Repository/VideoRepository.php',
         'App\\Security\\AppAuthenticator' => __DIR__ . '/../..' . '/src/Security/AppAuthenticator.php',
         'App\\Security\\EmailVerifier' => __DIR__ . '/../..' . '/src/Security/EmailVerifier.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
@@ -625,6 +637,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
+        'DeepCopy\\Filter\\ChainableFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/ChainableFilter.php',
         'DeepCopy\\Filter\\Doctrine\\DoctrineCollectionFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineCollectionFilter.php',
         'DeepCopy\\Filter\\Doctrine\\DoctrineEmptyCollectionFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineEmptyCollectionFilter.php',
         'DeepCopy\\Filter\\Doctrine\\DoctrineProxyFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Filter/Doctrine/DoctrineProxyFilter.php',
@@ -6061,6 +6074,7 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
         'Symfony\\Component\\VarExporter\\Internal\\Hydrator' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Hydrator.php',
         'Symfony\\Component\\VarExporter\\Internal\\LazyObjectRegistry' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectRegistry.php',
         'Symfony\\Component\\VarExporter\\Internal\\LazyObjectState' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectState.php',
+        'Symfony\\Component\\VarExporter\\Internal\\LazyObjectTrait' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectTrait.php',
         'Symfony\\Component\\VarExporter\\Internal\\Reference' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Reference.php',
         'Symfony\\Component\\VarExporter\\Internal\\Registry' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Registry.php',
         'Symfony\\Component\\VarExporter\\Internal\\Values' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Values.php',
@@ -6492,9 +6506,9 @@ class ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc2ce54f7f4b10658435be9764947d5d2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3b8d88ff1d96f834ea3455b0d2abb82e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3b8d88ff1d96f834ea3455b0d2abb82e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3b8d88ff1d96f834ea3455b0d2abb82e::$classMap;
 
         }, null, ClassLoader::class);
     }
