@@ -27,6 +27,7 @@ class __TwigTemplate_4162cfb7de0fd25d085a63fda877c6a8 extends Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
+            'most_commented_articles' => [$this, 'block_most_commented_articles'],
         ];
     }
 
@@ -211,8 +212,18 @@ class __TwigTemplate_4162cfb7de0fd25d085a63fda877c6a8 extends Template
         echo "\t\t\t\t\t</tbody>
 \t\t\t\t</table>
 \t\t\t</div>
+<hr>
+\t\t\t<div class=\"text-center\">
+\t\t\t\t";
+        // line 55
+        $this->displayBlock('most_commented_articles', $context, $blocks);
+        // line 66
+        echo "\t\t\t</div>
+
+
 \t\t</div>
 \t</div>
+
 
 \t<script>
 \t\t\$(document).ready(function () {
@@ -236,6 +247,53 @@ modal.show();
 
     }
 
+    // line 55
+    public function block_most_commented_articles($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "most_commented_articles"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "most_commented_articles"));
+
+        // line 56
+        echo "\t\t\t\t\t<h2>Most commented articles</h2>
+\t\t\t\t\t<ul>
+\t\t\t\t\t\t";
+        // line 58
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["mostCommentedArticles"]) || array_key_exists("mostCommentedArticles", $context) ? $context["mostCommentedArticles"] : (function () { throw new RuntimeError('Variable "mostCommentedArticles" does not exist.', 58, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 59
+            echo "\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t<a href=\"";
+            // line 60
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_article_index", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 60)]), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 60), "html", null, true);
+            echo "</a>
+\t\t\t\t\t\t\t\t(";
+            // line 61
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "postcount", [], "any", false, false, false, 61), "html", null, true);
+            echo "
+\t\t\t\t\t\t\t\tcomments)</li>
+\t\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 64
+        echo "\t\t\t\t\t</ul>
+\t\t\t\t";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "article/index.html.twig";
@@ -248,7 +306,7 @@ modal.show();
 
     public function getDebugInfo()
     {
-        return array (  211 => 50,  195 => 47,  193 => 46,  189 => 45,  184 => 43,  180 => 42,  175 => 40,  170 => 38,  166 => 37,  163 => 36,  146 => 35,  128 => 20,  123 => 17,  114 => 14,  111 => 13,  106 => 12,  97 => 9,  94 => 8,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  287 => 64,  278 => 61,  272 => 60,  269 => 59,  265 => 58,  261 => 56,  251 => 55,  221 => 66,  219 => 55,  212 => 50,  196 => 47,  194 => 46,  190 => 45,  185 => 43,  181 => 42,  176 => 40,  171 => 38,  167 => 37,  164 => 36,  147 => 35,  129 => 20,  124 => 17,  115 => 14,  112 => 13,  107 => 12,  98 => 9,  95 => 8,  90 => 7,  80 => 6,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -305,8 +363,25 @@ modal.show();
 \t\t\t\t\t</tbody>
 \t\t\t\t</table>
 \t\t\t</div>
+<hr>
+\t\t\t<div class=\"text-center\">
+\t\t\t\t{% block most_commented_articles %}
+\t\t\t\t\t<h2>Most commented articles</h2>
+\t\t\t\t\t<ul>
+\t\t\t\t\t\t{% for article in mostCommentedArticles %}
+\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t<a href=\"{{ path('app_article_index', {'id': article.id}) }}\">{{ article.titre }}</a>
+\t\t\t\t\t\t\t\t({{ article.postcount }}
+\t\t\t\t\t\t\t\tcomments)</li>
+\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t</ul>
+\t\t\t\t{% endblock %}
+\t\t\t</div>
+
+
 \t\t</div>
 \t</div>
+
 
 \t<script>
 \t\t\$(document).ready(function () {

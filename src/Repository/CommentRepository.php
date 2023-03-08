@@ -20,7 +20,31 @@ class CommentRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comment::class);
     }
-    
+    public function mostCommentedArticle()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $rawSql = "SELECT
+         *
+    FROM article as a
+    INNER JOIN (
+                  SELECT
+                         article_id,
+                         count(*) AS postcount
+                  FROM Comment
+                  GROUP BY article_id
+               ) as c
+           on a.id = c.article_id
+    Order by c.postcount desc
+    LIMIT 3";
+
+        $stmt = $conn->prepare($rawSql);
+        $resultSet = $stmt->executeQuery();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $resultSet->fetchAllAssociative();
+    }
+
     public function save(Comment $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -38,30 +62,30 @@ class CommentRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-    
 
-//    /**
-//     * @return Comment[] Returns an array of Comment objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?Comment
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Comment[] Returns an array of Comment objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('c')
+    //            ->andWhere('c.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('c.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Comment
+    //    {
+    //        return $this->createQueryBuilder('c')
+    //            ->andWhere('c.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

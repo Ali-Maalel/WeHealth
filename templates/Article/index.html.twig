@@ -50,8 +50,25 @@
 					</tbody>
 				</table>
 			</div>
+<hr>
+			<div class="text-center">
+				{% block most_commented_articles %}
+					<h2>Most commented articles</h2>
+					<ul>
+						{% for article in mostCommentedArticles %}
+							<li>
+								<a href="{{ path('app_article_index', {'id': article.id}) }}">{{ article.titre }}</a>
+								({{ article.postcount }}
+								comments)</li>
+						{% endfor %}
+					</ul>
+				{% endblock %}
+			</div>
+
+
 		</div>
 	</div>
+
 
 	<script>
 		$(document).ready(function () {

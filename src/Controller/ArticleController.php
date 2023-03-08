@@ -44,10 +44,12 @@ class ArticleController extends AbstractController
     }
 
     #[Route('/', name: 'app_article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository,Request $request,CommentRepository $commentRepository): Response
     {
+        $mostCommentedArticles = $commentRepository->mostCommentedArticle();
         return $this->render('article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
+            'mostCommentedArticles'=>$mostCommentedArticles
         ]);
     }
 
