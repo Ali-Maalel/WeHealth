@@ -172,7 +172,7 @@ class __TwigTemplate_af8c9fe33c55b5a15c33f706f8f9cce1 extends Template
             echo "</p>
 \t\t\t\t\t\t\t<span>";
             // line 46
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 46), "m/d/Y H:i"), "html", null, true);
+            ((twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 46)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 46), "Y-m-d"), "html", null, true))) : (print ("")));
             echo "</span>
 \t\t\t\t\t\t</td>
 \t\t\t\t\t</tr>
@@ -287,7 +287,7 @@ class __TwigTemplate_af8c9fe33c55b5a15c33f706f8f9cce1 extends Template
 \t\t\t\t\t\t</td>
 \t\t\t\t\t\t<td style=\"padding: 8px;\">
 \t\t\t\t\t\t\t<p>{{comment.contenu}}</p>
-\t\t\t\t\t\t\t<span>{{comment.createdAt|date(\"m/d/Y H:i\")}}</span>
+\t\t\t\t\t\t\t<span>{{ comment.createdAt ? comment.createdAt|date('Y-m-d') : '' }}</span>
 \t\t\t\t\t\t</td>
 \t\t\t\t\t</tr>
 \t\t\t\t{% endfor %}

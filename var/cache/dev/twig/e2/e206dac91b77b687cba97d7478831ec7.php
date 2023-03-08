@@ -100,7 +100,10 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t<!-- Preloader Start -->
 
 \t<main>
-\t\t<h1 class=\"text-center my-5\" style=\"font-weight: bold;\">Articles récents</h1>
+\t\t<h1 class=\"text-center my-5\" style=\"font-weight: bold;  font-family: 'Montserrat', sans-serif; background: linear-gradient(45deg, #2196F3, #0D47A1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;\">
+\t\t\t<i class=\"fas fa-newspaper\"></i>
+\t\t\tArticles récents</h1>
+
 
 \t\t<!--? Blog Area Start-->
 \t\t<div id=\"articles-list\"></div>
@@ -112,72 +115,72 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t\t<div class=\"col-lg-12 mb-5 mb-lg-0\" style=\"display: flex!important;\">
 \t\t\t\t\t<div class=\"blog_left_sidebar\" style=\"margin: 0 10px;\">
 \t\t\t\t\t\t";
-        // line 32
+        // line 35
         $context["leftCol"] = 5;
-        // line 33
+        // line 36
         echo "\t\t\t\t\t\t";
         $context["rightCol"] = 7;
-        // line 34
+        // line 37
         echo "\t\t\t\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 34, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 37, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 35
+            // line 38
             echo "\t\t\t\t\t\t\t<article class=\"blog_item\">
 \t\t\t\t\t\t\t\t<div class=\"blog_item_img\">
 \t\t\t\t\t\t\t\t\t";
-            // line 37
-            if (twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 37)) {
-                // line 38
+            // line 40
+            if (twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 40)) {
+                // line 41
                 echo "\t\t\t\t\t\t\t\t\t\t<a href=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 41)]), "html", null, true);
                 echo "\">
 \t\t\t\t\t\t\t\t\t\t\t<img class=\"card-img rounded-0\" src=\"/uploads/";
-                // line 39
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 39), "nomFichier", [], "any", false, false, false, 39), "html", null, true);
+                // line 42
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 42), "nomFichier", [], "any", false, false, false, 42), "html", null, true);
                 echo "\" alt=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 39), "altText", [], "any", false, false, false, 39), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "featuredImage", [], "any", false, false, false, 42), "altText", [], "any", false, false, false, 42), "html", null, true);
                 echo "\" loading=\"lazy\" width=\"350\" height=\"205\">
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t";
             }
-            // line 42
+            // line 45
             echo "\t\t\t\t\t\t\t\t\t<a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 42)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 45)]), "html", null, true);
             echo "\" class=\"blog_item_date\">
 \t\t\t\t\t\t\t\t\t\t<h3>";
-            // line 43
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 43), "d"), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 46), "d"), "html", null, true);
             echo "</h3>
 \t\t\t\t\t\t\t\t\t\t<p>";
-            // line 44
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 44), "M"), "html", null, true);
+            // line 47
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "createdAt", [], "any", false, false, false, 47), "M"), "html", null, true);
             echo "</p>
 \t\t\t\t\t\t\t\t\t\t";
-            // line 45
-            if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 45)) > 0)) {
-                // line 46
+            // line 48
+            if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 48)) > 0)) {
+                // line 49
                 echo "\t\t\t\t\t\t\t\t\t\t\t<span class=\"blog_comment\">";
-                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 46)), "html", null, true);
+                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 49)), "html", null, true);
                 echo "</span>
 \t\t\t\t\t\t\t\t\t\t";
             }
-            // line 48
+            // line 51
             echo "\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t<div class=\"blog_details\">
 \t\t\t\t\t\t\t\t\t<a class=\"d-inline-block\" href=\"";
-            // line 51
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            // line 54
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("article_show", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 54)]), "html", null, true);
             echo "\">
 \t\t\t\t\t\t\t\t\t\t<h2 class=\"blog-head\" style=\"color: #2d2d2d;\">";
-            // line 52
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 52), "html", null, true);
+            // line 55
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 55), "html", null, true);
             echo "</h2>
 \t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t<p>";
-            // line 54
-            echo twig_escape_filter($this->env, (twig_slice($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["article"], "contenu", [], "any", false, false, false, 54)), 0, 130) . "..."), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, (twig_slice($this->env, twig_striptags(twig_get_attribute($this->env, $this->source, $context["article"], "contenu", [], "any", false, false, false, 57)), 0, 130) . "..."), "html", null, true);
             echo "</p>
 \t\t\t\t\t\t\t\t\t<ul class=\"blog-info-link\">
 
@@ -185,12 +188,12 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
 \t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-comments\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t";
-            // line 60
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 60)), "html", null, true);
+            // line 63
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 63)), "html", null, true);
             echo "
 \t\t\t\t\t\t\t\t\t\t\t\t";
-            // line 61
-            echo (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 61)) > 1)) ? ("Comments") : ("Comment"));
+            // line 64
+            echo (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "comments", [], "any", false, false, false, 64)) > 1)) ? ("Comments") : ("Comment"));
             echo "</a>
 \t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t</ul>
@@ -201,7 +204,7 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 67
+        // line 70
         echo "\t\t\t\t\t</div>
 \t\t\t\t\t<div class=\"blog_right_sidebar mt-auto\">
 \t\t\t\t\t\t<div class=\"blog_right_sidebar\">
@@ -226,9 +229,9 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 
 \t\t\t\t\t\t\t\t<ul class=\"list cat-list\">
 \t\t\t\t\t\t\t\t\t";
-        // line 90
-        $this->loadTemplate("widget/categories.html.twig", "blog/blog.html.twig", 90)->display($context);
-        // line 91
+        // line 93
+        $this->loadTemplate("widget/categories.html.twig", "blog/blog.html.twig", 93)->display($context);
+        // line 94
         echo "\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t</aside>
 \t\t\t\t\t\t\t<aside class=\"single_sidebar_widget popular_post_widget\">
@@ -299,42 +302,6 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t</aside>
-
-\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget instagram_feeds\">
-\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Instagram Feeds</h4>
-\t\t\t\t\t\t\t\t<ul class=\"instagram_row flex-wrap\">
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_5.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_6.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_7.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_8.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_9.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_10.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t\t</aside>
 \t\t\t\t\t\t\t<aside class=\"single_sidebar_widget newsletter_widget\">
 \t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Newsletter</h4>
 \t\t\t\t\t\t\t\t<form action=\"#\">
@@ -394,7 +361,7 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 
     public function getDebugInfo()
     {
-        return array (  232 => 91,  230 => 90,  205 => 67,  193 => 61,  189 => 60,  180 => 54,  175 => 52,  171 => 51,  166 => 48,  160 => 46,  158 => 45,  154 => 44,  150 => 43,  145 => 42,  137 => 39,  132 => 38,  130 => 37,  126 => 35,  121 => 34,  118 => 33,  116 => 32,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
+        return array (  235 => 94,  233 => 93,  208 => 70,  196 => 64,  192 => 63,  183 => 57,  178 => 55,  174 => 54,  169 => 51,  163 => 49,  161 => 48,  157 => 47,  153 => 46,  148 => 45,  140 => 42,  135 => 41,  133 => 40,  129 => 38,  124 => 37,  121 => 36,  119 => 35,  89 => 7,  79 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -419,7 +386,10 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t<!-- Preloader Start -->
 
 \t<main>
-\t\t<h1 class=\"text-center my-5\" style=\"font-weight: bold;\">Articles récents</h1>
+\t\t<h1 class=\"text-center my-5\" style=\"font-weight: bold;  font-family: 'Montserrat', sans-serif; background: linear-gradient(45deg, #2196F3, #0D47A1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;\">
+\t\t\t<i class=\"fas fa-newspaper\"></i>
+\t\t\tArticles récents</h1>
+
 
 \t\t<!--? Blog Area Start-->
 \t\t<div id=\"articles-list\"></div>
@@ -556,42 +526,6 @@ class __TwigTemplate_f85bd2662e58fb32f572379bdf33db80 extends Template
 \t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t<a href=\"#\">illustration</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t\t</aside>
-
-\t\t\t\t\t\t\t<aside class=\"single_sidebar_widget instagram_feeds\">
-\t\t\t\t\t\t\t\t<h4 class=\"widget_title\" style=\"color: #2d2d2d;\">Instagram Feeds</h4>
-\t\t\t\t\t\t\t\t<ul class=\"instagram_row flex-wrap\">
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_5.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_6.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_7.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_8.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_9.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t\t<a href=\"#\">
-\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"assets/img/post/post_10.png\" alt=\"\">
-\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t</aside>

@@ -43,7 +43,7 @@
 						</td>
 						<td style="padding: 8px;">
 							<p>{{comment.contenu}}</p>
-							<span>{{comment.createdAt|date("m/d/Y H:i")}}</span>
+							<span>{{ comment.createdAt ? comment.createdAt|date('Y-m-d') : '' }}</span>
 						</td>
 					</tr>
 				{% endfor %}
