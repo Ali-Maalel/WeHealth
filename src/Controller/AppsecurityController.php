@@ -62,8 +62,12 @@ class AppsecurityController extends AbstractController
     /**
      * @Route("/logout", name="app_logout")
      */
-    public function logout(): \Symfony\Component\HttpFoundation\RedirectResponse
+    public function __invoke(Request $request, AuthenticationUtils $authenticationUtils): Response
     {
+        $request->getSession()->invalidate();
+
+    // Clear any authentication tokens
+        //$authenticationUtils::logout();
         return $this->redirectToRoute("app_login");
     }
 

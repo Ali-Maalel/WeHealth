@@ -18,7 +18,7 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'admin_block_user' => [['id'], ['_controller' => 'App\\Controller\\AdminController::blockUser'], [], [['text', '/block'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/user']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\AppsecurityController::login'], [], [['text', '/login']], [], [], []],
-    'app_logout' => [[], ['_controller' => 'App\\Controller\\AppsecurityController::logout'], [], [['text', '/logout']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\AppsecurityController'], [], [['text', '/logout']], [], [], []],
     'app_blog' => [[], ['_controller' => 'App\\Controller\\BlogController::index'], [], [['text', '/blog']], [], [], []],
     'app_coach_index' => [[], ['_controller' => 'App\\Controller\\CoachController::index'], [], [['text', '/coach/']], [], [], []],
     'app_coach_new' => [[], ['_controller' => 'App\\Controller\\CoachController::new'], [], [['text', '/coach/coach/new']], [], [], []],

@@ -66,8 +66,8 @@ return [[
 '[C]App%5CController%5CAppsecurityController%23index' => 1,
 'App%5CController%5CAppsecurityController%23login' => 6,
 '[C]App%5CController%5CAppsecurityController%23login' => 1,
-'App%5CController%5CAppsecurityController%23logout' => 7,
-'[C]App%5CController%5CAppsecurityController%23logout' => 1,
+'App%5CController%5CAppsecurityController%23__invoke' => 7,
+'[C]App%5CController%5CAppsecurityController%23__invoke' => 1,
 'App%5CController%5CAppsecurityController%24passwordEncoder' => 0,
 '[C]App%5CController%5CAppsecurityController%24passwordEncoder' => 1,
 'App%5CController%5CBlogController' => 0,
@@ -1096,7 +1096,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1678310277,
+1 => 1678318350,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
