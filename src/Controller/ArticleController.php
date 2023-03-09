@@ -278,7 +278,7 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
-    #[Route('/ArticlePdf/{id}', name: 'app_PdfArticle')]
+    #[Route('/ArticlePdf/{id}', name: 'app_PdfArticle',methods: ['POST','GET'])]
     public function impressionPDF(ManagerRegistry $doctrine, ArticleRepository $repo, $id)
     {
 
@@ -297,6 +297,7 @@ class ArticleController extends AbstractController
         $dompdf->stream('MonArticle' . $id . '.pdf', [
             'Attachment' => true,
         ]);
+        return $this->redirectToRoute('app_blog');
     }
     #[Route('/likeArticle/{id}', name: 'article_like')]
     public function likeArticle(?Article $article, ArticleRepository $articleRepository, ArticleLikeRepository $articleLikeRepository): Response

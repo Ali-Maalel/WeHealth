@@ -13,7 +13,9 @@
 		<div class="article-content">
 			{{ article.contenu|raw }}
 		</div>
-		<a href="{{ path('app_PdfArticle', { 'id': article.id }) }}" class="btn btn-primary">Download PDF</a>
+		<a href="{{ path('app_PdfArticle', {'id': article.id}) }}" download="MonArticle{{ article.id }}.pdf">
+  <button class="btn btn-primary">Download PDF</button>
+</a>
 		<br/>
 		{% if liked %}
 			<a href="{{ path('article_dislike', { 'id': article.id }) }}">
