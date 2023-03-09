@@ -244,3 +244,15 @@ e8aa7e,127.0.0.1,GET,https://127.0.0.1:8000/discussion/assets/img/logo/applogo.p
 ab1f68,127.0.0.1,GET,https://127.0.0.1:8000/discussion/assets/img/logo/applogo.png,1678359437,,404
 81b397,127.0.0.1,GET,https://127.0.0.1:8000/discussion/assets/img/logo/logo2_footer.png,1678359438,0bd748,404
 0bd748,127.0.0.1,GET,https://127.0.0.1:8000/discussion/assets/img/logo/logo2_footer.png,1678359438,,404
+d9fa07,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678363874,995a8e,500
+995a8e,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678363874,,500
+8fb0f7,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678363977,0734de,500
+0734de,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678363977,,500
+edc71e,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678364722,9c25c2,500
+9c25c2,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678364722,,500
+a884b8,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678364774,0e9c4a,500
+0e9c4a,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678364774,,500
+1c3867,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678364853,6d1b43,404
+6d1b43,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance,1678364853,,404
+02f0d1,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance/1,1678364869,a59b01,404
+a59b01,127.0.0.1,GET,https://127.0.0.1:8000/printordonnance/1,1678364869,,404

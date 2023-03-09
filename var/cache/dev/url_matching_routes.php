@@ -70,26 +70,29 @@ return [
                     .'|/edit(*:374)'
                     .'|(*:382)'
                 .')'
-                .'|/ordenance/([^/]++)(?'
-                    .'|(*:413)'
-                    .'|/edit(*:426)'
-                    .'|(*:434)'
+                .'|/ordenance/(?'
+                    .'|([^/]++)(?'
+                        .'|(*:416)'
+                        .'|/edit(*:429)'
+                        .'|(*:437)'
+                    .')'
+                    .'|printordonnance/([^/]++)(*:470)'
                 .')'
                 .'|/post/([^/]++)(?'
-                    .'|(*:460)'
-                    .'|/edit(*:473)'
-                    .'|(*:481)'
+                    .'|(*:496)'
+                    .'|/edit(*:509)'
+                    .'|(*:517)'
                 .')'
                 .'|/Patient/(?'
-                    .'|supprimerQuestion([^/]++)(*:527)'
-                    .'|modifierQuestion/([^/]++)(*:560)'
-                    .'|ListerReponses/([^/]++)(*:591)'
+                    .'|supprimerQuestion([^/]++)(*:563)'
+                    .'|modifierQuestion/([^/]++)(*:596)'
+                    .'|ListerReponses/([^/]++)(*:627)'
                 .')'
                 .'|/Medecin/(?'
-                    .'|RepondreQuestion/([^/]++)(*:637)'
-                    .'|afficherReponses/([^/]++)(*:670)'
-                    .'|supprimerReponse/([^/]++)(*:703)'
-                    .'|modifierReponse/([^/]++)(*:735)'
+                    .'|RepondreQuestion/([^/]++)(*:673)'
+                    .'|afficherReponses/([^/]++)(*:706)'
+                    .'|supprimerReponse/([^/]++)(*:739)'
+                    .'|modifierReponse/([^/]++)(*:771)'
                 .')'
             .')/?$}sDu',
     ],
@@ -111,19 +114,20 @@ return [
         361 => [[['_route' => 'app_medicaments_show', '_controller' => 'App\\Controller\\MedicamentsController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         374 => [[['_route' => 'app_medicaments_edit', '_controller' => 'App\\Controller\\MedicamentsController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         382 => [[['_route' => 'app_medicaments_delete', '_controller' => 'App\\Controller\\MedicamentsController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        413 => [[['_route' => 'app_ordenance_show', '_controller' => 'App\\Controller\\OrdenanceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        426 => [[['_route' => 'app_ordenance_edit', '_controller' => 'App\\Controller\\OrdenanceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        434 => [[['_route' => 'app_ordenance_delete', '_controller' => 'App\\Controller\\OrdenanceController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        460 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        473 => [[['_route' => 'app_post_edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        481 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        527 => [[['_route' => 'supprimerQuestion', '_controller' => 'App\\Controller\\QuestionController::SupprimerQuestion'], ['id'], null, null, false, true, null]],
-        560 => [[['_route' => 'modifierQuestion', '_controller' => 'App\\Controller\\QuestionController::modifierQuestion'], ['id'], null, null, false, true, null]],
-        591 => [[['_route' => 'ListerReponses', '_controller' => 'App\\Controller\\ReponseController::ListerReponses'], ['id'], null, null, false, true, null]],
-        637 => [[['_route' => 'RepondreQuestion', '_controller' => 'App\\Controller\\ReponseController::RepondreQuestion'], ['id'], null, null, false, true, null]],
-        670 => [[['_route' => 'afficherReponses', '_controller' => 'App\\Controller\\ReponseController::AfficherMesReponses'], ['id'], null, null, false, true, null]],
-        703 => [[['_route' => 'supprimerReponse', '_controller' => 'App\\Controller\\ReponseController::SupprimerReponse'], ['id'], null, null, false, true, null]],
-        735 => [
+        416 => [[['_route' => 'app_ordenance_show', '_controller' => 'App\\Controller\\OrdenanceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        429 => [[['_route' => 'app_ordenance_edit', '_controller' => 'App\\Controller\\OrdenanceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        437 => [[['_route' => 'app_ordenance_delete', '_controller' => 'App\\Controller\\OrdenanceController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        470 => [[['_route' => 'print_ordonnance', '_controller' => 'App\\Controller\\OrdenanceController::ordenancePDF'], ['id'], null, null, false, true, null]],
+        496 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        509 => [[['_route' => 'app_post_edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        517 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        563 => [[['_route' => 'supprimerQuestion', '_controller' => 'App\\Controller\\QuestionController::SupprimerQuestion'], ['id'], null, null, false, true, null]],
+        596 => [[['_route' => 'modifierQuestion', '_controller' => 'App\\Controller\\QuestionController::modifierQuestion'], ['id'], null, null, false, true, null]],
+        627 => [[['_route' => 'ListerReponses', '_controller' => 'App\\Controller\\ReponseController::ListerReponses'], ['id'], null, null, false, true, null]],
+        673 => [[['_route' => 'RepondreQuestion', '_controller' => 'App\\Controller\\ReponseController::RepondreQuestion'], ['id'], null, null, false, true, null]],
+        706 => [[['_route' => 'afficherReponses', '_controller' => 'App\\Controller\\ReponseController::AfficherMesReponses'], ['id'], null, null, false, true, null]],
+        739 => [[['_route' => 'supprimerReponse', '_controller' => 'App\\Controller\\ReponseController::SupprimerReponse'], ['id'], null, null, false, true, null]],
+        771 => [
             [['_route' => 'modifierReponse', '_controller' => 'App\\Controller\\ReponseController::modifierReponse'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

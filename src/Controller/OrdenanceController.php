@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\options;
 
 #[Route('/ordenance')]
 class OrdenanceController extends AbstractController
@@ -76,6 +78,8 @@ class OrdenanceController extends AbstractController
 
         return $this->redirectToRoute('app_ordenance_index', [], Response::HTTP_SEE_OTHER);
     }
+    
+    #[Route('/printordonnance/{id}', name: 'print_ordonnance')]
     public function ordenancePDF($id,OrdenanceRepository $repo)
     {
         $pdfOptions = new Options();

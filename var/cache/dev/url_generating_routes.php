@@ -39,6 +39,7 @@ return [
     'app_ordenance_show' => [['id'], ['_controller' => 'App\\Controller\\OrdenanceController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/ordenance']], [], [], []],
     'app_ordenance_edit' => [['id'], ['_controller' => 'App\\Controller\\OrdenanceController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/ordenance']], [], [], []],
     'app_ordenance_delete' => [['id'], ['_controller' => 'App\\Controller\\OrdenanceController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/ordenance']], [], [], []],
+    'print_ordonnance' => [['id'], ['_controller' => 'App\\Controller\\OrdenanceController::ordenancePDF'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/ordenance/printordonnance']], [], [], []],
     'app_post_index' => [[], ['_controller' => 'App\\Controller\\PostController::index'], [], [['text', '/post/']], [], [], []],
     'app_post_new' => [[], ['_controller' => 'App\\Controller\\PostController::new'], [], [['text', '/post/new']], [], [], []],
     'app_post_show' => [['id'], ['_controller' => 'App\\Controller\\PostController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/post']], [], [], []],
