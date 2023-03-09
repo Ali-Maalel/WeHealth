@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -70,11 +71,39 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
+	
 	<body>
 		
 		{{ include('utils/header.html.twig') }}
-		{% block body %}
+		
+		 </header>
+        <main>
+        <!--? Slider Area Start-->
+        <div class="slider-area slider-area2">
+            <div class="slider-active dot-style">
+                <!-- Slider Single -->
+                <div class="single-slider  d-flex align-items-center slider-height2">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-7 col-lg-8 col-md-10 ">
+                             <div class="hero-wrapper">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">{% block forum_title %} Forum {% endblock %}</h1>
+                                    <p data-animation="fadeInUp" data-delay=".6s">{% block forum_description %}Information et temoignage des patients, et<br> leurs proches atteint de maladie chroniques {% endblock %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+	{% block body %}
 		{% endblock %}
+		</body>
+		
+		<body>
 		{{ include('utils/footer.html.twig') }}
 	</body>
+	
 </html></body</html>
