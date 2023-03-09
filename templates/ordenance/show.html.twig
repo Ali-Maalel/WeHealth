@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ordenance{% endblock %}
+
+{% block body %}
+    <h1>Ordenance</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ordenance.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ ordenance.description }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ ordenance.createdAt ? ordenance.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Name_profSante</th>
+                <td>{{ ordenance.nameProfSante }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ ordenance.adresse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ordenance_index') }}">back to list</a>
+
+    <a href="{{ path('app_ordenance_edit', {'id': ordenance.id}) }}">edit</a>
+
+    {{ include('ordenance/_delete_form.html.twig') }}
+{% endblock %}

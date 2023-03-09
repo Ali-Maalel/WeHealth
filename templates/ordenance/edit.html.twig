@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ordenance{% endblock %}
+
+{% block body %}
+    <h1>Edit Ordenance</h1>
+
+    {{ include('ordenance/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ordenance_index') }}">back to list</a>
+
+    {{ include('ordenance/_delete_form.html.twig') }}
+{% endblock %}

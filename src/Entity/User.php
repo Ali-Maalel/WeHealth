@@ -40,6 +40,14 @@ class User
     #[ORM\Column(length: 15, nullable: true)]
     private ?string $telephone = null;
 
+    #[ORM\OneToMany(mappedBy: 'patient_user', targetEntity: Ordenance::class)]
+    private Collection $ordenances;
+
+    public function __construct()
+    {
+        $this->ordenances = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -145,4 +153,34 @@ class User
 *
  *       return $this;
    * }*/
+
+    /**
+     * @return Collection<int, Ordenance>
+     */
+    public function getOrdenances(): Collection
+    {
+        return $this->ordenances;
+    }
+
+    public function addOrdenance(Ordenance $ordenance): self
+    {
+        if (!$this->ordenances->contains($ordenance)) {
+            $this->ordenances->add($ordenance);
+            $ordenance->setPatientUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdenance(Ordenance $ordenance): self
+    {
+        if ($this->ordenances->removeElement($ordenance)) {
+            // set the owning side to null (unless already changed)
+            if ($ordenance->getPatientUser() === $this) {
+                $ordenance->setPatientUser(null);
+            }
+        }
+
+        return $this;
+    }
 }

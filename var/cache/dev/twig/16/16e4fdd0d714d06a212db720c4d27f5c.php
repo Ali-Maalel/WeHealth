@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* forum/forum.html.twig */
+/* Forum/forum.html.twig */
 class __TwigTemplate_e7f3d80136bfd23d5fa5165c247d090b extends Template
 {
     private $source;
@@ -40,12 +40,12 @@ class __TwigTemplate_e7f3d80136bfd23d5fa5165c247d090b extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "forum/forum.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Forum/forum.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "forum/forum.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "Forum/forum.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "forum/forum.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "Forum/forum.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -100,7 +100,7 @@ class __TwigTemplate_e7f3d80136bfd23d5fa5165c247d090b extends Template
 
     public function getTemplateName()
     {
-        return "forum/forum.html.twig";
+        return "Forum/forum.html.twig";
     }
 
     public function isTraitable()
@@ -124,6 +124,6 @@ class __TwigTemplate_e7f3d80136bfd23d5fa5165c247d090b extends Template
  <div class=\"container\">
  <p> Veuillez choisir un sujet 
  </div>
-{% endblock%}", "forum/forum.html.twig", "C:\\Users\\Zeynab\\OneDrive\\Bureau\\Projet_dev\\WeHealth\\templates\\Forum\\forum.html.twig");
+{% endblock%}", "Forum/forum.html.twig", "C:\\Users\\maddo\\OneDrive\\Bureau\\Nouveau dossier\\WeHealth\\templates\\Forum\\forum.html.twig");
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProfessionnelSanteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProfessionnelSanteRepository::class)]
@@ -18,6 +20,14 @@ class ProfessionnelSante extends User
 
     #[ORM\Column(length: 8)]
     private ?string $CIN = null;
+
+    #[ORM\OneToMany(mappedBy: 'profSante', targetEntity: Ordenance::class)]
+    private Collection $ordenances;
+
+    public function __construct()
+    {
+        $this->ordenances = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -44,6 +54,36 @@ class ProfessionnelSante extends User
     public function setCIN(string $CIN): self
     {
         $this->CIN = $CIN;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ordenance>
+     */
+    public function getOrdenances(): Collection
+    {
+        return $this->ordenances;
+    }
+
+    public function addOrdenance(Ordenance $ordenance): self
+    {
+        if (!$this->ordenances->contains($ordenance)) {
+            $this->ordenances->add($ordenance);
+            $ordenance->setProfSante($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdenance(Ordenance $ordenance): self
+    {
+        if ($this->ordenances->removeElement($ordenance)) {
+            // set the owning side to null (unless already changed)
+            if ($ordenance->getProfSante() === $this) {
+                $ordenance->setProfSante(null);
+            }
+        }
 
         return $this;
     }

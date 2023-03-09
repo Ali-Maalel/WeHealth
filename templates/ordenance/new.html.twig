@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ordenance{% endblock %}
+
+{% block body %}
+    <h1>Create new Ordenance</h1>
+
+    {{ include('ordenance/_form.html.twig') }}
+
+    <a href="{{ path('app_ordenance_index') }}">back to list</a>
+{% endblock %}

@@ -15,9 +15,22 @@ return [
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/blog' => [[['_route' => 'app_blog', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, false, false, null]],
-        '/discussion' => [[['_route' => 'app_discussion', '_controller' => 'App\\Controller\\DiscussionController::index'], null, null, null, false, false, null]],
+        '/discussion' => [[['_route' => 'app_discussion_index', '_controller' => 'App\\Controller\\DiscussionController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/discussion/new' => [[['_route' => 'app_discussion_new', '_controller' => 'App\\Controller\\DiscussionController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/api/medicaments/liste' => [[['_route' => 'api_list', '_controller' => 'App\\Controller\\APIController::index'], null, ['GET' => 0], null, false, false, null]],
+        '/api/Medicaments/ajout' => [[['_route' => 'api_ajout', '_controller' => 'App\\Controller\\APIController::addMedicaments'], null, ['POST' => 0], null, false, false, null]],
+        '/medicaments' => [[['_route' => 'app_medicaments_index', '_controller' => 'App\\Controller\\MedicamentsController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/medicaments/new' => [[['_route' => 'app_medicaments_new', '_controller' => 'App\\Controller\\MedicamentsController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/ordenance/api' => [[['_route' => 'app_ordenance_api', '_controller' => 'App\\Controller\\OrdenanceApiController::index'], null, null, null, false, false, null]],
+        '/ordenance' => [[['_route' => 'app_ordenance_index', '_controller' => 'App\\Controller\\OrdenanceController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/ordenance/new' => [[['_route' => 'app_ordenance_new', '_controller' => 'App\\Controller\\OrdenanceController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/post' => [[['_route' => 'app_post_index', '_controller' => 'App\\Controller\\PostController::index'], null, ['GET' => 0], null, true, false, null]],
         '/post/new' => [[['_route' => 'app_post_new', '_controller' => 'App\\Controller\\PostController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/question' => [[['_route' => 'question', '_controller' => 'App\\Controller\\QuestionController::index'], null, null, null, false, false, null]],
+        '/Patient/poserQuestion' => [[['_route' => 'poserQuestion', '_controller' => 'App\\Controller\\QuestionController::PoserUneQuestion'], null, null, null, false, false, null]],
+        '/Patient/ListerQuestion' => [[['_route' => 'ListerQuestion', '_controller' => 'App\\Controller\\QuestionController::ListerQuestion'], null, null, null, false, false, null]],
+        '/Medecin/ListerQuestion/Med' => [[['_route' => 'ListerQuestionMed', '_controller' => 'App\\Controller\\QuestionController::afficherQuestions'], null, null, null, false, false, null]],
+        '/reponse' => [[['_route' => 'reponse', '_controller' => 'App\\Controller\\ReponseController::index'], null, null, null, false, false, null]],
         '/signup' => [[['_route' => 'app_signup', '_controller' => 'App\\Controller\\SignupController::index'], null, null, null, false, false, null]],
         '/signup/addUser' => [[['_route' => 'app_signup_addUser', '_controller' => 'App\\Controller\\SignupController::addUser'], null, null, null, false, false, null]],
         '/wehealth' => [[['_route' => 'app_wehealth', '_controller' => 'App\\Controller\\WehealthController::index'], null, null, null, false, false, null]],
@@ -39,10 +52,44 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/discussion/(?'
+                    .'|([^/]++)(?'
+                        .'|(*:195)'
+                        .'|/edit(*:208)'
+                        .'|(*:216)'
+                    .')'
+                    .'|new/([^/]++)(*:237)'
+                .')'
+                .'|/api/Medicaments/(?'
+                    .'|lire/([^/]++)(*:279)'
+                    .'|editer/([^/]++)(*:302)'
+                    .'|supprimer/([^/]++)(*:328)'
+                .')'
+                .'|/medicaments/([^/]++)(?'
+                    .'|(*:361)'
+                    .'|/edit(*:374)'
+                    .'|(*:382)'
+                .')'
+                .'|/ordenance/([^/]++)(?'
+                    .'|(*:413)'
+                    .'|/edit(*:426)'
+                    .'|(*:434)'
+                .')'
                 .'|/post/([^/]++)(?'
-                    .'|(*:186)'
-                    .'|/edit(*:199)'
-                    .'|(*:207)'
+                    .'|(*:460)'
+                    .'|/edit(*:473)'
+                    .'|(*:481)'
+                .')'
+                .'|/Patient/(?'
+                    .'|supprimerQuestion([^/]++)(*:527)'
+                    .'|modifierQuestion/([^/]++)(*:560)'
+                    .'|ListerReponses/([^/]++)(*:591)'
+                .')'
+                .'|/Medecin/(?'
+                    .'|RepondreQuestion/([^/]++)(*:637)'
+                    .'|afficherReponses/([^/]++)(*:670)'
+                    .'|supprimerReponse/([^/]++)(*:703)'
+                    .'|modifierReponse/([^/]++)(*:735)'
                 .')'
             .')/?$}sDu',
     ],
@@ -54,10 +101,30 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        186 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        199 => [[['_route' => 'app_post_edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        207 => [
-            [['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['POST' => 0], null, false, true, null],
+        195 => [[['_route' => 'app_discussion_show', '_controller' => 'App\\Controller\\DiscussionController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        208 => [[['_route' => 'app_discussion_edit', '_controller' => 'App\\Controller\\DiscussionController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        216 => [[['_route' => 'app_discussion_delete', '_controller' => 'App\\Controller\\DiscussionController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        237 => [[['_route' => 's_show', '_controller' => 'App\\Controller\\DiscussionController::showf'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        279 => [[['_route' => 'api_Medicaments', '_controller' => 'App\\Controller\\APIController::getMedicament'], ['id'], ['GET' => 0], null, false, true, null]],
+        302 => [[['_route' => 'api_edit', '_controller' => 'App\\Controller\\APIController::editMedicaments'], ['id'], ['PUT' => 0], null, false, true, null]],
+        328 => [[['_route' => 'api_supprime', '_controller' => 'App\\Controller\\APIController::removeMedicaments'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        361 => [[['_route' => 'app_medicaments_show', '_controller' => 'App\\Controller\\MedicamentsController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        374 => [[['_route' => 'app_medicaments_edit', '_controller' => 'App\\Controller\\MedicamentsController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        382 => [[['_route' => 'app_medicaments_delete', '_controller' => 'App\\Controller\\MedicamentsController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        413 => [[['_route' => 'app_ordenance_show', '_controller' => 'App\\Controller\\OrdenanceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        426 => [[['_route' => 'app_ordenance_edit', '_controller' => 'App\\Controller\\OrdenanceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        434 => [[['_route' => 'app_ordenance_delete', '_controller' => 'App\\Controller\\OrdenanceController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        460 => [[['_route' => 'app_post_show', '_controller' => 'App\\Controller\\PostController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        473 => [[['_route' => 'app_post_edit', '_controller' => 'App\\Controller\\PostController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        481 => [[['_route' => 'app_post_delete', '_controller' => 'App\\Controller\\PostController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        527 => [[['_route' => 'supprimerQuestion', '_controller' => 'App\\Controller\\QuestionController::SupprimerQuestion'], ['id'], null, null, false, true, null]],
+        560 => [[['_route' => 'modifierQuestion', '_controller' => 'App\\Controller\\QuestionController::modifierQuestion'], ['id'], null, null, false, true, null]],
+        591 => [[['_route' => 'ListerReponses', '_controller' => 'App\\Controller\\ReponseController::ListerReponses'], ['id'], null, null, false, true, null]],
+        637 => [[['_route' => 'RepondreQuestion', '_controller' => 'App\\Controller\\ReponseController::RepondreQuestion'], ['id'], null, null, false, true, null]],
+        670 => [[['_route' => 'afficherReponses', '_controller' => 'App\\Controller\\ReponseController::AfficherMesReponses'], ['id'], null, null, false, true, null]],
+        703 => [[['_route' => 'supprimerReponse', '_controller' => 'App\\Controller\\ReponseController::SupprimerReponse'], ['id'], null, null, false, true, null]],
+        735 => [
+            [['_route' => 'modifierReponse', '_controller' => 'App\\Controller\\ReponseController::modifierReponse'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

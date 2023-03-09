@@ -1,93 +1,113 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\User;
+use App\Entity\Discussion;
+use App\Form\DiscussionType;
+use App\Repository\DiscussionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/discussion')]
 class DiscussionController extends AbstractController
 {
-    #[Route('/discussion', name: 'app_discussion')]
-    public function index(): Response
+    #[Route('/', name: 'app_discussion_index', methods: ['GET'])]
+    public function index(DiscussionRepository $discussionRepository): Response
     {
         return $this->render('discussion/index.html.twig', [
-            'controller_name' => 'DiscussionController',
+            'discussions' => $discussionRepository->findAll(),
         ]);
     }
-}
-class DiscussionController extends AbstractController
-{
-    #[Route('/discussion/new', name: 'app_discussion_new')]
-    public function new(Request $request, DiscussionRepository $DiscussionRepository): Response
+
+    #[Route('/new', name: 'app_discussion_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, DiscussionRepository $discussionRepository): Response
     {
         $discussion = new Discussion();
-
-        $form = $this->createForm(DiscussionFormType::class, $discussion);
+        $form = $this->createForm(DiscussionType::class, $discussion);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $DiscussionRepository->persist($discussion);
-            $DiscussionRepository->flush();
+            $discussionRepository->save($discussion, true);
 
-            $this->addFlash('success', 'La discussion a bien été ajoutée.');
-
-            return $this->redirectToRoute('app_discussion');
+            return $this->redirectToRoute('app_discussion_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('discussion/new.html.twig', [
-            'form' => $form->createView(),
+        return $this->renderForm('discussion/new.html.twig', [
+            'discussion' => $discussion,
+            'form' => $form,
         ]);
     }
-}
-class DiscussionController extends AbstractController
-{
-    #[Route('/discussion/{id}', name: 'app_discussion_show', requirements: ['id' => '\d+'])]
+
+    #[Route('/{id}', name: 'app_discussion_show', methods: ['GET'])]
     public function show(Discussion $discussion): Response
     {
         return $this->render('discussion/show.html.twig', [
             'discussion' => $discussion,
         ]);
     }
-}
-class DiscussionController extends AbstractController
-{
-    #[Route('/discussion/{id}/edit', name: 'app_discussion_edit', requirements: ['id' => '\d+'])]
-    public function edit(Request $request, Discussion $discussion): Response
+
+    #[Route('/{id}/edit', name: 'app_discussion_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Discussion $discussion, DiscussionRepository $discussionRepository): Response
     {
-        $form = $this->createForm(DiscussionFormType::class, $discussion);
+        $form = $this->createForm(DiscussionType::class, $discussion);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $DiscussionRepository = $this->getDoctrine()->getManager();
-            $DiscussionRepository->flush();
+            $discussionRepository->save($discussion, true);
 
-            return $this->redirectToRoute('app_discussion_show', ['id' => $discussion->getId()]);
+            return $this->redirectToRoute('app_discussion_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('discussion/edit.html.twig', [
-            'form' => $form->createView(),
+        return $this->renderForm('discussion/edit.html.twig', [
             'discussion' => $discussion,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_discussion_delete', methods: ['POST'])]
+    public function delete(Request $request, Discussion $discussion, DiscussionRepository $discussionRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$discussion->getId(), $request->request->get('_token'))) {
+            $discussionRepository->remove($discussion, true);
+        }
+
+        return $this->redirectToRoute('app_discussion_index', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/new/{id}', name: 's_show', methods: ['GET', 'POST'])]
+    public function showf(?Discussion $discussion, Request $request, DiscussionRepository $discussionRepository): Response
+    {
+        if (!$discussion) {
+            return $this->redirectToRoute('app_discussion_index');
+        }
+        
+        
+        $discussion = new Discussion($discussion);
+        $cleaneddiscus = null;
+        $discussionForm = $this->createForm(DiscussionType::class, $discussion);
+        $discussionForm->handleRequest($request);
+
+        if ($discussionForm->isSubmitted() && $discussionForm->isValid()) {
+            
+
+            // Vérifier si le contenu du commentaire contient des mots inappropriés
+            $contenudiscus = $discussionForm->get('contenu')->getData();
+            $censor = new CensorWords();
+            $badwords = $censor->setDictionary('fr');
+            $cleanedComment = $censor->censorString($contenudiscus);
+            if (!empty($cleaneddiscus['dirty'])) {
+                echo "La discussion contient les mots inappropriés suivants : " . implode(", ", $cleaneddiscus['dirty']);
+            }
+            $discussion->setContenu($cleaneddiscus['clean']);
+
+            $discussionRepository->save($discussion, true);
+            $discussion = new Discussion($discussion);
+        }
+        return $this->renderForm(' discussion/index.html.twig', [
+            'Discussion' => $discussion,
+            'DiscussionForm' => $discussionForm,
+            'cleaneddiscus' => $cleaneddiscus
         ]);
     }
 }
-class DiscussionController extends AbstractController
-{
-    #[Route('/discussion/delete/{id}', name: 'app_discussion_delete')]
-    public function delete(Request $request, DiscussionRepository $DiscussionRepository, int $id): Response
-    {
-        $discussion = $DiscussionRepository->getRepository(Discussion::class)->find($id);
-
-        if (!$discussion) {
-            throw $this->createNotFoundException('La discussion que vous cherchez n\'existe pas.');
-        }
-
-        $DiscussionRepository->remove($discussion);
-        $DiscussionRepository->flush();
-
-        $this->addFlash('success', 'La discussion a bien été supprimée.');
-
-        return $this->redirectToRoute('app_discussion');
-    }
-}
-

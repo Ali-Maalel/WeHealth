@@ -2,63 +2,79 @@
 
 namespace App\Entity;
 
-use App\Repository\DisctionRepository;
+use App\Repository\DiscussionRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: DisctionRepository::class)]
-class Disction
+#[ORM\Entity(repositoryClass: DiscussionRepository::class)]
+class Discussion
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $titre = null;
+    #[ORM\Column(length: 1500)]
+    private ?string $contenu = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $sujet = null;
+    private ?string $sender = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $date_postulation = null;
+    private ?string $receiver = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getContenu(): ?string
     {
-        return $this->titre;
+        return $this->contenu;
     }
 
-    public function setTitre(string $titre): self
+    public function setContenu(string $contenu): self
     {
-        $this->titre = $titre;
+        $this->contenu = $contenu;
 
         return $this;
     }
 
-    public function getSujet(): ?string
+    public function getSender(): ?string
     {
-        return $this->sujet;
+        return $this->sender;
     }
 
-    public function setSujet(string $sujet): self
+    public function setSender(string $sender): self
     {
-        $this->sujet = $sujet;
+        $this->sender = $sender;
 
         return $this;
     }
 
-    public function getDatePostulation(): ?string
+    public function getReceiver(): ?string
     {
-        return $this->date_postulation;
+        return $this->receiver;
     }
 
-    public function setDatePostulation(string $date_postulation): self
+    public function setReceiver(string $receiver): self
     {
-        $this->date_postulation = $date_postulation;
+        $this->receiver = $receiver;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

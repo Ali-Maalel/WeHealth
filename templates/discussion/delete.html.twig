@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Supprimer la discussion "{{ discussion.title }}"</h1>
+
+    <p>Êtes-vous sûr de vouloir supprimer cette discussion ?</p>
+
+    <form action="{{ path('discussion_delete', {id: discussion.id}) }}" method="post">
+        {{ csrf_token('delete' ~ discussion.id) }}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Supprimer</button>
+    </form>
+
+    <a href="{{ path('discussion_show', {id: discussion.id}) }}">Annuler</a>
+{% endblock %}
