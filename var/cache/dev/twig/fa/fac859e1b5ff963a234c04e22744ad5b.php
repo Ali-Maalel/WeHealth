@@ -917,6 +917,6 @@ class __TwigTemplate_414316d789c5812518d5afb294660e09 extends Template
 \t\t\t</div>
 \t\t</section>
 \t{% endblock %}
-", "blog/blog.html.twig", "C:\\Users\\Zeynab\\OneDrive\\Bureau\\Projet_dev\\WeHealth\\templates\\blog\\blog.html.twig");
+", "blog/blog.html.twig", "C:\\Users\\maddo\\OneDrive\\Bureau\\Nouveau dossier\\WeHealth\\templates\\blog\\blog.html.twig");
     }
 }
