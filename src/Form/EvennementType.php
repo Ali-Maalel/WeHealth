@@ -6,6 +6,8 @@ use App\Entity\Evennement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class EvennementType extends AbstractType
 {
@@ -14,8 +16,16 @@ class EvennementType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('date')
             ->add('consultationurl')
+            ->add('dateDebut', DateTimeType::class,[
+                'date_widget' =>'single_text'])
+            ->add('dateFin', DateTimeType::class,[
+                'date_widget' =>'single_text'])
+            ->add('all_day')
+            ->add('max')
+            ->add('image', FileType::class, ['mapped' => false])
+            ->add('prix')
+            
         ;
     }
 

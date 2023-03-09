@@ -44,6 +44,8 @@
     color: #5AAC4E
 }
 
+
+
 .boxed-btn {
     background: #fff;
     color: #5AAC4E !important;
@@ -60,7 +62,15 @@
     text-transform: uppercase;
     cursor: pointer
 }
-
+.event-info i {
+    display: inline-block; /* or inline-flex */
+  }
+.flashy-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 .boxed-btn:hover {
     background: #5AAC4E;
     color: #fff !important;
@@ -127,10 +137,13 @@
     opacity: 0.9
 }
 
-body {
+
+body {  
+    
     font-family: "Poppins", sans-serif;
     font-weight: normal;
     font-style: normal
+
 }
 
 h1,
@@ -5723,7 +5736,7 @@ del {
     outline: none;
     line-height: 40px;
     padding: 0 30px;
-    font-size: .8em;
+    font-size: 10px;
     text-align: center;
     text-decoration: none;
     font-weight: 500;

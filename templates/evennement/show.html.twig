@@ -1,16 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin1.html.twig' %}
 
 {% block title %}Evennement{% endblock %}
 
 {% block body %}
-    <h1>Evennement</h1>
 
-    <table class="table">
+<div class="col-md-12">
+          <div class="tile">
+           
+            <div class="table-responsive">
+              <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ evennement.id }}</td>
-            </tr>
             <tr>
                 <th>Titre</th>
                 <td>{{ evennement.titre }}</td>
@@ -20,19 +19,40 @@
                 <td>{{ evennement.description }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ evennement.date ? evennement.date|date('Y-m-d') : '' }}</td>
+                <th>Date début</th>
+                <td>{{ evennement.dateDebut ? evennement.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date fin</th>
+                <td>{{ evennement.dateFin ? evennement.dateFin|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>Consultationurl</th>
                 <td>{{ evennement.consultationurl }}</td>
             </tr>
+            <tr>
+                <th>Nb. Participants</th>
+                <td>{{ evennement.reservations }}</td>
+            </tr>
+            <tr>
+                <th>Liste des participants</th>
+                <td>
+                <ul>
+                 {% for p in evennement.participants %}
+                <li>{{ p.nom }} | {{ p.email }}</li>
+        {% endfor %}
+                </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
-
+     {{ include('evennement/_delete_form.html.twig') }}
     <a href="{{ path('app_evennement_index') }}">back to list</a>
-
-    <a href="{{ path('app_evennement_edit', {'id': evennement.id}) }}">edit</a>
-
-    {{ include('evennement/_delete_form.html.twig') }}
+            </div>
+        
+  
+  </div>
+ 
+        </div>
+  
 {% endblock %}

@@ -45,6 +45,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $telephone = null;
 
 
+    #[ORM\ManyToMany(targetEntity: Evennement::class, mappedBy: 'participants')]
+    private Collection $evennements;
+
+    #[ORM\ManyToMany(targetEntity: Notification::class, mappedBy: 'user')]
+    private Collection $particiants;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Facture::class)]
+    private Collection $factures;
+
+    /*public function __construct()
+    {
+       //$this->evennements = new ArrayCollection();
+        //$this->particiants = new ArrayCollection();
+        //$this->factures = new ArrayCollection();
+    }*/
+
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $typeuser = null;
     #[ORM\Column(type: 'boolean')]
@@ -63,13 +79,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: ArticleLike::class)]
     private Collection $articleLikes;
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->user = new ArrayCollection();
         $this->articleLikes = new ArrayCollection();
        
-    }
+    }*/
 
 
     public function getId(): ?int
@@ -139,6 +155,106 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    
+    /**
+     * *@return Collection<int, User>
+     *
+    *public function getUser(): Collection
+    *{
+    *    return $this->user;
+    *}
+    *public function adduser(User $users): self
+    *{
+    *    if (!$this->user->contains($users)) {
+    *        $this->user->add($users);
+    *        
+    *    }
+*
+ *       return $this;
+   * }*/
+
+    /**
+     * @return Collection<int, Evennement>
+     */
+    public function getEvennements(): Collection
+    {
+        return $this->evennements;
+    }
+
+    public function addEvennement(Evennement $evennement): self
+    {
+        if (!$this->evennements->contains($evennement)) {
+            $this->evennements->add($evennement);
+            $evennement->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvennement(Evennement $evennement): self
+    {
+        if ($this->evennements->removeElement($evennement)) {
+            $evennement->removeParticipant($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Notification>
+     */
+    public function getParticiants(): Collection
+    {
+        return $this->particiants;
+    }
+
+    public function addParticiant(Notification $particiant): self
+    {
+        if (!$this->particiants->contains($particiant)) {
+            $this->particiants->add($particiant);
+            $particiant->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticiant(Notification $particiant): self
+    {
+        if ($this->particiants->removeElement($particiant)) {
+            $particiant->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Facture>
+     */
+    public function getFactures(): Collection
+    {
+        return $this->factures;
+    }
+
+    public function addFacture(Facture $facture): self
+    {
+        if (!$this->factures->contains($facture)) {
+            $this->factures->add($facture);
+            $facture->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFacture(Facture $facture)
+    {
+        if ($this->factures->removeElement($facture)) {
+            // set the owning side to null (unless already changed)
+            if ($facture->getUser() === $this) {
+                $facture->setUser(null);
+            }
+        }
+    }
+
     public function getTypeuser(): ?string
     {
         return $this->typeuser;
@@ -147,6 +263,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTypeuser(?string $typeuser): self
     {
         $this->typeuser = $typeuser;
+
 
         return $this;
     }
@@ -185,7 +302,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;}
 
@@ -231,7 +348,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }

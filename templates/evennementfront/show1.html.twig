@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evennement{% endblock %}
+
+{% block body %}
+
+<body>
+ 
+<main>
+  
+<section class="blog_area single-post-area section-padding">
+ <div class="container">
+  <div class="row">
+   <div class="col-lg-8 posts-list">
+    <div class="single-post">
+     <div class="feature-img">
+      <img class="img-fluid" src="{{ asset('uploads/' ~ evennement.image) }}" alt="">
+    </div>
+    <div class="blog_details">
+      <h2 style="color: #2d2d2d;">{{evennement.titre}}
+     </h2>
+    
+     <p class="excert">
+      {{evennement.description}}
+     </p>
+    <a href="{{ path('app_evennement_front_participer', {'id': evennement.id}) }}" style="font-size: 20px;">  Participer</a>
+
+</div>
+
+</body>
+</html>
+{% endblock %}
