@@ -279,6 +279,7 @@
             "./config/packages/messenger.yaml"
         ]
     },
+<<<<<<< HEAD
     "tattali/calendar-bundle": {
         "version": "1.2",
         "recipe": {
@@ -290,6 +291,10 @@
         "files": [
             "./config/routes/calendar.yaml"
         ]
+=======
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.13.0"
+>>>>>>> 08f96b6bb7e603e31cfe565896d314a72342b46e
     },
     "twig/extra-bundle": {
         "version": "v3.4.0"

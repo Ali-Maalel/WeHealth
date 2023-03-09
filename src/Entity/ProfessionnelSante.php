@@ -4,9 +4,10 @@ namespace App\Entity;
 
 use App\Repository\ProfessionnelSanteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProfessionnelSanteRepository::class)]
-class ProfessionnelSante
+class ProfessionnelSante extends User
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -14,6 +15,7 @@ class ProfessionnelSante
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message: "important")]
     private ?string $matricule = null;
 
     #[ORM\Column(length: 8)]
