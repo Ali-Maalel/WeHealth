@@ -626,6 +626,7 @@ class ComposerStaticInit63f26b1b3269e571c18180d96c16eb32
     );
 
     public static $classMap = array (
+        'App\\Controller\\AdminController' => __DIR__ . '/../..' . '/src/Controller/AdminController.php',
         'App\\Controller\\Admin\\ArticleCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/ArticleCrudController.php',
         'App\\Controller\\Admin\\CategorieCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/CategorieCrudController.php',
         'App\\Controller\\Admin\\CommentCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/CommentCrudController.php',

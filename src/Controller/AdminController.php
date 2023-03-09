@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-<<<<<<< HEAD
+
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,8 +41,8 @@ class AdminController extends AbstractController
 
 
 
-=======
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+/**use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -56,4 +56,4 @@ class AdminController extends AbstractController
         ]);
     }
 }
->>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
+*/

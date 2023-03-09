@@ -7,6 +7,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -41,7 +44,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     
     private ?string $telephone = null;
 
-<<<<<<< HEAD
+
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $typeuser = null;
     #[ORM\Column(type: 'boolean')]
@@ -50,7 +53,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?bool $blocked = false;
     #[ORM\Column]
     private array $roles = [];
-=======
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
     private Collection $comments;
 
@@ -68,7 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
        
     }
 
->>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
+
     public function getId(): ?int
     {
         return $this->id;
@@ -162,7 +165,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * A visual identifier that represents this user.
      *
-<<<<<<< HEAD
+
      * @see UserInterface
      */
     public function getUserIdentifier(): string
@@ -184,21 +187,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setRoles(array $roles): self
     {
-        $this->roles = $roles;
-=======
-    *public function getUser(): Collection
-    *{
-    *    return $this->user;
-    *}
-    *public function adduser(User $users): self
-    *{
-    *    if (!$this->user->contains($users)) {
-    *        $this->user->add($users);
-    *        
-    *    }
-*
- *       return $this;
-   * }*/
+        $this->roles = $roles;}
+
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+    public function adduser(User $users): self
+    {
+        if (!$this->user->contains($users)) {
+            $this->user->add($users);
+           
+       }
+
+        return $this;
+    }
 
     /**
      * @return Collection<int, Comment>
@@ -214,12 +217,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->comments->add($comment);
             $comment->setUser($this);
         }
->>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
+
 
         return $this;
     }
 
-<<<<<<< HEAD
+
     /**
      * @see PasswordAuthenticatedUserInterface
      */
@@ -231,7 +234,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
-=======
+    }
+
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->removeElement($comment)) {
@@ -262,12 +266,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->articleLikes->add($articleLike);
             $articleLike->setUser($this);
         }
->>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
+
 
         return $this;
     }
 
-<<<<<<< HEAD
+
     /**
      * @see UserInterface
      */
@@ -289,7 +293,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
     
-=======
+
     public function removeArticleLike(ArticleLike $articleLike): self
     {
         if ($this->articleLikes->removeElement($articleLike)) {
@@ -306,5 +310,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
    
 
    
->>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
+
 }
