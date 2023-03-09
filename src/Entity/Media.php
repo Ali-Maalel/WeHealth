@@ -19,7 +19,7 @@ class Media
     private ?string $type = null;
 
     #[ORM\Column(length: 50)]
-    #[Assert\NotBlank(message: "vous devez saisir votre nom!!!")]
+    #[Assert\NotBlank(message: "vous devez saisir un nom!!!")]
     private ?string $name = null;
 
     #[ORM\Column(length: 100)]
@@ -62,6 +62,6 @@ class Media
         return $this;
     }
 
-    /**hjnbd */
+   
 
 }

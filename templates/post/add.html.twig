@@ -1,0 +1,65 @@
+<h1> Ajouter un nouveau post </h1>
+
+
+{{form_start(form,{'attr': {'novalidate': 'novalidate'}} )}}
+<table>
+
+<tr>
+<td> {{ form_label(form.created_at,"Date de creation")  }} 
+ </td>
+<td>  {{ form_widget(form.created_at) }} 
+</td>  
+<td> {{ form_errors(form.created_at) }} 
+</td>
+</tr>
+
+<td> {{ form_label(form.last_at,"Derniere date de modification")  }} 
+ </td>
+<td>  {{ form_widget(form.last_at) }} 
+</td>  
+<td> {{ form_errors(form.last_at) }} 
+</td>
+</tr>
+
+
+
+<tr>
+<td>  {{ form_label(form.content,"Ecrire") }} 
+</td> 
+<td> {{ form_widget(form.content)}} 
+ </td> 
+<td>  {{ form_errors(form.content) }} 
+</td> 
+</tr>
+
+<tr>
+<td>  {{ form_label(form.auteur,"Auteur du post") }} 
+</td> 
+<td> {{ form_widget(form.auteur)}} 
+ </td> 
+<td>  {{ form_errors(form.auteur) }} 
+</td> 
+</tr>
+
+<tr>
+<td>  {{ form_label(form.liste_commentaire,"Lister des commentaires") }} 
+</td> 
+<td> {{ form_widget(form.liste_commentaire)}} 
+ </td> 
+<td>  {{ form_errors(form.liste_commentaire) }} 
+</td> 
+</tr>
+
+<tr>
+<td> {{ form_label(form.titre,"Titre") }} 
+</td> 
+<td> {{ form_widget(form.titre) }} 
+ </td> 
+<td>  {{ form_errors(form.titre) }} 
+</td> 
+</tr>
+
+</table>
+
+ {{ form_widget(form.save)}} 
+{{form_end(form)}}

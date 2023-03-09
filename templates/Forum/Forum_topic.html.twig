@@ -1,0 +1,20 @@
+{% block topic_item %}
+
+<aside class="single_sidebar_widget post_category_widget">
+    <h4 class="widget_title" style="color: #2d2d2d;">Liste des topics</h4>
+    {% if topics is defined and topics is not null %}
+    <ul class="list cat-list">
+    {% for topic in topics %}
+        <li>
+            <a href="#" class="d-flex">
+                <p>{{topic.libelle}}</p>
+                <p>({{topic.posts.count}})</p>
+            </a>
+        </li>
+        {% endfor %}
+        
+    </ul>
+    {% endif %}
+</aside>
+
+{% endblock %}

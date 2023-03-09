@@ -1,0 +1,46 @@
+{% extends 'Forum_admin/Forum_layout.html.twig' %}
+{% block entete %}Liste des Topics {% endblock %}
+
+{% block contenu %}
+<div class="row">
+
+    <div class="clearfix"></div>
+        <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">Liste de tous les Topic</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Slug</th>
+                    <th>Libelle</th>
+                    
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for topic in topics %}
+                  <tr>
+                    <td>{{ topic.id }}</td>
+                    <td>{{ topic.slug }}</td>
+                    <td>{{ topic.libelle }}</td>
+                    
+                    <td>
+                        <div class="bs-component" style="margin-bottom: 15px;">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{{ path('app_topic_edit', {'id': topic.id}) }}" class="btn btn-secondary" type="button">edit</a>
+                            <a href="{{ path('app_topic_delete', {'id': topic.id}) }}" class="btn btn-secondary" type="button">delete</a>
+                        </div>
+                        </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+</div>
+{% endblock %}

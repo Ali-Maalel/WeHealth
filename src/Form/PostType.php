@@ -15,8 +15,10 @@ class PostType extends AbstractType
             ->add('created_at')
             ->add('last_at')
             ->add('content')
+            ->add('titre')
             ->add('auteur')
             ->add('liste_commentaire')
+            ->add('topic')
         ;
     }
 

@@ -1,0 +1,50 @@
+{% extends 'Forum_admin/Forum_layout.html.twig' %}
+{% block entete %}Liste des Commentaires {% endblock %}
+
+{% block contenu %}
+<div class="row">
+
+    <div class="clearfix"></div>
+        <div class="col-md-12">
+          <div class="tile">
+            <h3 class="tile-title">Liste de tous les Commentaires</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    
+                    <th>Created Date</th>
+                    <th>Last update</th>
+                    <th>Contenue</th>
+                    
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for commentaire in commentaires %}
+                  <tr>
+                    <td>{{commentaire.id }}</td>
+                    <td>{{commentaire.created_at|date("m/d/Y")  }}</td>
+                    <td>{{commentaire.update_at|date("m/d/Y")}}</td>
+                    <td>{{commentaire.content}}</td>
+                     
+                    
+                    <td>
+                        <div class="bs-component" style="margin-bottom: 15px;">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{{ path('app_commentaire_edit', {'id': commentaire.id}) }}" class="btn btn-secondary" type="button">edit</a>
+                            <a href="{{ path('app_commentaire_delete', {'id': commentaire.id}) }}" class="btn btn-secondary" type="button">delete</a>
+                        </div>
+                        </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+</div>
+{% endblock %}

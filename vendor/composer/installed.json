@@ -2881,17 +2881,17 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.4",
-            "version_normalized": "9.6.4.0",
+            "version": "9.6.5",
+            "version_normalized": "9.6.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9125ee085b6d95e78277dc07aa1f46f9e0607b8d"
+                "reference": "86e761949019ae83f49240b2f2123fb5ab3b2fc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9125ee085b6d95e78277dc07aa1f46f9e0607b8d",
-                "reference": "9125ee085b6d95e78277dc07aa1f46f9e0607b8d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86e761949019ae83f49240b2f2123fb5ab3b2fc5",
+                "reference": "86e761949019ae83f49240b2f2123fb5ab3b2fc5",
                 "shasum": ""
             },
             "require": {
@@ -2924,10 +2924,10 @@
                 "sebastian/version": "^3.0.2"
             },
             "suggest": {
-                "ext-soap": "*",
-                "ext-xdebug": "*"
+                "ext-soap": "To be able to generate mocks based on WSDL files",
+                "ext-xdebug": "PHP extension that provides line coverage as well as branch and path coverage"
             },
-            "time": "2023-02-27T13:06:37+00:00",
+            "time": "2023-03-09T06:34:10+00:00",
             "bin": [
                 "phpunit"
             ],
@@ -2966,7 +2966,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.4"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.5"
             },
             "funding": [
                 {
@@ -4405,6 +4405,62 @@
             },
             "abandoned": "Symfony",
             "install-path": "../sensio/framework-extra-bundle"
+        },
+        {
+            "name": "snipe/banbuilder",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snipe/banbuilder.git",
+                "reference": "621d6d857400983d0fd6cd291f105a835a317748"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snipe/banbuilder/zipball/621d6d857400983d0fd6cd291f105a835a317748",
+                "reference": "621d6d857400983d0fd6cd291f105a835a317748",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.0"
+            },
+            "time": "2018-08-30T22:45:56+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Snipe\\BanBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "snipe",
+                    "email": "snipe@snipe.net",
+                    "role": "Creator & Developer"
+                }
+            ],
+            "description": "Library to easily handle profanity filtering in PHP projects.",
+            "homepage": "http://banbuilder.com",
+            "keywords": [
+                "filter",
+                "language",
+                "profanity",
+                "strings",
+                "swear"
+            ],
+            "support": {
+                "issues": "https://github.com/snipe/banbuilder/issues",
+                "source": "https://github.com/snipe/banbuilder/tree/2.3.0"
+            },
+            "install-path": "../snipe/banbuilder"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -10836,6 +10892,58 @@
                 }
             ],
             "install-path": "../twig/twig"
+        },
+        {
+            "name": "twilio/sdk",
+            "version": "6.44.4",
+            "version_normalized": "6.44.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:twilio/twilio-php.git",
+                "reference": "08aad5f377e2245b9cd7508e7762d95e7392fa4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/08aad5f377e2245b9cd7508e7762d95e7392fa4d",
+                "reference": "08aad5f377e2245b9cd7508e7762d95e7392fa4d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
+                "phpunit/phpunit": ">=7.0 < 10"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "An HTTP client to execute the API requests"
+            },
+            "time": "2023-02-22T19:59:53+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Twilio\\": "src/Twilio/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Twilio API Team",
+                    "email": "api@twilio.com"
+                }
+            ],
+            "description": "A PHP wrapper for Twilio's API",
+            "homepage": "https://github.com/twilio/twilio-php",
+            "keywords": [
+                "api",
+                "sms",
+                "twilio"
+            ],
+            "install-path": "../twilio/sdk"
         },
         {
             "name": "webmozart/assert",

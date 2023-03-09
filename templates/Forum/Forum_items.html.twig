@@ -1,0 +1,54 @@
+{% block forum_item %}
+
+{% if forum_items is defined and forum_items is not null %}
+    {% for items in forum_items %}
+        <article class="blog_item">
+            <div class="blog_item_img">
+                <img class="card-img rounded-0" src="assets/img/blog/single_blog_1.png" alt="">
+                <a href="#" class="blog_item_date">
+                    <h3>We Health!!</h3>
+                     <p>Forum</p>
+                </a>
+            </div>
+            <div class="blog_details">
+                <a class="d-inline-block" href="blog_details.html">
+                    <h2 class="blog-head" style="color: #2d2d2d;">{{items.titre}}</h2>
+                </a>
+                <p>{{items.content}}</p>
+                <ul class="blog-info-link">
+                    <li><a href="#"><i class="fa fa-user"></i>{{items.auteur}}</a></li>
+                    
+                    <li><a href="{{ path('app_commentaire_new', { 'id': items.id }) }}"><i class="fa fa-comments"></i> </a></li>
+                    <li><a href="{{ path('app_commentaire_index', { 'id': items.id }) }}"><i class="fa fa-comments"></i>Commentaire </a></li>
+                    <li><a href="{{ path('app_post_like', { 'id': items.id }) }}"><i class="fa fa-comments"></i>like ({{ items.like_count }}) </a></li>
+                    <li><a href="{{ path('app_post_dislike', { 'id': items.id }) }}"><i class="fa fa-comments"></i>dislike ({{ items.dislike_count }}) </a></li>
+                    <li><a href="{{ path('app_post_delete', { 'id': items.id }) }}"></i>Supprimer</a></li>
+                     <li><a href="{{ path('app_post_edit_admin', { 'id': items.id }) }}"></i>Modifier</a></li>
+                </ul>
+            </div>
+        </article>
+        {% endfor %}
+        <nav class="blog-pagination justify-content-center d-flex">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a href="#" class="page-link" aria-label="Previous">
+                        <i class="ti-angle-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a href="#" class="page-link">1</a>
+                </li>
+                <li class="page-item active">
+                    <a href="#" class="page-link">2</a>
+                </li>
+                <li class="page-item">
+                    <a href="#" class="page-link" aria-label="Next">
+                        <i class="ti-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    {% endif %}
+
+{% endblock %}
