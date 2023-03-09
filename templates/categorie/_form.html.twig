@@ -1,0 +1,43 @@
+{% extends 'baseadmin.html.twig'%}
+{% block body%}
+	<main class="app-content">
+		<div class="app-title">
+			<div>
+				<h1>
+					<i class="fa fa-edit"></i>
+					Créer une categorie</h1>
+
+			</div>
+			<ul class="app-breadcrumb breadcrumb">
+				<li class="breadcrumb-item">
+					<i class="fa fa-home fa-lg"></i>
+				</li>
+				<li class="breadcrumb-item">Forms</li>
+				<li class="breadcrumb-item">
+					<a href="#">Form Components</a>
+				</li>
+			</ul>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="tile mt-3">
+					{{ form_start(form) }}
+					<div class="form-group">
+						<label for="exampleInputEmail1">Nom</label>
+						{{form_widget(form.nom,{'attr':{'class':'form-control','id':'exampleInputEmail1'}})}}
+					</div>
+
+
+				</select>
+
+
+			</div>
+
+		</div>
+		<div class="tile-footer">
+			<button class="btn btn-primary">{{ button_label|default('ajouter') }}</button>
+			{{ form_end(form) }}
+		</div>
+
+	</div>
+</div></div></main>{% endblock %}

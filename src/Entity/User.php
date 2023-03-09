@@ -41,6 +41,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     
     private ?string $telephone = null;
 
+<<<<<<< HEAD
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $typeuser = null;
     #[ORM\Column(type: 'boolean')]
@@ -49,6 +50,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?bool $blocked = false;
     #[ORM\Column]
     private array $roles = [];
+=======
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
+    private Collection $comments;
+
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: ArticleLike::class)]
+    private Collection $user;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ArticleLike::class)]
+    private Collection $articleLikes;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->user = new ArrayCollection();
+        $this->articleLikes = new ArrayCollection();
+       
+    }
+
+>>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
     public function getId(): ?int
     {
         return $this->id;
@@ -142,6 +162,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * A visual identifier that represents this user.
      *
+<<<<<<< HEAD
      * @see UserInterface
      */
     public function getUserIdentifier(): string
@@ -164,10 +185,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+=======
+    *public function getUser(): Collection
+    *{
+    *    return $this->user;
+    *}
+    *public function adduser(User $users): self
+    *{
+    *    if (!$this->user->contains($users)) {
+    *        $this->user->add($users);
+    *        
+    *    }
+*
+ *       return $this;
+   * }*/
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setUser($this);
+        }
+>>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
 
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @see PasswordAuthenticatedUserInterface
      */
@@ -179,10 +231,43 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+=======
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->getId(); 
+    }
+
+    /**
+     * @return Collection<int, ArticleLike>
+     */
+    public function getArticleLikes(): Collection
+    {
+        return $this->articleLikes;
+    }
+
+    public function addArticleLike(ArticleLike $articleLike): self
+    {
+        if (!$this->articleLikes->contains($articleLike)) {
+            $this->articleLikes->add($articleLike);
+            $articleLike->setUser($this);
+        }
+>>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
 
         return $this;
     }
 
+<<<<<<< HEAD
     /**
      * @see UserInterface
      */
@@ -204,4 +289,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
     
+=======
+    public function removeArticleLike(ArticleLike $articleLike): self
+    {
+        if ($this->articleLikes->removeElement($articleLike)) {
+            // set the owning side to null (unless already changed)
+            if ($articleLike->getUser() === $this) {
+                $articleLike->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+  
+   
+
+   
+>>>>>>> e9e548c056aa594d9f99623f42be1d9229bd674c
 }

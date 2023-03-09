@@ -1,0 +1,44 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}NumMedia index
+{% endblock %}
+
+{% block body %}
+
+	<h1>NumMedia index</h1>
+	<div class="col-md-12" style="margin-top: 20px;">
+		<div class="tile">
+			<a class="btn btn-primary float-right" href="{{ path('app_num_media_new') }}">Create new</a>
+			<div class="table-responsive">
+				<table class="table" style="width: 70%; margin: 0 auto;">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nom</th>
+							<th>NomFichier</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					{% for num_media in num_media %}
+						<tr>
+							<td>{{ num_media.id }}</td>
+							<td>{{ num_media.nom }}</td>
+							<td>{{ num_media.nomFichier }}</td>
+
+							<td>
+								<a class="btn btn-primary" href="{{ path('app_num_media_edit', {'id': num_media.id}) }}">Edit</a>
+
+
+								{% include 'num_media/_delete_form.html.twig' with {'id': num_media.id} %}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+
+		{% endblock %}

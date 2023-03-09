@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ article.titre }}</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				font-size: 12pt;
+				line-height: 1.5;
+			}
+			h1 {
+				font-size: 18pt;
+			}
+			p {
+				margin: 0 0 1em;
+			}
+			.article-content {
+				margin-top: 2em;
+			}
+			.article-meta {
+				font-style: italic;
+				margin-top: 1em;
+				font-size: 10pt;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>{{ article.titre }}</h1>
+		<div class="article-meta">
+			{% if article.featuredText %}
+				{{ article.featuredText }}
+				|
+			{% endif %}
+			{{ article.createdAt|date('Y-m-d') }}
+		</div>
+
+		<div class="article-content">
+			{{ article.contenu|raw }}
+		</div>
+	</body>
+</html>

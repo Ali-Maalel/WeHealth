@@ -1,0 +1,26 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+
+	<div style="margin-top: 80px; text-align: center;">
+		<h1 style="max-width: 800px; margin: 0 auto;">{{ article.Titre }}</h1>
+		<div style="max-width: 800px; margin: 0 auto; padding: 0 20px;"> <!-- Ajout d'une div pour envelopper le contenu -->
+			<p>{{ article.Contenu|raw }}</p>
+		</div>
+	</div>
+
+	<style>
+		.custom-table {
+			width: 50%; /* ajustez cette valeur en fonction de vos besoins */
+			margin: 0 auto; /* centre le tableau horizontalement */
+		}
+        
+        .custom-table td {
+            max-width: 200px; /* ajustez cette valeur en fonction de vos besoins */
+            word-wrap: break-word; /* permet de forcer le texte à se casser en plusieurs lignes si nécessaire */
+        }
+	</style>
+
+{% endblock %}
+
+

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Categories
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		<div class="row g-5">
+			<div class="col-md-8">
+				<h2>Liste des catégories</h2>
+				<ul>
+					{% for categorie in categories %}
+						<li>
+							<a href="{{ path('categorie_show', {'id': categorie.id}) }}">
+								{{ categorie.nom }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</main>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Comment index
+{% endblock %}
+
+{% block body %}
+	<h1>Comment index</h1>
+	<div class="col-md-12" style="margin-top: 20px;">
+		<div class="tile">
+
+			<div class="table-responsive">
+				<table class="table" style="width: 70%; margin: 0 auto;">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Article</th>
+							<th>Contenu</th>
+							<th>CreatedAt</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for comment in comments %}
+							<tr>
+								<td>{{ comment.id }}</td>
+								<td>{{ comment.article}}</td>
+								<td>{{ comment.contenu }}</td>
+								<td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d') : '' }}</td>
+								<td>
+
+									{% include 'comment/_delete_form.html.twig' with {'id': comment.id} %}
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="4">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+
+			{% endblock %}

@@ -1,0 +1,10 @@
+{% for Categorie in categories %}
+	{% set nb_articles = 0 %}
+	{% for Article in Categorie.articles %}
+		{% set nb_articles = nb_articles + 1 %}
+	{% endfor %}
+	<li>
+		<a class="text-decoration-none" href="{{ path('categorie_show', {'id': Categorie.id}) }}" style="color: black">{{ Categorie.nom }}
+			({{ nb_articles }})</a>
+	</li>
+{% endfor %}
