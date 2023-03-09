@@ -6,8 +6,8 @@
             <div class="blog_item_img">
                 <img class="card-img rounded-0" src="assets/img/blog/single_blog_1.png" alt="">
                 <a href="#" class="blog_item_date">
-                    <h3>25</h3>
-                    <p>Jan</p>
+                    <h3>We Health!!</h3>
+                     <p>Forum</p>
                 </a>
             </div>
             <div class="blog_details">
@@ -22,6 +22,8 @@
                     <li><a href="{{ path('app_commentaire_index', { 'id': items.id }) }}"><i class="fa fa-comments"></i>Commentaire </a></li>
                     <li><a href="{{ path('app_post_like', { 'id': items.id }) }}"><i class="fa fa-comments"></i>like ({{ items.like_count }}) </a></li>
                     <li><a href="{{ path('app_post_dislike', { 'id': items.id }) }}"><i class="fa fa-comments"></i>dislike ({{ items.dislike_count }}) </a></li>
+                    <li><a href="{{ path('app_post_delete', { 'id': items.id }) }}"></i>Supprimer</a></li>
+                     <li><a href="{{ path('app_post_edit_admin', { 'id': items.id }) }}"></i>Modifier</a></li>
                 </ul>
             </div>
         </article>
