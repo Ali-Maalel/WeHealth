@@ -1,0 +1,30 @@
+{% extends 'baseadmin1.html.twig' %}
+
+{% block title %}Facture{% endblock %}
+
+{% block body %}
+    <h1>Facture</h1>
+
+    <table class="table" style="width: 800px; margin-left: 350px; margin-top: 100px;">
+        <tbody>
+            <tr>
+                <th>Date de paiement</th>
+                <td>{{ facture.createdAt ? facture.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ facture.price }}</td>
+            </tr>
+            <tr>
+                <th>Num</th>
+                <td>{{ facture.num }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_facture_index') }}">back to list</a>
+
+    <a href="{{ path('app_facture_edit', {'id': facture.id}) }}">edit</a>
+
+    {{ include('facture/_delete_form.html.twig') }}
+{% endblock %}

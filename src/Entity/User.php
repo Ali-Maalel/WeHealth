@@ -40,6 +40,22 @@ class User
     #[ORM\Column(length: 15, nullable: true)]
     private ?string $telephone = null;
 
+    #[ORM\ManyToMany(targetEntity: Evennement::class, mappedBy: 'participants')]
+    private Collection $evennements;
+
+    #[ORM\ManyToMany(targetEntity: Notification::class, mappedBy: 'user')]
+    private Collection $particiants;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Facture::class)]
+    private Collection $factures;
+
+    public function __construct()
+    {
+        $this->evennements = new ArrayCollection();
+        $this->particiants = new ArrayCollection();
+        $this->factures = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -145,4 +161,88 @@ class User
 *
  *       return $this;
    * }*/
+
+    /**
+     * @return Collection<int, Evennement>
+     */
+    public function getEvennements(): Collection
+    {
+        return $this->evennements;
+    }
+
+    public function addEvennement(Evennement $evennement): self
+    {
+        if (!$this->evennements->contains($evennement)) {
+            $this->evennements->add($evennement);
+            $evennement->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvennement(Evennement $evennement): self
+    {
+        if ($this->evennements->removeElement($evennement)) {
+            $evennement->removeParticipant($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Notification>
+     */
+    public function getParticiants(): Collection
+    {
+        return $this->particiants;
+    }
+
+    public function addParticiant(Notification $particiant): self
+    {
+        if (!$this->particiants->contains($particiant)) {
+            $this->particiants->add($particiant);
+            $particiant->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticiant(Notification $particiant): self
+    {
+        if ($this->particiants->removeElement($particiant)) {
+            $particiant->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Facture>
+     */
+    public function getFactures(): Collection
+    {
+        return $this->factures;
+    }
+
+    public function addFacture(Facture $facture): self
+    {
+        if (!$this->factures->contains($facture)) {
+            $this->factures->add($facture);
+            $facture->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFacture(Facture $facture): self
+    {
+        if ($this->factures->removeElement($facture)) {
+            // set the owning side to null (unless already changed)
+            if ($facture->getUser() === $this) {
+                $facture->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 }

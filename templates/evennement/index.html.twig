@@ -1,6 +1,6 @@
-{% extends 'baseadmin.html.twig' %}
+{% extends 'baseadmin1.html.twig' %}
 
-{% block title %}Evennement index{% endblock %}
+{% block title %}Evenement index{% endblock %}
 
 {% block body %}
 
@@ -8,26 +8,43 @@
           <div class="tile">
            
             <div class="table-responsive">
-              <table class="table">
+              <table class="table" style="width: 800px;">
                 <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
-                <th>Date</th>
+                <th>dateDebut</th>
+                <th>dateFin</th>
                 <th>Consultationurl</th>
+                <th>Image</th>
+                <th>Liste des participants</th>
                 <th>actions</th>
             </tr>
         </thead>
                 <tbody>
                  {% for evennement in evennements %}
                   <tr>
-                <td>{{ evennement.id }}</td>
                 <td>{{ evennement.titre }}</td>  
                 <td>{{ evennement.description }}</td>
-                <td>{{ evennement.date ? evennement.date|date('Y-m-d') : '' }}</td>
+                <td>{{ evennement.dateDebut ? evennement.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evennement.dateFin ? evennement.dateFin|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ evennement.consultationurl }}</td>
+                <td><img
+            src="{{ asset('uploads/' ~ evennement.image) }}"
+            alt=""
+            width="100"
+            height="100"
+          /></td>
+
                 <td>
+                <ul>
+                 {% for p in evennement.participants %}
+                <li>{{ p.nom }}</li>
+        {% endfor %}
+                </ul>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_evennement_show', {'id': evennement.id}) }}">{{ evennement.reservations }}</a>
                     <a class="btn btn-primary" href="{{ path('app_evennement_delete', {'id': evennement.id}) }}">supprimer</a>
                     <a class="btn btn-primary" href="{{ path('app_evennement_edit', {'id': evennement.id}) }}">edit</a>
                 </td>

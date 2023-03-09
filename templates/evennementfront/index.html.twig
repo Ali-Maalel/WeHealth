@@ -11,14 +11,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Events Ticket Card</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
      
+   
+{% set btnAttr = {'class': 'my-button-class'} %}
+<div>
+ <h1 style="margin-left:550px;margin-top:50px;">Nos évenement</h1>
+<h3 style="margin-left:350px;margin-top:50px;">Choisissez l'évenement qui vous convient parmi une miltitude d'évenements</h3>
+</div>
+   <div style="margin-top:50px;margin-left:500px;">
+  
+    <a href="{{path('sort_by_desc_date')}}" class="genric-btn success circle">Tri Descendant par date</a>
+    <a href="{{path('sort_by_asc_date')}}" class="genric-btn success circle">Tri Ascendant par date</a>
+        
+        </div>
     <div class="container">
+
+
+{# <form id="search-form" action="{{ path('event_search') }}" method="get">
+        <div class="form-group">
+            <input type="text" name="q" class="form-control" value="{{ query }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <hr> #}
+
+    {# <div id="search-results"> #}
     {% for evennement in evennements %}
         <div class="item-container">
             <div class="img-container">
-                <img src="./images/img1.jpg" alt="Event image">
+                <img src="{{ asset('uploads/' ~ evennement.image) }}" alt="Event image">
             </div>
             <div class="body-container">
                 <div class="overlay"></div>
@@ -26,28 +51,33 @@
                 <div class="event-info">
                     <p class="title">{{evennement.titre}}</p>
                     <div class="separator"></div>
-                    <p class="info">Bellmore, NY</p>
-                    <p class="price">Free</p>
+                 
+                    <p class="price">{{evennement.prix}}</p>
 
                     <div class="additional-info">
-                        <p class="info">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Grand Central Terminal
-                        </p>
+                       
                         <p class="info">
                             <i class="far fa-calendar-alt"></i>
-                           {{ evennement.date ? evennement.date|date('Y-m-d') : '' }}
+                           {{ evennement.dateDebut ? evennement.dateDebut|date('Y-m-d') : '' }}
                         </p>
 
-                        <p class="info description">
-                           {{evennement.description}}<span>more...</span>
+                        <p  class="info description">
+                           {{evennement.description}}
                         </p>
+                <a href="{{ path('app_evennement_showevent', {'id': evennement.id}) }}" style="color: black;">Show More</a>
                     </div>
                 </div>
-                <button class="action">Participer</button>
-            </div>
+                {% if evennement in eventList %}
+                <a href="{{ path('app_evennement_front_participer', {'id': evennement.id}) }}">  <button class="action">Participer</button> </a>
+
+                {% else %}
+                {# <a href="">  <button disabled class="action">Participer</button> </a> #}
+                {% endif %}
+{# <button class="action" {{ attribute(({'disabled': 'disabled', 'data-tooltip': 'Vous avez déjà participé.'})) }}>Participer</button>  #}
+           </div>
         </div>
     {% endfor %}
+    {# </div> #}
         
        
         </div>
@@ -55,4 +85,24 @@
     
 </body>
 </html>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function () {
+            $('#search-form').submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        $('#search-results').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+    
+
 {% endblock %}

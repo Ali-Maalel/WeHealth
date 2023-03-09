@@ -1,4 +1,4 @@
-{% extends 'baseadmin.html.twig' %}
+{% extends 'baseadmin1.html.twig' %}
 
 {% block title %}Evennement{% endblock %}
 
@@ -11,10 +11,6 @@
               <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ evennement.id }}</td>
-            </tr>
-            <tr>
                 <th>Titre</th>
                 <td>{{ evennement.titre }}</td>
             </tr>
@@ -23,18 +19,35 @@
                 <td>{{ evennement.description }}</td>
             </tr>
             <tr>
-                <th>Date</th>
-                <td>{{ evennement.date ? evennement.date|date('Y-m-d') : '' }}</td>
+                <th>Date début</th>
+                <td>{{ evennement.dateDebut ? evennement.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date fin</th>
+                <td>{{ evennement.dateFin ? evennement.dateFin|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>Consultationurl</th>
                 <td>{{ evennement.consultationurl }}</td>
             </tr>
+            <tr>
+                <th>Nb. Participants</th>
+                <td>{{ evennement.reservations }}</td>
+            </tr>
+            <tr>
+                <th>Liste des participants</th>
+                <td>
+                <ul>
+                 {% for p in evennement.participants %}
+                <li>{{ p.nom }} | {{ p.email }}</li>
+        {% endfor %}
+                </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
      {{ include('evennement/_delete_form.html.twig') }}
     <a href="{{ path('app_evennement_index') }}">back to list</a>
-            
             </div>
         
   

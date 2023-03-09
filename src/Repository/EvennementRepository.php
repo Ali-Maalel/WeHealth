@@ -38,6 +38,35 @@ class EvennementRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
+    public function searchEvents($query)
+    {
+        $qb = $this->createQueryBuilder('e');
+        $qb->where($qb->expr()->orX(
+            $qb->expr()->like('e.titre', ':query')
+        ));
+        $qb->setParameter('query', '%'.$query.'%');
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function sortByAscDate(): array
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.dateDebut', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+    public function sortByDescDate(): array
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.dateFin', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    /**
 //     * @return Evennement[] Returns an array of Evennement objects
