@@ -21,7 +21,10 @@ return [
             [['_route' => 'app_login', '_controller' => 'App\\Controller\\AppsecurityController::login'], null, null, null, false, false, null],
             [['_route' => 'app_security_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null],
         ],
-        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\AppsecurityController::logout'], null, null, null, false, false, null]],
+        '/logout' => [
+            [['_route' => 'app_logout', '_controller' => 'App\\Controller\\AppsecurityController::logout'], null, null, null, false, false, null],
+            [['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, ['GET' => 0], null, false, false, null],
+        ],
         '/article' => [[['_route' => 'app_article_index', '_controller' => 'App\\Controller\\ArticleController::index'], null, ['GET' => 0], null, true, false, null]],
         '/article/json/getAll' => [[['_route' => 'app_article_index_json', '_controller' => 'App\\Controller\\ArticleController::index_JSON'], null, ['GET' => 0], null, false, false, null]],
         '/article/json/new' => [[['_route' => 'create_article', '_controller' => 'App\\Controller\\ArticleController::createArticleAction'], null, ['GET' => 0], null, false, false, null]],

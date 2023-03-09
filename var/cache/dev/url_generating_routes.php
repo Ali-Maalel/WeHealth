@@ -113,4 +113,5 @@ return [
     'app_video_edit' => [['id'], ['_controller' => 'App\\Controller\\VideoController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/video']], [], [], []],
     'app_video_delete' => [['id'], ['_controller' => 'App\\Controller\\VideoController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/video']], [], [], []],
     'app_wehealth' => [[], ['_controller' => 'App\\Controller\\WehealthController::index'], [], [['text', '/']], [], [], []],
+    'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
 ];

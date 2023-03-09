@@ -64,6 +64,7 @@ class AppsecurityController extends AbstractController
      */
     public function logout(): \Symfony\Component\HttpFoundation\RedirectResponse
     {
+        
         return $this->redirectToRoute("app_login");
     }
 
